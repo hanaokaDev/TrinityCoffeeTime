@@ -55,4 +55,11 @@ public class IntroUI : MonoBehaviour
     {
         gameObject.SetActive(false);   
     }
+
+    public void OnSkipButtonClick()
+    {
+        AudioManager.instance.PlaySfx(AudioManager.Sfx.ButtonSelect); // 버튼 클릭 사운드 재생
+        Debug.Log("Skip Button Clicked"); // 스킵 버튼 클릭 시 로그 출력
+        Close(); // UI 닫기
+    }
 }
