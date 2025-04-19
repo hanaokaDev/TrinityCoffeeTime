@@ -280,7 +280,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 139827974}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1295643199}
+        m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+        m_MethodName: OnNewGameButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &139827974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1024,7 +1036,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1108613543}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1295643199}
+        m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+        m_MethodName: OnQuitButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1108613543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1092,8 +1116,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2648184698576bc4bbcd7c5275052b75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startButton: {fileID: 0}
-  exitButton: {fileID: 0}
+  newGameButton: {fileID: 139827973}
+  quitButton: {fileID: 1108613542}
+  settingButton: {fileID: 0}
 --- !u!4 &1295643200
 Transform:
   m_ObjectHideFlags: 0
@@ -1140,7 +1165,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bgmClip: {fileID: 8300000, guid: aa80b34449fe9894a941ccb74d4f425e, type: 3}
   bgmVolume: 0.5
-  sfxClips: []
+  sfxClips:
+  - {fileID: 8300000, guid: 28d9c55922fab7f46828068f6a6ee1ee, type: 3}
+  - {fileID: 8300000, guid: 28d9c55922fab7f46828068f6a6ee1ee, type: 3}
   sfxVolume: 0.5
   channels: 12
 --- !u!4 &1464717906
@@ -1502,7 +1529,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1699223689}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1295643199}
+        m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+        m_MethodName: OnSettingButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1699223689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1732,7 +1771,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Exit
+  m_Text: Quit
 --- !u!222 &1946694971
 CanvasRenderer:
   m_ObjectHideFlags: 0
