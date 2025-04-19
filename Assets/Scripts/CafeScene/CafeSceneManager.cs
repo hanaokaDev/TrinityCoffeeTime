@@ -12,7 +12,7 @@ public class CafeSceneManager : MonoBehaviour
     public void Start()
     {
         AudioManager.instance.PlayBgm(true, AudioManager.BGM.CoffeeCats); // BGM 재생
-        introUI.Open();
+        introUI.Open(); // 대사출력 후 자동으로 Close됨.
     }
 
     public void OnTestButtonClick()
