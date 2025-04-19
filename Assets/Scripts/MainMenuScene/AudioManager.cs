@@ -35,6 +35,7 @@ public class AudioManager : MonoBehaviour
     {
         instance = this; // 어디서든 호출가능하게.
         Init();
+        DontDestroyOnLoad(gameObject); // 씬이 바뀌어도 AudioManager는 파괴되지 않도록.
     }
 
     void Init(){
