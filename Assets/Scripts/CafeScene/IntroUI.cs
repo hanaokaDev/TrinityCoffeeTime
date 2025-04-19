@@ -10,7 +10,7 @@ public class IntroUI : MonoBehaviour
     [SerializeField]
     private Text targetText;
 
-    public UnityEvent onTextCompleted = new UnityEvent();
+    // public UnityEvent onTextCompleted = new UnityEvent();
 
     
     public void Open()
@@ -40,7 +40,7 @@ public class IntroUI : MonoBehaviour
         yield return new WaitForSeconds(10f); // 10초동안 결과를 보여줌.
         Close();
         Debug.Log("ShowText_Coroutine End");
-        onTextCompleted.Invoke();
+        // onTextCompleted.Invoke(); // 이벤트 Invoke 해도 사용할곳이 없어서 비활성화함.
     }
     public void Close()
     {
