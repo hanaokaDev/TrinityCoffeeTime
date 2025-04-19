@@ -2,12 +2,17 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Collections;
+
 
 public class CafeSceneManager : MonoBehaviour
 {
+    public IntroUI introUI;
+
     public void Start()
     {
         AudioManager.instance.PlayBgm(true, AudioManager.BGM.CoffeeCats); // BGM 재생
+        introUI.Open();
     }
 
     public void OnTestButtonClick()
