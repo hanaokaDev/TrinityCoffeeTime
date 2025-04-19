@@ -9,15 +9,17 @@ public class AudioManager : MonoBehaviour
     public static AudioManager instance;
 
     [Header("#BGM")]
-    public AudioClip bgmClip;
+    public AudioClip[] bgmClips;
     public float bgmVolume;
-    AudioSource bgmPlayer;
+    AudioSource bgmPlayer; // BGM은 동시 1개만 재생되므로 AudioSource 1개만 필요하다.
 
     // 1. AudioHighPassFilter 는 ListenerEffect 계열이다. 
     // 2. 따라서 AudioHighPassFilter 는 MainCamera에 넣어야 한다. 
     // 3. 또한, Effect 영향을 받는 AudioSource에는 BypassListenerEffects 가 false 되어있어야 한다.
     // 4. 따라서, Effect 영향을 받아야 하는 BGM은 false로, Sfx는 true로 해야한다.
     AudioHighPassFilter bgmEffect;
+    public enum BGM {LuminousMemory=0, CoffeeCats}
+
 
     [Header("#SFX")]
     public AudioClip[] sfxClips;
@@ -39,10 +41,10 @@ public class AudioManager : MonoBehaviour
         GameObject bgmObject = new GameObject("BgmPlayer");
         bgmObject.transform.parent = transform;
         bgmPlayer = bgmObject.AddComponent<AudioSource>();
-        bgmPlayer.playOnAwake = true; // 기본값이 true
-        bgmPlayer.loop = true; // 반복재생
+        bgmPlayer.clip = bgmClips[(int)BGM.LuminousMemory]; // 초기값은 null
+        bgmPlayer.playOnAwake = false; // 기본값이 true
         bgmPlayer.volume = bgmVolume;
-        bgmPlayer.clip = bgmClip;
+        bgmPlayer.loop = true;
         bgmPlayer.bypassListenerEffects = false; // ListenerEffect 영향을 받는다.
         bgmEffect = Camera.main.GetComponent<AudioHighPassFilter>();
 
@@ -76,10 +78,15 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void PlayBgm(bool isPlay)
+    public void PlayBgm(bool isPlay, BGM bgm = BGM.LuminousMemory)
     {
-        if(isPlay) bgmPlayer.Play();
-        else bgmPlayer.Stop();
+        if(isPlay){
+            bgmPlayer.clip = bgmClips[(int)bgm];
+            bgmPlayer.Play();
+        } 
+        else{
+            bgmPlayer.Stop();
+        }
     }
 
     

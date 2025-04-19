@@ -1118,7 +1118,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newGameButton: {fileID: 139827973}
   quitButton: {fileID: 1108613542}
-  settingButton: {fileID: 0}
+  settingButton: {fileID: 1699223688}
 --- !u!4 &1295643200
 Transform:
   m_ObjectHideFlags: 0
@@ -1163,7 +1163,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00f02f4a1eebb734f895da8741916c6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bgmClip: {fileID: 8300000, guid: aa80b34449fe9894a941ccb74d4f425e, type: 3}
+  bgmClips:
+  - {fileID: 8300000, guid: aa80b34449fe9894a941ccb74d4f425e, type: 3}
+  - {fileID: 8300000, guid: 0d3e3e4db4ac255478a5823d39c56722, type: 3}
   bgmVolume: 0.5
   sfxClips:
   - {fileID: 8300000, guid: 28d9c55922fab7f46828068f6a6ee1ee, type: 3}

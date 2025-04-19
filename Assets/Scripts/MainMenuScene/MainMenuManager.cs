@@ -13,7 +13,7 @@ public class MainMenuManager : MonoBehaviour
 
     void Start()
     {
-        AudioManager.instance.PlayBgm(true); // BGM 재생
+        AudioManager.instance.PlayBgm(true, AudioManager.BGM.LuminousMemory); // BGM 재생
     }
 
     private void PlayButtonClickSound()
@@ -43,6 +43,7 @@ public class MainMenuManager : MonoBehaviour
     // TODO: 설정 버튼 클릭 시 동작 추가
     public void OnSettingButtonClicked()
     {
+        AudioManager.instance.PlayBgm(true, AudioManager.BGM.CoffeeCats); // BGM 재생
         PlayButtonClickSound();
         Debug.Log("Setting Button Clicked"); // 설정 버튼 클릭 시 로그 출력
     }
