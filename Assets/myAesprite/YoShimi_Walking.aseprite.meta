@@ -125,7 +125,7 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: YoShimi_Walking
     originalName: 
-    pivot: {x: 3.3235295, y: -0.01980198}
+    pivot: {x: 1.3370787, y: -0.09405941}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -133,7 +133,7 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 34
+      width: 89
       height: 202
     spriteID: 4b00ff30b9211e9489cd5f9f2fee8a78
     spriteBone: []
@@ -157,9 +157,9 @@ ScriptedImporter:
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 15
-        y: 4
-        width: 34
+        x: 9
+        y: 19
+        width: 89
         height: 202
       spriteId: 4b00ff30b9211e9489cd5f9f2fee8a78
     linkedCells: []
@@ -181,4 +181,4 @@ ScriptedImporter:
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 256, y: 256}
-  previousTextureSize: {x: 64, y: 256}
+  previousTextureSize: {x: 128, y: 256}
