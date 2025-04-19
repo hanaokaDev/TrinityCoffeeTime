@@ -22,11 +22,11 @@ public class IntroUI : MonoBehaviour
 
         string text = textList[0];
         gameObject.SetActive(true);
-        StartCoroutine(ShowText_Coroutine(textList));
+        StartCoroutine(ShowTextList_Coroutine(textList));
     }
 
     // 글자가 시간에 따라 촤라락 바뀌도록 Coroutine으로 구현.
-    private IEnumerator ShowText_Coroutine(List<string> texts)
+    private IEnumerator ShowTextList_Coroutine(List<string> texts)
     {
         targetText.text = "";
         for(int i = 0; i < texts.Count; i++)
@@ -34,7 +34,7 @@ public class IntroUI : MonoBehaviour
             string forwardText = "";
             string backText = texts[i];
 
-            Debug.Log("ShowText_Coroutine Start");
+            Debug.Log("ShowTextList_Coroutine Start");
 
             // 적당한 딜레이를 주면서 글자를 순차적으로 출력.
             while(backText.Length != 0)
@@ -47,8 +47,7 @@ public class IntroUI : MonoBehaviour
             
             yield return new WaitForSeconds(1f); // 다음 문장으로 넘어가기 전 1초 대기.
         }
-        // yield return new WaitForSeconds(10f); // 10초동안 결과를 보여줌.
-        Debug.Log("ShowText_Coroutine End");
+        Debug.Log("ShowTextList_Coroutine End");
         // onTextCompleted.Invoke(); // 이벤트 Invoke 해도 사용할곳이 없어서 비활성화함.
         Close();
     }
