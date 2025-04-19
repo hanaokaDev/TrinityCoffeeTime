@@ -24,7 +24,7 @@ public class MainMenuManager : MonoBehaviour
     public void OnNewGameButtonClicked()
     {
         PlayButtonClickSound();
-        SceneManager.LoadScene("GameScene"); // 게임 씬으로 전환
+        SceneManager.LoadScene("CafeScene"); // 게임 씬으로 전환
     }
 
     public void OnQuitButtonClicked()
