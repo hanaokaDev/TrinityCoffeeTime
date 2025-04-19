@@ -16,9 +16,12 @@ public class IntroUI : MonoBehaviour
     public void Open()
     {
         List<string> textList = new List<string>();
-        textList.Add("그날 인류는 떠올렸다.");
-        textList.Add("그들에게 지배당하던 공포를.");
-        textList.Add("새장 속에 갇혀 있던 굴욕을.");
+        textList.Add("어 아이리?");
+        textList.Add("마침 잘 왔어. 지금 한참 손이 모자라거든.");
+        textList.Add("이제 막 오픈한 카페라서 손님이 많아.");
+        textList.Add("이런 날에 한탕 벌지 못하면 정말 큰일 나지.");
+        textList.Add("아무튼, 오늘은 특별히 손님이 많아서");
+        textList.Add("너한테 일을 부탁할게.");
 
         string text = textList[0];
         gameObject.SetActive(true);
