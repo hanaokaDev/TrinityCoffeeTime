@@ -4,12 +4,39 @@ public class PlayerMover : MonoBehaviour
 {
     protected Animator animator;
     public MoveDirection moveDirection;
+    public float moveSpeed = 5f; // 이동 속도
 
     void Start()
     {
         animator = GetComponent<Animator>();
         moveDirection = MoveDirection.IDLE;
         animator.SetInteger("MoveDirection", (int)moveDirection);
+    }
+
+    void FixedUpdate()
+    {
+        // 이동 처리
+        Vector3 move = Vector3.zero;
+
+        switch (moveDirection)
+        {
+            case MoveDirection.UP:
+                move = Vector3.up * moveSpeed * Time.fixedDeltaTime;
+                break;
+            case MoveDirection.DOWN:
+                move = Vector3.down * moveSpeed * Time.fixedDeltaTime;
+                break;
+            case MoveDirection.LEFT:
+                move = Vector3.left * moveSpeed * Time.fixedDeltaTime;
+                break;
+            case MoveDirection.RIGHT:
+                move = Vector3.right * moveSpeed * Time.fixedDeltaTime;
+                break;
+            default:
+                break;
+        }
+
+        transform.Translate(move);
     }
 
     void Update()
