@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Yoshimi_Walking_Down
+  m_Name: Yoshimi_Walking_Up
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,11 +21,11 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 7459343645010948820, guid: e953d6b547e16894d8783021f05f4734, type: 3}
+      value: {fileID: 1307453994240920021, guid: e953d6b547e16894d8783021f05f4734, type: 3}
     - time: 0.083333336
-      value: {fileID: -3151468498610712453, guid: e953d6b547e16894d8783021f05f4734, type: 3}
+      value: {fileID: 1627229970140250258, guid: e953d6b547e16894d8783021f05f4734, type: 3}
     - time: 0.16666667
-      value: {fileID: -6380269482095427665, guid: e953d6b547e16894d8783021f05f4734, type: 3}
+      value: {fileID: 4747040592183741244, guid: e953d6b547e16894d8783021f05f4734, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -48,9 +48,9 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 7459343645010948820, guid: e953d6b547e16894d8783021f05f4734, type: 3}
-    - {fileID: -3151468498610712453, guid: e953d6b547e16894d8783021f05f4734, type: 3}
-    - {fileID: -6380269482095427665, guid: e953d6b547e16894d8783021f05f4734, type: 3}
+    - {fileID: 1307453994240920021, guid: e953d6b547e16894d8783021f05f4734, type: 3}
+    - {fileID: 1627229970140250258, guid: e953d6b547e16894d8783021f05f4734, type: 3}
+    - {fileID: 4747040592183741244, guid: e953d6b547e16894d8783021f05f4734, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
