@@ -69,13 +69,17 @@ public class PlayerMover : MonoBehaviour
         }
         else{
             // 키가 눌리지 않았을 때 IDLE 상태로 설정
-            keyPressed = true;
+            keyPressed = false;
             moveDirection = MoveDirection.IDLE;
             Debug.Log("IDLE");
         }
         
         if(keyPressed){
+            animator.SetBool("IsMoving", true);
             animator.SetInteger("MoveDirection", (int)moveDirection);
+        }
+        else{
+            animator.SetBool("IsMoving", false);
         }
     }
 }

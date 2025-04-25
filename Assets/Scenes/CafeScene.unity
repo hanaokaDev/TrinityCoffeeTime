@@ -2363,8 +2363,16 @@ PrefabInstance:
       value: Player_Yoshimi
       objectReference: {fileID: 0}
     - target: {fileID: 7037957747540386840, guid: 5c5f74e3c922d46409705a2839db7475, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7037957747540386840, guid: 5c5f74e3c922d46409705a2839db7475, type: 3}
       propertyPath: m_SortingOrder
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7037957747540386840, guid: 5c5f74e3c922d46409705a2839db7475, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
