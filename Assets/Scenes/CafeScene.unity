@@ -222,9 +222,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextUseButtonSprite: {fileID: 4109314646019709717, guid: c2324150e2ce6a0458ab32c51ab3df54, type: 3}
-  currentState: 0
   progressBar: {fileID: 1544863182}
-  brewTime: 10
+  maxTime: 10
 --- !u!58 &34419461
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1271,9 +1270,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextUseButtonSprite: {fileID: -8346291274449466048, guid: 2bb6553252001ae43a40cbfcff1b9c21, type: 3}
-  currentState: 0
   progressBar: {fileID: 1595275723}
-  brewTime: 20
+  maxTime: 20
 --- !u!58 &602895797
 CircleCollider2D:
   m_ObjectHideFlags: 0
