@@ -13,7 +13,7 @@ public class EspressoMachine : MonoBehaviour
     public ProgressBar progressBar;
 
     int timeLeft = 0;
-    public int brewTime = 5; // 초 단위로 설정
+    public int brewTime; // 초 단위로 설정
 
     Text myText;
     Slider mySlider;
