@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 5f2ec33b1ad9a0145ae7dc2800df494f
+guid: 3ee3afa5cede7d449afdd361d3a0c21f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7871717965085915000
-    second: Cafe_MainMap_0
+      213: 2172705874841757522
+    second: Shizuko_Raw_0
+  - first:
+      213: 5471800124651135916
+    second: Shizuko_Raw_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Cafe_MainMap_0
+      name: Shizuko_Raw_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 1536
-        height: 1024
+        y: 110
+        width: 81
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +131,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8884ef6873a02c290800000000000000
-      internalID: -7871717965085915000
+      spriteID: 257e85f4b70072e10800000000000000
+      internalID: 2172705874841757522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shizuko_Raw_1
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 7
+        width: 80
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca3e4c7f83dbfeb40800000000000000
+      internalID: 5471800124651135916
       vertices: []
       indices: 
       edges: []
@@ -147,8 +172,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Cafe_MainMap_0: -7871717965085915000
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

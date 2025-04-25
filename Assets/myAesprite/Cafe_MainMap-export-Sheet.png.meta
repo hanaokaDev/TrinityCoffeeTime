@@ -1,0 +1,730 @@
+fileFormatVersion: 2
+guid: 80a8f61343cb4dd4ab41c5957363a237
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3854022253421059268
+    second: Cafe_MainMap-export-Sheet_0
+  - first:
+      213: -4281388401630584677
+    second: Cafe_MainMap-export-Sheet_1
+  - first:
+      213: -3612807864790368037
+    second: Cafe_MainMap-export-Sheet_2
+  - first:
+      213: -7151722756286580815
+    second: Cafe_MainMap-export-Sheet_3
+  - first:
+      213: 7492710852887418894
+    second: Cafe_MainMap-export-Sheet_4
+  - first:
+      213: 5997212810969193102
+    second: Cafe_MainMap-export-Sheet_5
+  - first:
+      213: 774356563056172924
+    second: Cafe_MainMap-export-Sheet_6
+  - first:
+      213: -2495546192925631289
+    second: Cafe_MainMap-export-Sheet_7
+  - first:
+      213: 3144631561410244178
+    second: Cafe_MainMap-export-Sheet_8
+  - first:
+      213: -635587111389059287
+    second: Cafe_MainMap-export-Sheet_9
+  - first:
+      213: -2606718044797153458
+    second: Cafe_MainMap-export-Sheet_10
+  - first:
+      213: 3253553348417792964
+    second: Cafe_MainMap-export-Sheet_11
+  - first:
+      213: 6712903893832682406
+    second: Cafe_MainMap-export-Sheet_12
+  - first:
+      213: -3535828909797229500
+    second: Cafe_MainMap-export-Sheet_13
+  - first:
+      213: 9202618860343338195
+    second: Cafe_MainMap-export-Sheet_14
+  - first:
+      213: -6738998295442729881
+    second: Cafe_MainMap-export-Sheet_15
+  - first:
+      213: -271847869694166536
+    second: Cafe_MainMap-export-Sheet_16
+  - first:
+      213: -6230612166631575850
+    second: Cafe_MainMap-export-Sheet_17
+  - first:
+      213: -2086299211195670455
+    second: Cafe_MainMap-export-Sheet_18
+  - first:
+      213: -948996511964425142
+    second: Cafe_MainMap-export-Sheet_19
+  - first:
+      213: 6190261672453245302
+    second: Cafe_MainMap-export-Sheet_20
+  - first:
+      213: -4349491326200314982
+    second: Cafe_MainMap-export-Sheet_21
+  - first:
+      213: 3478934849918590144
+    second: Cafe_MainMap-export-Sheet_22
+  - first:
+      213: -8096280156439438367
+    second: Cafe_MainMap-export-Sheet_23
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Cafe_MainMap-export-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5119
+        width: 1536
+        height: 1025
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3323641e23c38ac0800000000000000
+      internalID: -3854022253421059268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cafe_MainMap-export-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 5015
+        width: 58
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b90e457bee37594c0800000000000000
+      internalID: -4281388401630584677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cafe_MainMap-export-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 1387
+        y: 5015
+        width: 58
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd0ce61736abcddc0800000000000000
+      internalID: -3612807864790368037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cafe_MainMap-export-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 635
+        y: 3779
+        width: 386
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b7f57b6b0affbc90800000000000000
+      internalID: -7151722756286580815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cafe_MainMap-export-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 647
+        y: 2831
+        width: 86
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e08911792d47bf760800000000000000
+      internalID: 7492710852887418894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cafe_MainMap-export-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 823
+        y: 2843
+        width: 38
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8a9d38e6416a3350800000000000000
+      internalID: 5997212810969193102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cafe_MainMap-export-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 863
+        y: 2843
+        width: 38
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7f947ef0311fba00800000000000000
+      internalID: 774356563056172924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cafe_MainMap-export-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 915
+        y: 2831
+        width: 98
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ccd612a5f90e5dd0800000000000000
+      internalID: -2495546192925631289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cafe_MainMap-export-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 1371
+        width: 66
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25ee65f7eb9f3ab20800000000000000
+      internalID: 3144631561410244178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cafe_MainMap-export-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 1371
+        width: 114
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 927a6d1c3e0fd27f0800000000000000
+      internalID: -635587111389059287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cafe_MainMap-export-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 1371
+        width: 66
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4fc34ecfb313dbd0800000000000000
+      internalID: -2606718044797153458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cafe_MainMap-export-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 831
+        y: 1371
+        width: 66
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cba9364881f62d20800000000000000
+      internalID: 3253553348417792964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cafe_MainMap-export-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 1371
+        width: 114
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6abcb336686092d50800000000000000
+      internalID: 6712903893832682406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cafe_MainMap-export-Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 1027
+        y: 1371
+        width: 66
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44cbaf417563eeec0800000000000000
+      internalID: -3535828909797229500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cafe_MainMap-export-Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 1167
+        width: 66
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d4231e881546bf70800000000000000
+      internalID: 9202618860343338195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cafe_MainMap-export-Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 1167
+        width: 114
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7645c2a41c44a72a0800000000000000
+      internalID: -6738998295442729881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cafe_MainMap-export-Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 1167
+        width: 66
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f9bee58dc33a3cf0800000000000000
+      internalID: -271847869694166536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cafe_MainMap-export-Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 831
+        y: 1167
+        width: 66
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6dea2b2ee3b6889a0800000000000000
+      internalID: -6230612166631575850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cafe_MainMap-export-Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 1167
+        width: 114
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 940218dcbe9fb03e0800000000000000
+      internalID: -2086299211195670455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cafe_MainMap-export-Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 1027
+        y: 1167
+        width: 66
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a44964b43bc74d2f0800000000000000
+      internalID: -948996511964425142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cafe_MainMap-export-Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 939
+        y: 791
+        width: 54
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6798a45913a38e550800000000000000
+      internalID: 6190261672453245302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cafe_MainMap-export-Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 423
+        width: 54
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a930034fea083a3c0800000000000000
+      internalID: -4349491326200314982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cafe_MainMap-export-Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 423
+        width: 54
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ccdf1650d8a74030800000000000000
+      internalID: 3478934849918590144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cafe_MainMap-export-Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 911
+        y: 415
+        width: 54
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1eb1269f71c34af80800000000000000
+      internalID: -8096280156439438367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
