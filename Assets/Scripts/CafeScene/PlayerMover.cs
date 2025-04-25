@@ -4,7 +4,12 @@ public class PlayerMover : MonoBehaviour
 {
     protected Animator animator;
     public MoveDirection moveDirection;
+
+    public Collider2D interactionCollider;
+    
     public float moveSpeed = 5f; // 이동 속도
+
+    public bool isOwned = true; // 플레이어 소유 여부. 멀티플레이 확장을 위해 추가함.
 
     void Start()
     {

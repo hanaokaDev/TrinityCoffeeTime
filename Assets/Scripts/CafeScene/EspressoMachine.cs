@@ -7,6 +7,10 @@ using UnityEngine.UI;
 
 public class EspressoMachine : MonoBehaviour
 {
+    [SerializeField]
+    public Sprite nextUseButtonSprite;
+    // private SpriteRenderer spriteRenderer; // TODO: Highlighting 효과
+
     public enum State { IDLE, BUSY, DONE, DIRTY};
     public State currentState;
 
@@ -29,56 +33,53 @@ public class EspressoMachine : MonoBehaviour
         currentState = State.IDLE;
         progressBar.SetMaxValue(brewTime);
         progressBar.SetValue(0);
+
+        // TODO: Highlighting 효과
+        // spriteRenderer = GetComponent<SpriteRenderer>();
+        // var inst = Instantiate(spriteRenderer.material);
+        // spriteRenderer.material = inst;
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("Espresso Machine Triggered");
+        var character = collision.GetComponent<PlayerMover>();
+        if(character == null) {
+            Debug.Log("Espresso Machine Triggered but character is null");
+        }
+
+        if(character != null && character.isOwned)
+        {
+            // spriteRenderer.material.SetFloat("_Highlighted", 1f); // TODO: Highlighting 효과
+            HudManager.Instance.SetUseButton(nextUseButtonSprite, OnClickEspressoMachine);
+        }
+        else{
+            Debug.Log("Espresso Machine Triggered but not owned");
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        Debug.Log("Espresso Machine Exitted");
+        var character = collision.GetComponent<PlayerMover>();
+        if(character != null && character.isOwned)
+        {
+            // spriteRenderer.material.SetFloat("_Highlighted", 0f); // TODO: Highlighting 효과
+            HudManager.Instance.UnsetUseButton();
+        }
+        else{
+            Debug.Log("Espresso Machine Exitted but not owned");
+        }
+    }
+    
     public void OnClickEspressoMachine()
     {
         Debug.Log("Espresso Machine Clicked");
         float currentValue = progressBar.GetValue();
         progressBar.SetValue(currentValue + 1);
     }
+
 }
 
-
-// public class HUD : MonoBehaviour
-// {
-    
-
-
-    
-
-//     void LateUpdate()
-//     {
-//         if(!GameManager.instance.isLive) return;
-//         switch(type){
-//             case InfoType.Exp:
-//                 float curExp = GameManager.instance.exp;
-//                 float maxExp = GameManager.instance.nextExp[Mathf.Min(GameManager.instance.level, GameManager.instance.nextExp.Length-1)];
-//                 mySlider.value = curExp / maxExp;
-//                 break;
-//             case InfoType.Level:
-//                 myText.text = string.Format("Lv.{0:F0}", GameManager.instance.level);
-//                 break;
-//             case InfoType.Kill:
-//                 myText.text = string.Format("{0:F0}", GameManager.instance.kill);
-//                 break;
-//             case InfoType.Time:
-//                 float remainTime = GameManager.instance.maxGameTime - GameManager.instance.gameTime;
-//                 int min = Mathf.FloorToInt(remainTime / 60);
-//                 int sec = Mathf.FloorToInt(remainTime % 60);
-//                 myText.text = string.Format("{0:D2}:{1:D2}", min, sec); // D0, D1, D2: 자리수를 지정
-//                 break;
-//             case InfoType.Health:
-//                 float maxHealth = GameManager.instance.maxHealth;
-//                 float curHealth = GameManager.instance.health;
-//                 mySlider.value = curHealth / maxHealth;
-//                 break;
-//             default:
-//                 break;
-//         }
-//     }
-
-// }
 public enum EspressoType
 {
     NONE,
