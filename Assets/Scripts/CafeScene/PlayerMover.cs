@@ -1,5 +1,13 @@
 using UnityEngine;
 
+public enum PlayerItem {
+    NONE,
+    WATER,
+    ESPRESSO,
+    AMERICANO
+}
+
+
 public class PlayerMover : MonoBehaviour
 {
     protected Animator animator;
@@ -10,6 +18,40 @@ public class PlayerMover : MonoBehaviour
     public float moveSpeed = 5f; // 이동 속도
 
     public bool isOwned = true; // 플레이어 소유 여부. 멀티플레이 확장을 위해 추가함.
+
+    public PlayerItem[] items = new PlayerItem[3]; // 플레이어가 소지할 수 있는 아이템 배열 (예: 물, 에스프레소, 아메리카노)
+
+    public bool AddItem(PlayerItem item)
+    {
+        // 아이템을 인벤토리에 추가하는 로직
+        for (int i = 0; i < items.Length; i++)
+        {
+            if (items[i] == PlayerItem.NONE)
+            {
+                items[i] = item;
+                HudManager.Instance.SetItemToTray(item, i); // 트레이에 아이템 추가
+                Debug.Log("Added " + item + " to inventory at index " + i);
+                return true;
+            }
+        }
+        Debug.Log("Inventory is full! Cannot add " + item);
+        return false;
+    }
+    public bool RemoveItem(PlayerItem item)
+    {
+        // 아이템을 인벤토리에서 삭제하는 로직
+        for (int i = 0; i < items.Length; i++)
+        {
+            if (items[i] == item)
+            {
+                items[i] = PlayerItem.NONE;
+                Debug.Log("Removed " + item + " from inventory at index " + i);
+                return true;
+            }
+        }
+        Debug.Log(item + " not found in inventory!");
+        return false;
+    }
 
     void Start()
     {

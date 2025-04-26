@@ -13,8 +13,17 @@ public class InteractableItem : MonoBehaviour
 
     public ProgressBar progressBar;
 
+    [SerializeField]
+    protected PlayerMover chosenPlayer;
+
 
     public int maxTime;
+
+    // progressBar의 GetValue() 결과를 가져옴
+    public int currentTime 
+    { 
+        get { return (int)progressBar.GetValue(); } 
+    }
 
 
     void Awake()
@@ -42,8 +51,7 @@ public class InteractableItem : MonoBehaviour
             // spriteRenderer.material.SetFloat("_Highlighted", 1f); // TODO: Highlighting 효과
             HudManager.Instance.SetUseButton(nextUseButtonSprite, OnClickInteractableGameObject);
         }
-        else{
-        }
+        chosenPlayer = character;
     }
     protected virtual void OnTriggerExit2D(Collider2D collision)
     {
@@ -53,8 +61,7 @@ public class InteractableItem : MonoBehaviour
             // spriteRenderer.material.SetFloat("_Highlighted", 0f); // TODO: Highlighting 효과
             HudManager.Instance.UnsetUseButton();
         }
-        else{
-        }
+        chosenPlayer = null;
     }
     
     public virtual void OnClickInteractableGameObject()

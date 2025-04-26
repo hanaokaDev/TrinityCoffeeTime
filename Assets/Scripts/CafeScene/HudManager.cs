@@ -15,6 +15,10 @@ public class HudManager : MonoBehaviour
     [SerializeField]
     private Sprite _OriginUseButtonSprite;
 
+    [SerializeField]
+    public Image[] trayItems = new Image[3]; // 트레이에 아이템을 담을 배열
+    public Sprite[] trayItemImages = new Sprite[3]; // 트레이에 아이템을 담을 배열
+
     private void Awake()
     {
         Instance = this;
@@ -34,5 +38,23 @@ public class HudManager : MonoBehaviour
         _UseButton.image.sprite = _OriginUseButtonSprite;
         _UseButton.onClick.RemoveAllListeners();
         _UseButton.interactable = false;
+    }
+
+    public void SetItemToTray(PlayerItem item, int index)
+    {
+        // 아이템을 트레이에 추가하는 로직
+        Debug.Log("Added " + item + " to tray at index " + index);
+        if(item == PlayerItem.NONE){
+            trayItems[index].sprite = null; 
+            return;
+        }
+        else if(item == PlayerItem.WATER){
+            trayItems[index].sprite = trayItemImages[(int)item]; // 트레이에 아이템 활성화
+            return;
+        }
+        else{
+            Debug.Log("TBD");
+            return;
+        }
     }
 }
