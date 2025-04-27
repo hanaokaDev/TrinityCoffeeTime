@@ -8,31 +8,19 @@ using UnityEngine.UI;
 public class EspressoMachine : InteractableItem
 {
 
-    void Awake()
-    {
-        // myText = GetComponent<Text>();
-        // mySlider = GetComponent<Slider>();
-    }
-
-    protected override void Start()
-    {
-        base.Start();
-    }
-
-    protected override void OnTriggerEnter2D(Collider2D collision)
-    {
-        base.OnTriggerEnter2D(collision);
-    }
-
-    protected override void OnTriggerExit2D(Collider2D collision)
-    {
-        base.OnTriggerExit2D(collision);
-    }
-
     public override void OnClickInteractableGameObject()
     {
         Debug.Log("Espresso Machine Clicked");
-        base.OnClickInteractableGameObject();
+        if(currentTime >= maxTime){
+            bool isSuccess = chosenPlayer.AddItem(PlayerItem.ESPRESSO); // 플레이어에게 물 아이템 추가
+            if(isSuccess){
+                progressBar.SetValue(0); // 기계 리셋
+            }
+        }
+        else{
+            base.OnClickInteractableGameObject();
+            return;
+        }
     }
 
 }

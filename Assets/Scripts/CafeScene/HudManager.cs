@@ -17,7 +17,7 @@ public class HudManager : MonoBehaviour
 
     [SerializeField]
     public Image[] trayItems = new Image[3]; // 트레이에 아이템을 담을 배열
-    public Sprite[] trayItemImages = new Sprite[3]; // 트레이에 아이템을 담을 배열
+    public Sprite[] trayItemImages = new Sprite[4]; // 트레이에 아이템 이미지를 담을 배열
 
     private void Awake()
     {
@@ -55,8 +55,18 @@ public class HudManager : MonoBehaviour
             trayItems[index].gameObject.SetActive(true); // 트레이에 아이템 활성화
             return;
         }
+        else if(item == PlayerItem.ESPRESSO){ // same with WATER
+            trayItems[index].sprite = trayItemImages[(int)item]; // 트레이에 아이템 활성화
+            trayItems[index].SetNativeSize(); // 트레이에 아이템 크기 조정
+            trayItems[index].gameObject.SetActive(true); // 트레이에 아이템 활성화
+        }
+        else if(item == PlayerItem.AMERICANO){ // same with WATER
+            trayItems[index].sprite = trayItemImages[(int)item]; // 트레이에 아이템 활성화
+            trayItems[index].SetNativeSize(); // 트레이에 아이템 크기 조정
+            trayItems[index].gameObject.SetActive(true); // 트레이에 아이템 활성화
+        }
         else{
-            Debug.Log("TBD");
+            Debug.Log("Not Implemented item: " + item);
             return;
         }
     }
