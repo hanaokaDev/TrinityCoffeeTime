@@ -644,7 +644,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cafe_MainMap-export-Sheet222_21
+      name: Americano
       rect:
         serializedVersion: 2
         x: 391
@@ -723,6 +723,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
+      Americano: 5420373149114881089
       Cafe_Bulb: -8452665453893337720
       Cafe_Floor: 6530337215971660387
       Cafe_Island: -4537648405058374236

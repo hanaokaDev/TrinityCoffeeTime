@@ -41,6 +41,7 @@ public class PlayerMover : MonoBehaviour
             if (items[i] == item)
             {
                 items[i] = PlayerItem.NONE;
+                HudManager.Instance.SetItemToTray(PlayerItem.NONE, i); // 트레이에서 아이템 삭제
                 Debug.Log("Removed " + item + " from inventory at index " + i);
                 return true;
             }

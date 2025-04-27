@@ -51,17 +51,20 @@ public class HudManager : MonoBehaviour
         else if(item == PlayerItem.WATER){
             trayItems[index].sprite = trayItemImages[(int)item]; // 트레이에 아이템 활성화
             trayItems[index].SetNativeSize(); // 트레이에 아이템 크기 조정
+            trayItems[index].gameObject.GetComponent<RectTransform>().localScale = new Vector3(.3f, .3f, 1f);
             trayItems[index].gameObject.SetActive(true); // 트레이에 아이템 활성화
             return;
         }
         else if(item == PlayerItem.ESPRESSO){ // same with WATER
             trayItems[index].sprite = trayItemImages[(int)item]; // 트레이에 아이템 활성화
             trayItems[index].SetNativeSize(); // 트레이에 아이템 크기 조정
+            trayItems[index].gameObject.GetComponent<RectTransform>().localScale = new Vector3(.3f, .3f, 1f);
             trayItems[index].gameObject.SetActive(true); // 트레이에 아이템 활성화
         }
         else if(item == PlayerItem.AMERICANO){ // same with WATER
             trayItems[index].sprite = trayItemImages[(int)item]; // 트레이에 아이템 활성화
             trayItems[index].SetNativeSize(); // 트레이에 아이템 크기 조정
+            trayItems[index].gameObject.GetComponent<RectTransform>().localScale = new Vector3(1f, 1f, 1f);
             trayItems[index].gameObject.SetActive(true); // 트레이에 아이템 활성화
         }
         else{
