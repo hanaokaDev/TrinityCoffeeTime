@@ -15,6 +15,7 @@ public class PlayerMover : MonoBehaviour
 
     public PlayerItem[] items = new PlayerItem[MAXIMUM_TRAY_SIZE]; // 플레이어가 소지할 수 있는 아이템 배열 (예: 물, 에스프레소, 아메리카노)
 
+
     public bool AddItem(PlayerItem item)
     {
         // 아이템을 인벤토리에 추가하는 로직
