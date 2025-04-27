@@ -509,7 +509,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_15
+      name: Opened Box
       rect:
         serializedVersion: 2
         x: 56
@@ -531,7 +531,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_16
+      name: Closed Box
       rect:
         serializedVersion: 2
         x: 97
@@ -699,6 +699,8 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Back_1: -5481780447360278658
+      Closed Box: 1652299931923453484
+      Opened Box: 7301787903208175943
       Red_1: 228940821244427079
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0

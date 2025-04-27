@@ -1,15 +1,9 @@
 using UnityEngine;
 
-public enum PlayerItem {
-    NONE,
-    WATER,
-    ESPRESSO,
-    AMERICANO
-}
-
-
 public class PlayerMover : MonoBehaviour
 {
+    public const int MAXIMUM_TRAY_SIZE = 3;
+
     protected Animator animator;
     public MoveDirection moveDirection;
 
@@ -19,7 +13,7 @@ public class PlayerMover : MonoBehaviour
 
     public bool isOwned = true; // 플레이어 소유 여부. 멀티플레이 확장을 위해 추가함.
 
-    public PlayerItem[] items = new PlayerItem[3]; // 플레이어가 소지할 수 있는 아이템 배열 (예: 물, 에스프레소, 아메리카노)
+    public PlayerItem[] items = new PlayerItem[MAXIMUM_TRAY_SIZE]; // 플레이어가 소지할 수 있는 아이템 배열 (예: 물, 에스프레소, 아메리카노)
 
     public bool AddItem(PlayerItem item)
     {
@@ -124,6 +118,15 @@ public class PlayerMover : MonoBehaviour
             animator.SetBool("IsMoving", false);
         }
     }
+}
+
+
+
+public enum PlayerItem {
+    NONE,
+    WATER,
+    ESPRESSO,
+    AMERICANO
 }
 
 
