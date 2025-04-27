@@ -125,15 +125,15 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: YoShimi_Walking
     originalName: 
-    pivot: {x: 2.3142858, y: -0.076233186}
+    pivot: {x: 1.5822785, y: -0.076233186}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
       serializedVersion: 2
-      x: 47
+      x: 116
       y: 4
-      width: 35
+      width: 79
       height: 223
     spriteID: 4b00ff30b9211e9489cd5f9f2fee8a78
     spriteBone: []
@@ -143,7 +143,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 47, y: 4}
+    uvTransform: {x: 116, y: 4}
   - name: Frame_1
     originalName: 
     pivot: {x: 2.3428571, y: -0.08071749}
@@ -152,7 +152,7 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 90
+      x: 203
       y: 4
       width: 35
       height: 223
@@ -164,10 +164,10 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 90, y: 4}
+    uvTransform: {x: 203, y: 4}
   - name: Frame_2
     originalName: 
-    pivot: {x: 2.3142858, y: -0.07589286}
+    pivot: {x: 0.7788462, y: -0.07589286}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -175,7 +175,7 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 35
+      width: 104
       height: 224
     spriteID: 4cfeba910b0d0ef43a7d18d624e84f0a
     spriteBone: []
@@ -199,9 +199,9 @@ ScriptedImporter:
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 47
+        x: 3
         y: 17
-        width: 35
+        width: 79
         height: 223
       spriteId: 4b00ff30b9211e9489cd5f9f2fee8a78
     - name: Frame_1
@@ -219,7 +219,7 @@ ScriptedImporter:
       cellRect:
         x: 47
         y: 17
-        width: 35
+        width: 104
         height: 224
       spriteId: 4cfeba910b0d0ef43a7d18d624e84f0a
     linkedCells: []
