@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerMover : MonoBehaviour
 {
     public const int MAXIMUM_TRAY_SIZE = 3;
+    public static int MAXIMUM_ITEM_NUM = PlayerItem.GetNames(typeof(PlayerItem)).Length; // 최대 아이템 수
 
     protected Animator animator;
     public MoveDirection moveDirection;

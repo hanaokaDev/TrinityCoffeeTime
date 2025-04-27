@@ -17,7 +17,7 @@ public class HudManager : MonoBehaviour
 
     [SerializeField]
     public Image[] trayItems = new Image[PlayerMover.MAXIMUM_TRAY_SIZE]; // 트레이에 아이템을 담을 배열
-    public Sprite[] trayItemImages = new Sprite[PlayerItem.GetNames(typeof(PlayerItem)).Length]; // 트레이에 아이템 이미지를 담을 배열
+    public Sprite[] trayItemImages = new Sprite[PlayerMover.MAXIMUM_ITEM_NUM]; // 트레이에 아이템 이미지를 담을 배열
     private void Awake()
     {
         Instance = this;
