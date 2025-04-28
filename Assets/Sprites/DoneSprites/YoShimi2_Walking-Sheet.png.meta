@@ -146,211 +146,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: YoShimi2_Walking-Sheet_0
-      rect:
-        serializedVersion: 2
-        x: 47
-        y: 179
-        width: 34
-        height: 62
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 19b2ae8cc37128a10800000000000000
-      internalID: 1910114741794778001
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: YoShimi2_Walking-Sheet_1
-      rect:
-        serializedVersion: 2
-        x: 303
-        y: 180
-        width: 34
-        height: 62
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 14ae32199144bce40800000000000000
-      internalID: 5677706631830563393
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: YoShimi2_Walking-Sheet_2
-      rect:
-        serializedVersion: 2
-        x: 559
-        y: 180
-        width: 34
-        height: 62
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 75dcac22375538e30800000000000000
-      internalID: 4504538005293944151
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: YoShimi2_Walking-Sheet_3
       rect:
         serializedVersion: 2
-        x: 48
-        y: 96
+        x: 49
+        y: 192
         width: 30
-        height: 51
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 69359dc8feb2f6470800000000000000
-      internalID: 8389972938674754454
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: YoShimi2_Walking-Sheet_4
-      rect:
-        serializedVersion: 2
-        x: 56
-        y: 146
-        width: 17
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 076c84b907b69ab70800000000000000
-      internalID: 8910771469114984048
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: YoShimi2_Walking-Sheet_5
-      rect:
-        serializedVersion: 2
-        x: 304
-        y: 97
-        width: 30
-        height: 51
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f5bfcdbbe8e78dce0800000000000000
-      internalID: -1380214134286779553
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: YoShimi2_Walking-Sheet_6
-      rect:
-        serializedVersion: 2
-        x: 312
-        y: 147
-        width: 17
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 03814d91860b4e790800000000000000
-      internalID: -7501677118135986128
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: YoShimi2_Walking-Sheet_7
-      rect:
-        serializedVersion: 2
-        x: 560
-        y: 96
-        width: 30
-        height: 51
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0444beb8feb8d5910800000000000000
-      internalID: 1827770884743185472
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: YoShimi2_Walking-Sheet_8
-      rect:
-        serializedVersion: 2
-        x: 568
-        y: 146
-        width: 17
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 73c613c4a0c1eded0800000000000000
-      internalID: -2387439921906226121
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: YoShimi2_Walking-Sheet_9
-      rect:
-        serializedVersion: 2
-        x: 46
-        y: 16
-        width: 37
-        height: 63
+        height: 59
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -366,13 +168,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: YoShimi2_Walking-Sheet_10
+      name: YoShimi2_Walking-Sheet_4
       rect:
         serializedVersion: 2
-        x: 301
-        y: 17
-        width: 37
-        height: 63
+        x: 305
+        y: 191
+        width: 29
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -388,13 +190,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: YoShimi2_Walking-Sheet_11
+      name: YoShimi2_Walking-Sheet_5
       rect:
         serializedVersion: 2
-        x: 558
-        y: 16
-        width: 106
-        height: 62
+        x: 561
+        y: 191
+        width: 29
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -409,11 +211,165 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: YoShimi2_Walking-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 275
+        width: 32
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39f3dc60b04fe234a9d423babe06de03
+      internalID: 743116469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YoShimi2_Walking-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 275
+        width: 32
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 601607e0a5ca79f469cdf231d96600f4
+      internalID: -793768457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YoShimi2_Walking-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 274
+        width: 32
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77c589b34e459c14a964ea3a33c9c6cf
+      internalID: 2114137302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YoShimi2_Walking-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 111
+        width: 35
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0e97c81c7e40774da8719230fb241d3
+      internalID: 27500825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YoShimi2_Walking-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 111
+        width: 35
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de764702f0b5e7642a7a54c0e5268886
+      internalID: -417090526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YoShimi2_Walking-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 559
+        y: 111
+        width: 35
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75ff72ebe37e3d14ab0e47d562825af0
+      internalID: 1997206601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YoShimi2_Walking-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 18
+        width: 29
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebed3cc30d8b26343a0e6721c1bb0f4f
+      internalID: 1041291557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: d24ed31e1a6631c4f96022da9441f3e7
     internalID: 0
     vertices: []
     indices: 
@@ -422,7 +378,18 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      YoShimi2_Walking-Sheet_0: 743116469
+      YoShimi2_Walking-Sheet_1: -793768457
+      YoShimi2_Walking-Sheet_12: -39938424
+      YoShimi2_Walking-Sheet_2: 2114137302
+      YoShimi2_Walking-Sheet_3: 3918803775411101137
+      YoShimi2_Walking-Sheet_4: 5848434461528008657
+      YoShimi2_Walking-Sheet_5: -6239430962014818089
+      YoShimi2_Walking-Sheet_6: 27500825
+      YoShimi2_Walking-Sheet_7: -417090526
+      YoShimi2_Walking-Sheet_8: 1997206601
+      YoShimi2_Walking-Sheet_9: 1041291557
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
