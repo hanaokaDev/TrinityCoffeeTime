@@ -41,12 +41,8 @@ public class NpcMover : MonoBehaviour
         EATING,
         LEAVING
     }
-
+    [SerializeField]
     private NpcState currentState;
-    
-    // 대기열 관리용 정적 변수 (모든 NPC가 공유)
-    private static Queue<NpcMover> waitingQueue = new Queue<NpcMover>();
-    private static List<GameObject> occupiedTables = new List<GameObject>();
 
     void Start()
     {
@@ -69,35 +65,35 @@ public class NpcMover : MonoBehaviour
             switch (currentState)
             {
                 case NpcState.FINDING_TABLE:
-                    yield return FindEmptyTable();
+                    yield return Coroutine_FindEmptyTable();
                     break;
                     
                 case NpcState.WALKING_TO_QUEUE:
-                    yield return WalkToQueue();
+                    yield return Coroutine_WalkToQueue();
                     break;
                     
                 case NpcState.WAITING_IN_QUEUE:
-                    yield return WaitInQueue();
+                    yield return Coroutine_WaitInQueue();
                     break;
                     
                 case NpcState.WALKING_TO_TABLE:
-                    yield return WalkToTable();
+                    yield return Coroutine_WalkToTable();
                     break;
                     
                 case NpcState.SITTING:
-                    yield return Sit();
+                    yield return Coroutine_Sit();
                     break;
                     
                 case NpcState.WAITING_FOR_ORDER:
-                    yield return WaitForOrder();
+                    yield return Coroutine_WaitForOrder();
                     break;
                     
                 case NpcState.EATING:
-                    yield return Eat();
+                    yield return Coroutine_Eat();
                     break;
                     
                 case NpcState.LEAVING:
-                    yield return Leave();
+                    yield return Coroutine_Leave();
                     break;
             }
             
@@ -106,7 +102,7 @@ public class NpcMover : MonoBehaviour
     }
 
     // 상태별 코루틴 구현
-    private IEnumerator FindEmptyTable()
+    private IEnumerator Coroutine_FindEmptyTable()
     {
         Debug.Log("NPC: Finding empty table...");
         
@@ -131,7 +127,7 @@ public class NpcMover : MonoBehaviour
         currentState = NpcState.WALKING_TO_QUEUE;
     }
     
-    private IEnumerator WalkToQueue()
+    private IEnumerator Coroutine_WalkToQueue()
     {
         Debug.Log("NPC: Walking to queue...");
         
@@ -154,11 +150,11 @@ public class NpcMover : MonoBehaviour
         }
     }
     
-    private IEnumerator WaitInQueue()
+    private IEnumerator Coroutine_WaitInQueue()
     {
         Debug.Log("NPC: Waiting in queue...");
         
-        // 큐의 첫 번째 NPC가 자신이고 빈 테이블이 생기면 테이블로 이동
+        // 큐의 첫 번째 NPC가 Coroutine_자신이고 빈 테이블이 생기면 테이블로 이동
         while (waitingQueue.Count > 0 && waitingQueue.Peek() == this)
         {
             // Scene에서 빈 테이블 찾기
@@ -187,7 +183,7 @@ public class NpcMover : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
     }
     
-    private IEnumerator WalkToTable()
+    private IEnumerator Coroutine_WalkToTable()
     {
         Debug.Log("NPC: Walking to table...");
         
@@ -235,7 +231,7 @@ public class NpcMover : MonoBehaviour
         }
     }
     
-    private IEnumerator Sit()
+    private IEnumerator Coroutine_Sit()
     {
         Debug.Log("NPC: Sitting...");
         
@@ -260,7 +256,7 @@ public class NpcMover : MonoBehaviour
         }
     }
     
-    private IEnumerator WaitForOrder()
+    private IEnumerator Coroutine_WaitForOrder()
     {
         Debug.Log("NPC: Waiting for order...");
         
@@ -290,7 +286,7 @@ public class NpcMover : MonoBehaviour
         currentState = NpcState.EATING;
     }
     
-    private IEnumerator Eat()
+    private IEnumerator Coroutine_Eat()
     {
         Debug.Log("NPC: Eating/Drinking...");
         
@@ -305,7 +301,7 @@ public class NpcMover : MonoBehaviour
         currentState = NpcState.LEAVING;
     }
     
-    private IEnumerator Leave()
+    private IEnumerator Coroutine_Leave()
     {
         Debug.Log("NPC: Leaving...");
         
