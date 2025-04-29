@@ -17,6 +17,9 @@ public class NpcMover : MonoBehaviour
     public PlayerItem MenuToOrder = PlayerItem.NONE;
     public Transform SpawnPosition; // 스폰위치와 퇴장위치가 동일함
 
+    // 대기열 위치로 이동 (Scene에 Queue Manager 오브젝트가 있다고 가정)
+    public NpcQueueManager npcQueueManager;
+
     // 내부 상태 관리용 변수들
     private Animator animator;
     private float moveSpeed = 3f; // NPC 이동 속도
@@ -54,6 +57,7 @@ public class NpcMover : MonoBehaviour
         SpawnPosition = CafeSceneManager.Instance.npcSpawnPosition;
         
         currentState = NpcState.FINDING_TABLE;
+        npcQueueManager = NpcQueueManager.Instance;
         StartCoroutine(StateMachine());
     }
 
@@ -130,9 +134,6 @@ public class NpcMover : MonoBehaviour
     private IEnumerator WalkToQueue()
     {
         Debug.Log("NPC: Walking to queue...");
-        
-        // 대기열 위치로 이동 (Scene에 Queue Manager 오브젝트가 있다고 가정)
-        GameObject queueManager = GameObject.FindGameObjectWithTag("QueueManager");
         
         if (queueManager != null)
         {
