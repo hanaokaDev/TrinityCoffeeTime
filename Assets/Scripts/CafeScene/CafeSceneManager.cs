@@ -7,7 +7,15 @@ using System.Collections;
 
 public class CafeSceneManager : MonoBehaviour
 {
+    public static CafeSceneManager Instance; // Singleton instance
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     public IntroUI introUI;
+
+    public Transform npcSpawnPosition;
 
     public void Start()
     {
