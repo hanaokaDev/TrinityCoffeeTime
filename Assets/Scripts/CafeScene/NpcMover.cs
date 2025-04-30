@@ -19,6 +19,7 @@ public class NpcMover : MonoBehaviour
 
     // 대기열 위치로 이동 (Scene에 Queue Manager 오브젝트가 있다고 가정)
     public NpcQueueManager npcQueueManager;
+    public TableManager tableManager;
 
     // 내부 상태 관리용 변수들
     private Animator animator;
@@ -54,6 +55,7 @@ public class NpcMover : MonoBehaviour
         
         currentState = NpcState.FINDING_TABLE;
         npcQueueManager = NpcQueueManager.Instance;
+        tableManager = TableManager.Instance;
         StartCoroutine(StateMachine());
     }
 
@@ -105,49 +107,29 @@ public class NpcMover : MonoBehaviour
     private IEnumerator Coroutine_FindEmptyTable()
     {
         Debug.Log("NPC: Finding empty table...");
-        
-        // Scene에서 모든 TableAndChairs 찾기
-        GameObject[] allTables = GameObject.FindGameObjectsWithTag("TableAndChairs");
-        
-        // 비어있는 테이블 찾기
-        foreach (GameObject table in allTables)
+        int grantedEmptyTableIndex = tableManager.MarkEmptyTable();
+        if(grantedEmptyTableIndex != -1)
         {
-            if (IsTableEmpty(table) && !occupiedTables.Contains(table))
-            {
-                EmptyTableAndChairs = table;
-                occupiedTables.Add(table);
-                Debug.Log("Found empty table: " + table.name);
-                currentState = NpcState.WALKING_TO_TABLE;
-                yield break;
-            }
+            EmptyTableAndChairs = tableManager.tables[grantedEmptyTableIndex].gameObject;
+            currentState = NpcState.WALKING_TO_TABLE;
+            yield break; // 빈 테이블 찾으면 바로 이동
         }
-        
-        // 빈 테이블이 없으면 대기열로 이동
-        Debug.Log("No empty tables, moving to queue...");
-        currentState = NpcState.WALKING_TO_QUEUE;
+        else{
+            // 빈 테이블이 없으면 대기열로 이동
+            Debug.Log("No empty tables, moving to queue...");
+            currentState = NpcState.WALKING_TO_QUEUE;
+            yield break;
+        }
     }
     
     private IEnumerator Coroutine_WalkToQueue()
     {
         Debug.Log("NPC: Walking to queue...");
-        
-        if (queueManager != null)
-        {
-            // 대기열에 사람 수에 따라 위치 계산
-            Vector3 queuePosition = queueManager.transform.position;
-            queuePosition += new Vector3(0, -waitingQueue.Count * 1.5f, 0); // 각 NPC마다 1.5 단위로 간격
-            
-            yield return MoveToPosition(queuePosition);
-            
-            // 대기열에 추가
-            waitingQueue.Enqueue(this);
-            currentState = NpcState.WAITING_IN_QUEUE;
-        }
-        else
-        {
-            Debug.LogError("Queue Manager not found in scene!");
-            Destroy(gameObject); // Queue Manager가 없으면 NPC 삭제
-        }
+        // 대기열에 사람 수에 따라 위치 계산
+        Vector3 destPosition = NpcQueueManager.Instance.npcQueueTailPosition;;            
+        yield return MoveToPosition(destPosition);
+        NpcQueueManager.Instance.PushQueue(this);
+        currentState = NpcState.WAITING_IN_QUEUE;
     }
     
     private IEnumerator Coroutine_WaitInQueue()
