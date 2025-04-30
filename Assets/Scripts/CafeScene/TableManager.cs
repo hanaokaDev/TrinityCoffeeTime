@@ -28,4 +28,14 @@ public class TableManager : MonoBehaviour
         }
         return -1; // 모든 테이블이 사용 중인 경우
     }
+
+    public TableAndChairs GetTable(int index)
+    {
+        if (index >= 0 && index < tables.Length)
+        {
+            return tables[index]; // 해당 인덱스의 테이블 반환
+        }
+        Debug.Log("Invalid table index: " + index);
+        return null; // 유효하지 않은 인덱스인 경우 null 반환
+    }
 }

@@ -12,8 +12,6 @@ public enum MoveMode
 
 public class NpcMover : MonoBehaviour
 {
-    // 외부 참조용 변수들
-    public GameObject EmptyTableAndChairs = null;
     public PlayerItem MenuToOrder = PlayerItem.NONE;
     public Transform SpawnPosition; // 스폰위치와 퇴장위치가 동일함
 
@@ -24,7 +22,7 @@ public class NpcMover : MonoBehaviour
     // 내부 상태 관리용 변수들
     private Animator animator;
     private float moveSpeed = 3f; // NPC 이동 속도
-    private Vector3 targetPosition;
+    private TableAndChairs targetTableObject;
     private Transform sitPosition;
     private bool isOrderDelivered = false;
     private MoveMode moveMode = MoveMode.IDLE;
@@ -110,7 +108,9 @@ public class NpcMover : MonoBehaviour
         int grantedEmptyTableIndex = tableManager.MarkEmptyTable();
         if(grantedEmptyTableIndex != -1)
         {
-            EmptyTableAndChairs = tableManager.tables[grantedEmptyTableIndex].gameObject;
+            // emptyTableAndChairs = tableManager.tables[grantedEmptyTableIndex].gameObject;
+            int targetTableObjectIndex = TableManager.Instance.MarkEmptyTable();
+            targetTableObject = TableManager.Instance.GetTable(targetTableObjectIndex);
             currentState = NpcState.WALKING_TO_TABLE;
             yield break; // 빈 테이블 찾으면 바로 이동
         }
@@ -137,27 +137,19 @@ public class NpcMover : MonoBehaviour
         Debug.Log("NPC: Waiting in queue...");
         
         // 큐의 첫 번째 NPC가 Coroutine_자신이고 빈 테이블이 생기면 테이블로 이동
-        while (waitingQueue.Count > 0 && waitingQueue.Peek() == this)
+        while (NpcQueueManager.Instance.GetQueueCount() > 0 && NpcQueueManager.Instance.PeekQueue() == this)
         {
-            // Scene에서 빈 테이블 찾기
-            GameObject[] allTables = GameObject.FindGameObjectsWithTag("TableAndChairs");
-            
-            foreach (GameObject table in allTables)
+            int emptyTableIndex = TableManager.Instance.MarkEmptyTable();
+            if (emptyTableIndex != -1)
             {
-                if (IsTableEmpty(table) && !occupiedTables.Contains(table))
-                {
-                    // 대기열에서 제거
-                    waitingQueue.Dequeue();
-                    
-                    // 테이블 할당
-                    EmptyTableAndChairs = table;
-                    occupiedTables.Add(table);
-                    
-                    currentState = NpcState.WALKING_TO_TABLE;
-                    yield break;
-                }
-            }
-            
+                // 대기열에서 스스로를 pop
+                NpcQueueManager.Instance.PopQueue();
+                
+                // 테이블 할당
+                targetTableObject = TableManager.Instance.GetTable(emptyTableIndex);
+                currentState = NpcState.WALKING_TO_TABLE;
+                yield break;
+            }           
             yield return new WaitForSeconds(1f); // 1초마다 체크
         }
         
@@ -165,9 +157,14 @@ public class NpcMover : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
     }
     
-    private IEnumerator Coroutine_WalkToTable()
+    private IEnumerator Coroutine_WalkToTable() // 전제: targetTableObject != null
     {
         Debug.Log("NPC: Walking to table...");
+        if(targetTableObject == null)
+        {
+            Debug.LogWarning("This is Impossible - Target table object is null!");
+            yield break; // 테이블이 없으면 종료
+        }
         
         if (EmptyTableAndChairs != null)
         {

@@ -58,4 +58,18 @@ public class NpcQueueManager : MonoBehaviour
             return null;
         }
     }
+    public NpcMover PeekQueue()
+    {
+        if (waitingQueue.Count > 0)
+        {
+            NpcMover npc = waitingQueue.Peek();
+            Debug.Log("NPC Peeked from queue: " + npc.name);
+            return npc;
+        }
+        else
+        {
+            Debug.Log("No NPCs in queue to peek.");
+            return null;
+        }
+    }
 }
