@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ui-round-rect-10pt-outline_0: -1539700567632403319
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

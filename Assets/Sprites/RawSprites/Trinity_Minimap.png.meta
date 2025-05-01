@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Trinity_Minimap_0: 2735358573767235036
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

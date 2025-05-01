@@ -172,7 +172,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Shizuko_Raw_0: 2172705874841757522
+      Shizuko_Raw_1: 5471800124651135916
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

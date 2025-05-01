@@ -1222,7 +1222,51 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Only_MainMenu_Title2_0: -7597140000491582463
+      Only_MainMenu_Title2_1: 6628247051880241057
+      Only_MainMenu_Title2_10: -9140163043751065977
+      Only_MainMenu_Title2_11: -3452092607962402863
+      Only_MainMenu_Title2_12: 3568557965859556016
+      Only_MainMenu_Title2_13: -734244431798057141
+      Only_MainMenu_Title2_14: 3779859525105362128
+      Only_MainMenu_Title2_15: -8284393148656700819
+      Only_MainMenu_Title2_16: 7823077158590032222
+      Only_MainMenu_Title2_17: -8791043804529670755
+      Only_MainMenu_Title2_18: 8961048678011005102
+      Only_MainMenu_Title2_19: -5394005277336817942
+      Only_MainMenu_Title2_2: 3287892147066086433
+      Only_MainMenu_Title2_20: -2079805292529487873
+      Only_MainMenu_Title2_21: 5006646945720738017
+      Only_MainMenu_Title2_22: -7744922507976318090
+      Only_MainMenu_Title2_23: 6950931134106385135
+      Only_MainMenu_Title2_24: -3459000591369460899
+      Only_MainMenu_Title2_25: -7395950290759730323
+      Only_MainMenu_Title2_26: 2725770703874703857
+      Only_MainMenu_Title2_27: -3806670335709708774
+      Only_MainMenu_Title2_28: 6281747923071051593
+      Only_MainMenu_Title2_29: 7562116853425316005
+      Only_MainMenu_Title2_3: 9016613815701542352
+      Only_MainMenu_Title2_30: 4448147600216434791
+      Only_MainMenu_Title2_31: -7071779545285042899
+      Only_MainMenu_Title2_32: 2070789817640568131
+      Only_MainMenu_Title2_33: 6404352949797854027
+      Only_MainMenu_Title2_34: -1115268340199545715
+      Only_MainMenu_Title2_35: 7951424226717092468
+      Only_MainMenu_Title2_36: -8951108328809310962
+      Only_MainMenu_Title2_37: -6417832545495440980
+      Only_MainMenu_Title2_38: 7203473251540237839
+      Only_MainMenu_Title2_39: 7480627171765489342
+      Only_MainMenu_Title2_4: 3651079865059023767
+      Only_MainMenu_Title2_40: 7223433338428376272
+      Only_MainMenu_Title2_41: -5154697314134385647
+      Only_MainMenu_Title2_42: 5443160045917936411
+      Only_MainMenu_Title2_43: -2879962181884354212
+      Only_MainMenu_Title2_5: -7744482565437355018
+      Only_MainMenu_Title2_6: -930995026214424539
+      Only_MainMenu_Title2_7: 2268750387614265365
+      Only_MainMenu_Title2_8: 4622180034536399621
+      Only_MainMenu_Title2_9: -7643648875884306453
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      sprite_map_mini_theskeld_0: -3306628721272217974
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

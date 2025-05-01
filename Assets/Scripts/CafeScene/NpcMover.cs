@@ -160,54 +160,44 @@ public class NpcMover : MonoBehaviour
     private IEnumerator Coroutine_WalkToTable() // 전제: targetTableObject != null
     {
         Debug.Log("NPC: Walking to table...");
-        if(targetTableObject == null)
-        {
+        if(targetTableObject == null) {
             Debug.LogWarning("This is Impossible - Target table object is null!");
+            currentState = NpcState.FINDING_TABLE;
             yield break; // 테이블이 없으면 종료
         }
+    
+        // 빈 의자 찾기 (왼쪽 또는 오른쪽)
+        Transform chairLeft = targetTableObject.transform.Find("Chair Left");
+        Transform chairRight = targetTableObject.transform.Find("Chair Right");
         
-        if (EmptyTableAndChairs != null)
+        if (chairLeft != null && targetTableObject.sitter[0] == null)
         {
-            // 빈 의자 찾기 (왼쪽 또는 오른쪽)
-            Transform chairLeft = EmptyTableAndChairs.transform.Find("Chair Left");
-            Transform chairRight = EmptyTableAndChairs.transform.Find("Chair Right");
-            
-            if (chairLeft != null && IsSeatEmpty(chairLeft))
+            sitPosition = chairLeft.Find("Sit Position");
+            if (sitPosition != null)
             {
-                sitPosition = chairLeft.Find("Sit Position");
-                if (sitPosition != null)
-                {
-                    // 의자 앞으로 이동 (앉기 위한 위치)
-                    Vector3 chairFrontPos = sitPosition.position + new Vector3(0, 0.5f, 0);
-                    yield return MoveToPosition(chairFrontPos);
-                }
+                // 의자 앞으로 이동 (앉기 위한 위치)
+                Vector3 chairFrontPos = sitPosition.position + new Vector3(0, 0.5f, 0);
+                yield return MoveToPosition(chairFrontPos);
             }
-            else if (chairRight != null && IsSeatEmpty(chairRight))
+        }
+        else if (chairRight != null && targetTableObject.sitter[1] == null)
+        {
+            sitPosition = chairRight.Find("Sit Position");
+            if (sitPosition != null)
             {
-                sitPosition = chairRight.Find("Sit Position");
-                if (sitPosition != null)
-                {
-                    // 의자 앞으로 이동 (앉기 위한 위치)
-                    Vector3 chairFrontPos = sitPosition.position + new Vector3(0, 0.5f, 0);
-                    yield return MoveToPosition(chairFrontPos);
-                }
+                // 의자 앞으로 이동 (앉기 위한 위치)
+                Vector3 chairFrontPos = sitPosition.position + new Vector3(0, 0.5f, 0);
+                yield return MoveToPosition(chairFrontPos);
             }
-            else
-            {
-                Debug.LogWarning("No empty seats at table!");
-                // 테이블이 비어있지 않으면 다시 테이블 찾기
-                occupiedTables.Remove(EmptyTableAndChairs);
-                EmptyTableAndChairs = null;
-                currentState = NpcState.FINDING_TABLE;
-                yield break;
-            }
-            
-            currentState = NpcState.SITTING;
         }
         else
         {
+            Debug.LogWarning("No empty seats at table!");
+            targetTableObject = null;
             currentState = NpcState.FINDING_TABLE;
+            yield break;
         }
+        currentState = NpcState.SITTING;
     }
     
     private IEnumerator Coroutine_Sit()
@@ -285,76 +275,60 @@ public class NpcMover : MonoBehaviour
         Debug.Log("NPC: Leaving...");
         
         // 일어서는 애니메이션 재생 (있다면)
-        if (animator != null)
-        {
-            animator.SetBool("IsSitting", false);
-        }
+        // if (animator != null)
+        // {
+        //     animator.SetBool("IsSitting", false);
+        // }
+        // 걷는애니메이션으로 변경
+        animator.SetInteger("MoveMode", (int)MoveMode.WALKING);
         
+        if(targetTableObject == null){
+            Debug.LogWarning("This is Impossible - targetTableObject is null when leaving!");
+            yield break; // 테이블이 없으면 종료
+        }
         // 테이블 빈 상태로 만들기
-        if (EmptyTableAndChairs != null)
+        else
         {
-            occupiedTables.Remove(EmptyTableAndChairs);
-        }
-        
-        // 스폰 위치로 돌아가기
-        if (SpawnPosition != null)
-        {
-            yield return MoveToPosition(SpawnPosition.transform.position);
-        }
-        
-        // NPC 제거
-        Destroy(gameObject);
-    }
-    
-    // 테이블이 비어있는지 확인하는 유틸리티 메서드
-    private bool IsTableEmpty(GameObject table)
-    {
-        Transform chairLeft = table.transform.Find("Chair Left");
-        Transform chairRight = table.transform.Find("Chair Right");
-        
-        return (chairLeft != null && IsSeatEmpty(chairLeft)) || 
-               (chairRight != null && IsSeatEmpty(chairRight));
-    }
-    
-    // 의자가 비어있는지 확인하는 유틸리티 메서드
-    private bool IsSeatEmpty(Transform chair)
-    {
-        // Sit Position에 NPC가 있는지 확인
-        Transform sitPos = chair.Find("Sit Position");
-        if (sitPos != null)
-        {
-            // 주변 1유닛 반경 내에 다른 NPC가 있는지 검사
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(sitPos.position, 0.5f);
-            foreach (Collider2D collider in colliders)
+            if(targetTableObject.sitter[0] == this)
             {
-                if (collider.GetComponent<NpcMover>() != null && collider.gameObject != gameObject)
-                {
-                    return false; // 다른 NPC가 이미 앉아있음
-                }
+                targetTableObject.sitter[0] = null;
             }
-            return true; // 비어있음
+            else if(targetTableObject.sitter[1] == this)
+            {
+                targetTableObject.sitter[1] = null;
+            }
+            else{
+                Debug.LogWarning("This is Impossible - targetTableObject.sitter[] does not contain this NPC!");
+            }
+
+            if (SpawnPosition != null)
+            {
+                yield return MoveToPosition(SpawnPosition.transform.position);
+                Destroy(gameObject);
+            }
+            else{
+                Debug.LogWarning("SpawnPosition is null!");
+            }
         }
-        return false; // Sit Position이 없음
     }
     
     // 특정 위치로 이동하는 메서드 (x축과 y축 이동 분리)
     private IEnumerator MoveToPosition(Vector3 position)
     {
         moveMode = MoveMode.WALKING;
-        targetPosition = position;
         
         // 먼저 x축 이동
-        while (Mathf.Abs(transform.position.x - targetPosition.x) > 0.1f)
+        while (Mathf.Abs(transform.position.x - position.x) > 0.1f)
         {
-            Vector3 direction = new Vector3(targetPosition.x - transform.position.x, 0, 0).normalized;
+            Vector3 direction = new Vector3(position.x - transform.position.x, 0, 0).normalized;
             MoveInDirection(direction);
             yield return null;
         }
         
         // 그 다음 y축 이동
-        while (Mathf.Abs(transform.position.y - targetPosition.y) > 0.1f)
+        while (Mathf.Abs(transform.position.y - position.y) > 0.1f)
         {
-            Vector3 direction = new Vector3(0, targetPosition.y - transform.position.y, 0).normalized;
+            Vector3 direction = new Vector3(0, position.y - transform.position.y, 0).normalized;
             MoveInDirection(direction);
             yield return null;
         }
@@ -423,11 +397,8 @@ public class NpcMover : MonoBehaviour
     }
     
     // 특정 테이블에 이 NPC가 앉아있는지 확인
-    public bool IsSeatedAt(GameObject table)
+    public bool IsSeatedAt(TableAndChairs table)
     {
-        return currentState == NpcState.SITTING || 
-               currentState == NpcState.WAITING_FOR_ORDER || 
-               currentState == NpcState.EATING && 
-               EmptyTableAndChairs == table;
+        return this == table.sitter[0] || this == table.sitter[1];
     }
 }

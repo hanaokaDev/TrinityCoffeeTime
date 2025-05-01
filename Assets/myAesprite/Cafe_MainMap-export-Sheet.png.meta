@@ -722,7 +722,31 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Cafe_MainMap-export-Sheet_0: -3854022253421059268
+      Cafe_MainMap-export-Sheet_1: -4281388401630584677
+      Cafe_MainMap-export-Sheet_10: -2606718044797153458
+      Cafe_MainMap-export-Sheet_11: 3253553348417792964
+      Cafe_MainMap-export-Sheet_12: 6712903893832682406
+      Cafe_MainMap-export-Sheet_13: -3535828909797229500
+      Cafe_MainMap-export-Sheet_14: 9202618860343338195
+      Cafe_MainMap-export-Sheet_15: -6738998295442729881
+      Cafe_MainMap-export-Sheet_16: -271847869694166536
+      Cafe_MainMap-export-Sheet_17: -6230612166631575850
+      Cafe_MainMap-export-Sheet_18: -2086299211195670455
+      Cafe_MainMap-export-Sheet_19: -948996511964425142
+      Cafe_MainMap-export-Sheet_2: -3612807864790368037
+      Cafe_MainMap-export-Sheet_20: 6190261672453245302
+      Cafe_MainMap-export-Sheet_21: -4349491326200314982
+      Cafe_MainMap-export-Sheet_22: 3478934849918590144
+      Cafe_MainMap-export-Sheet_23: -8096280156439438367
+      Cafe_MainMap-export-Sheet_3: -7151722756286580815
+      Cafe_MainMap-export-Sheet_4: 7492710852887418894
+      Cafe_MainMap-export-Sheet_5: 5997212810969193102
+      Cafe_MainMap-export-Sheet_6: 774356563056172924
+      Cafe_MainMap-export-Sheet_7: -2495546192925631289
+      Cafe_MainMap-export-Sheet_8: 3144631561410244178
+      Cafe_MainMap-export-Sheet_9: -635587111389059287
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

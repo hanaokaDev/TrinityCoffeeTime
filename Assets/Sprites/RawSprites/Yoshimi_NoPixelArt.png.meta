@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Yoshimi_NoPixelArt_0: -1758759532574136563
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

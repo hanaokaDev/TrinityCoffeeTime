@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Natsu_Walking_0: 3253292526837356088
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
