@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -159,42 +161,36 @@ public class NpcMover : MonoBehaviour
         Debug.Log("NPC: Walking to table...");
         if(targetTableObject == null) {
             Debug.LogWarning("This is Impossible - Target table object is null!");
-            currentState = NpcState.FINDING_TABLE;
+            currentState = NpcState.WALKING_TO_QUEUE;
             yield break; // 테이블이 없으면 종료
         }
     
         // 빈 의자 찾기 (왼쪽 또는 오른쪽)
         Transform chairLeft = targetTableObject.transform.Find("Chair Left");
         Transform chairRight = targetTableObject.transform.Find("Chair Right");
+
+        float RADIUS_BETWEEN_TABLE_AND_NPC = 2f;
         
-        if (chairLeft != null && targetTableObject.sitter[0] == null)
-        {
+        // NPC와 targetTableObject 간의 거리 계산
+        yield return MoveToPosition(targetTableObject.transform.position, RADIUS_BETWEEN_TABLE_AND_NPC);
+
+        float distanceToTable = Vector3.Distance(transform.position, targetTableObject.transform.position);
+        Debug.Log("NPC: Reached enouth to the table. Distance: " + distanceToTable);
+        // currentState를 Sit Position으로 변경
+        currentState = NpcState.SITTING;
+
+        if (chairLeft != null && targetTableObject.sitter[0] == null){
             sitPosition = chairLeft.Find("Sit Position");
-            if (sitPosition != null)
-            {
-                // 의자 앞으로 이동 (앉기 위한 위치)
-                Vector3 chairFrontPos = sitPosition.position + new Vector3(0, 0.5f, 0);
-                yield return MoveToPosition(chairFrontPos);
-            }
         }
-        else if (chairRight != null && targetTableObject.sitter[1] == null)
-        {
+        else if (chairRight != null && targetTableObject.sitter[1] == null){
             sitPosition = chairRight.Find("Sit Position");
-            if (sitPosition != null)
-            {
-                // 의자 앞으로 이동 (앉기 위한 위치)
-                Vector3 chairFrontPos = sitPosition.position + new Vector3(0, 0.5f, 0);
-                yield return MoveToPosition(chairFrontPos);
-            }
         }
-        else
-        {
-            Debug.LogWarning("No empty seats at table!");
+        else{
+            Debug.LogWarning("This is Impossible - Reached Granted Table but No empty seats at table!");
             targetTableObject = null;
-            currentState = NpcState.FINDING_TABLE;
+            currentState = NpcState.WALKING_TO_QUEUE;
             yield break;
         }
-        currentState = NpcState.SITTING;
     }
     
     private IEnumerator Coroutine_Sit()
@@ -227,7 +223,7 @@ public class NpcMover : MonoBehaviour
         Debug.Log("NPC: Waiting for order...");
         
         // 무작위 메뉴 선택
-        int randomMenu = Random.Range(1, 4); // 1=WATER, 2=ESPRESSO, 3=AMERICANO
+        int randomMenu = UnityEngine.Random.Range(1, 4); // 1=WATER, 2=ESPRESSO, 3=AMERICANO
         switch (randomMenu)
         {
             case 1:
@@ -310,26 +306,15 @@ public class NpcMover : MonoBehaviour
     }
     
     // 특정 위치로 이동하는 메서드 (x축과 y축 이동 분리)
-    private IEnumerator MoveToPosition(Vector3 position)
+    private IEnumerator MoveToPosition(Vector3 position, float stopRadius = 0.1f) // stopRadius 반경에 다다르면 종료함. 기본값은 0.1f
     {
         moveMode = MoveMode.WALKING;
-        
-        // 먼저 x축 이동
-        while (Mathf.Abs(transform.position.x - position.x) > 0.1f)
-        {
-            Vector3 direction = new Vector3(position.x - transform.position.x, 0, 0).normalized;
+
+        while(Vector3.Distance(transform.position, position) > stopRadius) {
+            Vector3 direction = (position - transform.position).normalized;
             MoveInDirection(direction);
             yield return null;
         }
-        
-        // 그 다음 y축 이동
-        while (Mathf.Abs(transform.position.y - position.y) > 0.1f)
-        {
-            Vector3 direction = new Vector3(0, position.y - transform.position.y, 0).normalized;
-            MoveInDirection(direction);
-            yield return null;
-        }
-        
         moveMode = MoveMode.IDLE;
         moveDirection = MoveDirection.IDLE;
         UpdateAnimator();
@@ -352,6 +337,8 @@ public class NpcMover : MonoBehaviour
         
         // 실제 이동
         transform.Translate(direction * moveSpeed * Time.deltaTime);
+        Debug.Log("NPC: Moving in direction: " + moveDirection);
+        Debug.Log("NPC: Moved transform: " + transform.position);
         
         // 애니메이션 업데이트
         UpdateAnimator();
