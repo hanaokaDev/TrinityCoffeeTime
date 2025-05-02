@@ -17,7 +17,6 @@ public class NpcMover : MonoBehaviour
 
     // 대기열 위치로 이동 (Scene에 Queue Manager 오브젝트가 있다고 가정)
     public NpcQueueManager npcQueueManager;
-    public TableManager tableManager;
 
     // 내부 상태 관리용 변수들
     private Animator animator;
@@ -53,7 +52,6 @@ public class NpcMover : MonoBehaviour
         
         currentState = NpcState.FINDING_TABLE;
         npcQueueManager = NpcQueueManager.Instance;
-        tableManager = TableManager.Instance;
         StartCoroutine(StateMachine());
     }
 
@@ -105,12 +103,11 @@ public class NpcMover : MonoBehaviour
     private IEnumerator Coroutine_FindEmptyTable()
     {
         Debug.Log("NPC: Finding empty table...");
-        int grantedEmptyTableIndex = tableManager.MarkEmptyTable();
+        int grantedEmptyTableIndex = TableManager.Instance.MarkEmptyTable();
         if(grantedEmptyTableIndex != -1)
         {
             // emptyTableAndChairs = tableManager.tables[grantedEmptyTableIndex].gameObject;
-            int targetTableObjectIndex = TableManager.Instance.MarkEmptyTable();
-            targetTableObject = TableManager.Instance.GetTable(targetTableObjectIndex);
+            targetTableObject = TableManager.Instance.GetTable(grantedEmptyTableIndex);
             currentState = NpcState.WALKING_TO_TABLE;
             yield break; // 빈 테이블 찾으면 바로 이동
         }

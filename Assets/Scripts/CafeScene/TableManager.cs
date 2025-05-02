@@ -23,9 +23,11 @@ public class TableManager : MonoBehaviour
             if (!tables[i].isTableOccupied)
             {
                 tables[i].isTableOccupied = true; // 테이블을 사용 중으로 표시
+                Debug.Log("MarkEmptyTable: returns " + i);
                 return i;
             }
         }
+        Debug.Log("MarkEmptyTable: No empty table found");
         return -1; // 모든 테이블이 사용 중인 경우
     }
 
