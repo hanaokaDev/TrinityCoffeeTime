@@ -6625,7 +6625,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 846bc55cd56938647a0834290bf9a0e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcQueueHeadTransform: {fileID: 0}
+  npcQueueHeadTransform: {fileID: 283693494}
 --- !u!4 &2094112928
 Transform:
   m_ObjectHideFlags: 0

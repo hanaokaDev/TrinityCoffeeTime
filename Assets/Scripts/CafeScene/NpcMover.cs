@@ -182,8 +182,8 @@ public class NpcMover : MonoBehaviour
         Debug.Log("NPC: Sitting...");
 
         // 빈 의자 찾기 (왼쪽 또는 오른쪽)
-        Transform chairLeft = targetTableObject.transform.Find("Chair Left");
-        Transform chairRight = targetTableObject.transform.Find("Chair Right");
+        Transform chairLeft = targetTableObject.chairSitPositions[0];
+        Transform chairRight = targetTableObject.chairSitPositions[1];
         if (chairLeft != null && targetTableObject.sitter[0] == null){
             sitPosition = chairLeft.Find("Sit Position");
         }
