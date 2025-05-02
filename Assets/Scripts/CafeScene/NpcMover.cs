@@ -348,8 +348,6 @@ public class NpcMover : MonoBehaviour
         
         // 실제 이동
         transform.Translate(direction * moveSpeed * Time.deltaTime);
-        Debug.Log("NPC: Moving in direction: " + moveDirection);
-        Debug.Log("NPC: Moved transform: " + transform.position);
         
         // 애니메이션 업데이트
         UpdateAnimator();
