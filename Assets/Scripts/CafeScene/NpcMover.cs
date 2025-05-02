@@ -23,6 +23,8 @@ public class NpcMover : MonoBehaviour
     // 내부 상태 관리용 변수들
     private Animator animator;
     private float moveSpeed = 3f; // NPC 이동 속도
+    float RADIUS_BETWEEN_TABLE_AND_NPC = 1.7f;
+
     private TableAndChairs targetTableObject;
     private Transform sitPosition;
     private bool isOrderDelivered = false;
@@ -168,11 +170,9 @@ public class NpcMover : MonoBehaviour
         // 빈 의자 찾기 (왼쪽 또는 오른쪽)
         Transform chairLeft = targetTableObject.transform.Find("Chair Left");
         Transform chairRight = targetTableObject.transform.Find("Chair Right");
-
-        float RADIUS_BETWEEN_TABLE_AND_NPC = 2f;
         
         // NPC와 targetTableObject 간의 거리 계산
-        yield return MoveToPosition(targetTableObject.transform.position, RADIUS_BETWEEN_TABLE_AND_NPC);
+        yield return MoveToPosition(targetTableObject.transform.position, 0.1f, RADIUS_BETWEEN_TABLE_AND_NPC);
 
         float distanceToTable = Vector3.Distance(transform.position, targetTableObject.transform.position);
         Debug.Log("NPC: Reached enouth to the table. Distance: " + distanceToTable);
@@ -306,15 +306,26 @@ public class NpcMover : MonoBehaviour
     }
     
     // 특정 위치로 이동하는 메서드 (x축과 y축 이동 분리)
-    private IEnumerator MoveToPosition(Vector3 position, float stopRadius = 0.1f) // stopRadius 반경에 다다르면 종료함. 기본값은 0.1f
+    private IEnumerator MoveToPosition(Vector3 position, float stopRadiusX = 0.1f, float stopRadiusY = 0.1f) // stopRadius 반경에 다다르면 종료함. 기본값은 0.1f
     {
         moveMode = MoveMode.WALKING;
 
-        while(Vector3.Distance(transform.position, position) > stopRadius) {
-            Vector3 direction = (position - transform.position).normalized;
+                // 먼저 x축 이동
+        while (Mathf.Abs(transform.position.x - position.x) > stopRadiusX)
+        {
+            Vector3 direction = new Vector3(position.x - transform.position.x, 0, 0).normalized;
             MoveInDirection(direction);
             yield return null;
         }
+        
+        // 그 다음 y축 이동
+        while (Mathf.Abs(transform.position.y - position.y) > stopRadiusY)
+        {
+            Vector3 direction = new Vector3(0, position.y - transform.position.y, 0).normalized;
+            MoveInDirection(direction);
+            yield return null;
+        }
+        
         moveMode = MoveMode.IDLE;
         moveDirection = MoveDirection.IDLE;
         UpdateAnimator();
