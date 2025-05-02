@@ -2,6 +2,11 @@ using UnityEngine;
 
 public class TableAndChairs : MonoBehaviour
 {
+    public Sprite nextUseButtonSprite;
+
+    private PlayerMover chosenPlayer; // 현재 선택된 플레이어
+    public GameObject ServeUI; // 서빙 UI
+
     public bool isTableOccupied = false;
     public NpcMover[] sitter = {null, null}; 
     public Transform[] chairSitPositions = new Transform[2]; // 의자에 앉을 위치
@@ -36,6 +41,35 @@ public class TableAndChairs : MonoBehaviour
     public void FlushNpc()
     {
         
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        var player = collision.GetComponent<PlayerMover>();
+        if(player != null && player.isOwned && isTableOccupied) {
+            HudManager.Instance.SetUseButton(nextUseButtonSprite, OnClickUseButton);
+        }
+        else{
+            Debug.LogWarning("OnTriggerEnter2D: Player is not owned or table is not occupied");
+        }
+        chosenPlayer = player;
+    }
+
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        var player = collision.GetComponent<PlayerMover>();
+        if(player != null && player.isOwned && isTableOccupied) {
+            HudManager.Instance.UnsetUseButton();
+        }
+        else{
+            Debug.LogWarning("OnTriggerExit2D: Player is not owned or table is not occupied");
+        }
+        chosenPlayer = null;
+    } 
+
+    public void OnClickUseButton()
+    {
+        ServeUI.SetActive(true); // 서빙 UI 활성화
     }
 
 }

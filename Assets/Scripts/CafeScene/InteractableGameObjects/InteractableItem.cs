@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class InteractableItem : MonoBehaviour
 {
     [SerializeField]
-    public Sprite nextUseButtonSprite;
+    public Sprite nextUseButtonSprite; // TODO: 가구별로 nextUseButtonSprite 의 아이콘을 다르게 Inspector에서 할당할 수 있음.
     // private SpriteRenderer spriteRenderer; // TODO: Highlighting 효과
 
     public ProgressBar progressBar;
