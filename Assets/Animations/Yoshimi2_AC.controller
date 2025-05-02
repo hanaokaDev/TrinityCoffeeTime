@@ -308,9 +308,9 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 6
+  - m_ConditionMode: 7
     m_ConditionEvent: MoveDirection
-    m_EventTreshold: 3
+    m_EventTreshold: 4
   - m_ConditionMode: 6
     m_ConditionEvent: MoveMode
     m_EventTreshold: 2

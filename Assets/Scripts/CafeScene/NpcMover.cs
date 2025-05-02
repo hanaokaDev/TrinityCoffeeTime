@@ -167,9 +167,6 @@ public class NpcMover : MonoBehaviour
             yield break; // 테이블이 없으면 종료
         }
     
-        // 빈 의자 찾기 (왼쪽 또는 오른쪽)
-        Transform chairLeft = targetTableObject.transform.Find("Chair Left");
-        Transform chairRight = targetTableObject.transform.Find("Chair Right");
         
         // NPC와 targetTableObject 간의 거리 계산
         yield return MoveToPosition(targetTableObject.transform.position, 0.1f, RADIUS_BETWEEN_TABLE_AND_NPC);
@@ -178,7 +175,15 @@ public class NpcMover : MonoBehaviour
         Debug.Log("NPC: Reached enouth to the table. Distance: " + distanceToTable);
         // currentState를 Sit Position으로 변경
         currentState = NpcState.SITTING;
+    }
+    
+    private IEnumerator Coroutine_Sit()
+    {
+        Debug.Log("NPC: Sitting...");
 
+        // 빈 의자 찾기 (왼쪽 또는 오른쪽)
+        Transform chairLeft = targetTableObject.transform.Find("Chair Left");
+        Transform chairRight = targetTableObject.transform.Find("Chair Right");
         if (chairLeft != null && targetTableObject.sitter[0] == null){
             sitPosition = chairLeft.Find("Sit Position");
         }
@@ -186,35 +191,34 @@ public class NpcMover : MonoBehaviour
             sitPosition = chairRight.Find("Sit Position");
         }
         else{
-            Debug.LogWarning("This is Impossible - Reached Granted Table but No empty seats at table!");
-            targetTableObject = null;
-            currentState = NpcState.WALKING_TO_QUEUE;
-            yield break;
+            Debug.LogWarning("This is Impossible - No empty chair found at the table!");
         }
-    }
-    
-    private IEnumerator Coroutine_Sit()
-    {
-        Debug.Log("NPC: Sitting...");
-        
-        if (sitPosition != null)
-        {
-            // 앉는 애니메이션 재생 (있다면)
-            if (animator != null)
-            {
-                animator.SetInteger("MoveMode", (int)MoveMode.SITTING); // TODO: 로컬변수의 moveMode와 animator.MoveMode 를 동기화해야 함.
+        // 앉는 위치로 이동
+        transform.position = sitPosition.position;
+
+        Debug.Log("NPC: Sitting at position: " + sitPosition.position);
+        // 앉는 애니메이션 재생 (있다면)
+        if (animator != null) {
+            moveMode = MoveMode.SITTING;
+            if(targetTableObject.sitter[0] == null){ // 왼쪽의자가 비었으면 왼쪽의자부터 앉는다.
+                targetTableObject.sitter[0] = this;
+                moveDirection = MoveDirection.RIGHT;
             }
-            
-            // 앉는 위치로 이동
-            transform.position = sitPosition.position;
-            
+            else if(targetTableObject.sitter[1] == null){
+                targetTableObject.sitter[1] = this;
+                moveDirection = MoveDirection.LEFT;
+            }
+            else{
+                Debug.LogWarning("This is Impossible - Reached Granted Table but No empty seats at table!");
+                targetTableObject = null;
+                currentState = NpcState.WALKING_TO_QUEUE;
+                yield return null;
+            }
+            animator.SetInteger("MoveMode", (int)moveMode); // TODO: 로컬변수의 moveMode와 animator.MoveMode 를 동기화해야 함.
+            animator.SetInteger("MoveDirection", (int)moveDirection);
             // 3초 후 주문
             yield return new WaitForSeconds(3f);
             currentState = NpcState.WAITING_FOR_ORDER;
-        }
-        else
-        {
-            currentState = NpcState.FINDING_TABLE;
         }
     }
     

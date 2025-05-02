@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9049726600198601898}
   - component: {fileID: 2663734336862230866}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Interaction Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62,7 +62,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -81,7 +81,7 @@ GameObject:
   - component: {fileID: 4388262013021567921}
   - component: {fileID: 6684870892783047362}
   - component: {fileID: 1366382267643844825}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Player_Yoshimi2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,7 +156,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &4388262013021567921
@@ -220,3 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2a41641b98168489759143e8926b1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MenuToOrder: 0
+  SpawnPosition: {fileID: 0}
+  npcQueueManager: {fileID: 0}
+  currentState: 0

@@ -432,7 +432,7 @@ GameObject:
   - component: {fileID: 84277492}
   - component: {fileID: 84277493}
   - component: {fileID: 84277494}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Chair Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2566,7 +2566,7 @@ Transform:
   m_GameObject: {fileID: 713299234}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.37, y: -0.58, z: 0}
+  m_LocalPosition: {x: 6.69, y: -3.92, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2581,7 +2581,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 720124167}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Sit Position
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2658,7 +2658,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 765925415}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Sit Position
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4065,7 +4065,7 @@ GameObject:
   - component: {fileID: 1171513225}
   - component: {fileID: 1171513226}
   - component: {fileID: 1171513227}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Table And Chairs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4948,7 +4948,7 @@ GameObject:
   - component: {fileID: 1485410349}
   - component: {fileID: 1485410351}
   - component: {fileID: 1485410350}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Chair Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5505,7 +5505,7 @@ GameObject:
   - component: {fileID: 1644301193}
   - component: {fileID: 1644301194}
   - component: {fileID: 1644301195}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Round Table
   m_TagString: Untagged
   m_Icon: {fileID: 0}
