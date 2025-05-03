@@ -33,6 +33,15 @@ public class TableAndChairs : MonoBehaviour
         serveUIManager = ServeUI.GetComponent<ServeUIManager>();
     }
 
+    public Transform GetChairSitPosition(int index)
+    {
+        if(index < 0 || index >= chairSitPositions.Length)
+        {
+            Debug.LogError("Invalid chair index: " + index);
+            return null;
+        }
+        return chairSitPositions[index];
+    }
     public PlayerItem GetFood()
     {
         return foodItem;
