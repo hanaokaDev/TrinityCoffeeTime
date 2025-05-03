@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum MoveMode
 {
@@ -16,6 +17,9 @@ public class NpcMover : MonoBehaviour
 {
     public PlayerItem MenuToOrder = PlayerItem.NONE;
     public Transform SpawnPosition; // 스폰위치와 퇴장위치가 동일함
+
+    public Image SpeechBubbleImage;
+    public Text SpeechBubbleText;
 
     // 대기열 위치로 이동 (Scene에 Queue Manager 오브젝트가 있다고 가정)
     public NpcQueueManager npcQueueManager;
@@ -246,6 +250,8 @@ public class NpcMover : MonoBehaviour
         }
         
         Debug.Log("NPC ordered: " + MenuToOrder);
+        SpeechBubbleImage.gameObject.SetActive(true);
+        SpeechBubbleText.text = "Order: " + MenuToOrder.ToString();
         
         // 주문 전달 대기
         while (!isOrderDelivered)
