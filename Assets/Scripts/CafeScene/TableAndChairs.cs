@@ -6,21 +6,62 @@ public class TableAndChairs : MonoBehaviour
     public Sprite nextUseButtonSprite;
     public GameObject ServeUI; // 서빙 UI
     // }}}
+    private ServeUIManager serveUIManager;
+    private PlayerItem foodItem = PlayerItem.NONE; // 테이블에 놓일 음식 아이템
+    private PlayerItem[] drinkItems = {PlayerItem.NONE, PlayerItem.NONE}; // 테이블에 놓일 음료 아이템
 
     private PlayerMover chosenPlayer; // 현재 선택된 플레이어
     public bool isTableOccupied = false;
     public NpcMover[] sitter = {null, null}; 
-    public Transform[] chairSitPositions = new Transform[2]; // 의자에 앉을 위치
 
-    public Transform foodPosition;
-    public PlayerItem foodItem; // 테이블에 놓일 음식 아이템
-    public Transform[] drinkPositions = new Transform[2]; // 음식과 음료를 놓을 위치
-    public PlayerItem[] drinkItems; // 테이블에 놓일 음료 아이템
+    [SerializeField]
+    private Transform foodPosition;
+
+    [SerializeField]
+    private Transform[] drinkPositions = new Transform[2]; // 음식과 음료를 놓을 위치
+
+    [SerializeField]
+    private Transform[] chairSitPositions = new Transform[2]; // 의자에 앉을 위치
 
     void Start()
     {
+        foodPosition = transform.Find("Food Position");
+        drinkPositions[0] = transform.Find("Drink Position Left");
+        drinkPositions[1] = transform.Find("Drink Position Right");
         chairSitPositions[0] = transform.Find("Chair Left");
         chairSitPositions[1] = transform.Find("Chair Right");
+        serveUIManager = ServeUI.GetComponent<ServeUIManager>();
+    }
+
+    public PlayerItem GetFood()
+    {
+        return foodItem;
+    }
+    public void SetFood(PlayerItem playerItem)
+    {
+        foodItem = playerItem;
+        foodPosition.GetComponent<SpriteRenderer>().sprite = SpriteManager.Instance.GetItemSprite(playerItem);
+        Debug.Log("SetFood: " + playerItem);
+    }
+    public PlayerItem GetDrink(int index)
+    {
+        if(index < 0 || index >= drinkItems.Length)
+        {
+            Debug.LogError("Invalid drink index: " + index);
+            return PlayerItem.NONE;
+        }
+        return drinkItems[index];
+    }
+    public void SetDrink(PlayerItem playerItem, int index)
+    {
+        if(index < 0 || index >= drinkItems.Length)
+        {
+            Debug.LogError("Invalid drink index: " + index);
+            return;
+        }
+        drinkItems[index] = playerItem;
+        drinkPositions[index].GetComponent<SpriteRenderer>().sprite = SpriteManager.Instance.GetItemSprite(playerItem);
+        Debug.Log("SetDrink: " + playerItem + " at index " + index);
     }
 
     public void PushNpc(NpcMover npc)
@@ -39,15 +80,12 @@ public class TableAndChairs : MonoBehaviour
         }
     }
 
-    public void FlushNpc()
-    {
-        
-    }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
         var player = collision.GetComponent<PlayerMover>();
         if(player != null && player.isOwned && isTableOccupied) {
+            serveUIManager.tableAndChairs = this;
             HudManager.Instance.SetUseButton(nextUseButtonSprite, OnClickUseButton);
         }
         else{
@@ -60,6 +98,7 @@ public class TableAndChairs : MonoBehaviour
     {
         var player = collision.GetComponent<PlayerMover>();
         if(player != null && player.isOwned) {
+            serveUIManager.tableAndChairs = null;
             HudManager.Instance.UnsetUseButton();
         }
         else{
