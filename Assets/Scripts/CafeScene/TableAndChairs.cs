@@ -25,11 +25,11 @@ public class TableAndChairs : MonoBehaviour
 
     void Start()
     {
-        foodPosition = transform.Find("Food Position");
-        drinkPositions[0] = transform.Find("Drink Position Left");
-        drinkPositions[1] = transform.Find("Drink Position Right");
-        chairSitPositions[0] = transform.Find("Chair Left");
-        chairSitPositions[1] = transform.Find("Chair Right");
+        foodPosition = transform.Find("Round Table").Find("Food Position");
+        drinkPositions[0] = transform.Find("Round Table").Find("Drink Position Left");
+        drinkPositions[1] = transform.Find("Round Table").Find("Drink Position Right");
+        chairSitPositions[0] = transform.Find("Chair Left").Find("Sit Position");
+        chairSitPositions[1] = transform.Find("Chair Right").Find("Sit Position");
         serveUIManager = ServeUI.GetComponent<ServeUIManager>();
     }
 

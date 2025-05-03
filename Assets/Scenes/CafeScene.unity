@@ -1702,7 +1702,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentSelectIndex: 0
-  player: {fileID: 0}
+  player: {fileID: 736507472}
+  tableAndChairs: {fileID: 0}
   selectIcons:
   - {fileID: 1837289616}
   - {fileID: 967943069}
@@ -4760,14 +4761,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextUseButtonSprite: {fileID: 3974297486249789632, guid: 80f184461e1257a4181b83f41b5f859a, type: 3}
   ServeUI: {fileID: 463409932}
-  foodPosition: {fileID: 0}
-  drinkPositions:
-  - {fileID: 0}
-  - {fileID: 0}
-  foodItem: 0
-  drinkItems: 
   isTableOccupied: 0
   sitter:
+  - {fileID: 0}
+  - {fileID: 0}
+  foodPosition: {fileID: 0}
+  drinkPositions:
   - {fileID: 0}
   - {fileID: 0}
   chairSitPositions:
