@@ -85,6 +85,8 @@ public class PlayerMover : MonoBehaviour
 
     void Update()
     {
+        if(InputManager.Instance.GetInputAlloc() != InputAlloc.PLAYER_MOVER) return;
+        
         bool keyPressed = false;
 
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
