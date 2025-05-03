@@ -55,6 +55,7 @@ public class PlayerMover : MonoBehaviour
         animator = GetComponent<Animator>();
         moveDirection = MoveDirection.IDLE;
         animator.SetInteger("MoveDirection", (int)moveDirection);
+
     }
 
     void FixedUpdate()

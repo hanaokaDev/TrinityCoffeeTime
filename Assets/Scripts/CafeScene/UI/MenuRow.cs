@@ -11,11 +11,13 @@ using System; // for UnityAction
 */
 public class MenuRow : MonoBehaviour
 {
-    public const int MAXIMUM_MATERIAL_NUM = 3;
-
+    // {{{ To set
     public PlayerMover player;
 
     public Button confirmButton;
+    
+    // }}}
+    public const int MAXIMUM_MATERIAL_NUM = 3;
 
     public PlayerItem[] selectedItems = new PlayerItem[MAXIMUM_MATERIAL_NUM]; // 필요한 재료
     public PlayerItem resultItem;

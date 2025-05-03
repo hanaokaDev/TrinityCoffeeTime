@@ -44,9 +44,6 @@ public class ServeUI : MonoBehaviour
         {
             MoveToSelectable(Vector3.right);
         }
-        else{
-            Debug.LogWarning("HandleCursorMovement: Else key pressed");
-        }
     }
 
     // Selectable 간 이동
