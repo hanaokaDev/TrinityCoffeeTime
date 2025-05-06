@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "TrinityCoffeeTime.sln"
+    "dotnet.defaultSolution": "myTrinityCoffeeTime.sln"
 }
