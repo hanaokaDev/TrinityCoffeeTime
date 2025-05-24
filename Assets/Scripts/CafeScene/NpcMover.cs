@@ -281,6 +281,7 @@ public class NpcMover : MonoBehaviour
     {
         Debug.Log("NPC: Eating/Drinking...");
         
+        SpeakBubbleActive("That's what I wanted!", 3f);
         // 먹는/마시는 애니메이션 재생 (있다면)
         if (animator != null)
         {
@@ -304,6 +305,7 @@ public class NpcMover : MonoBehaviour
         // }
         // 걷는애니메이션으로 변경
         animator.SetInteger("MoveMode", (int)MoveMode.WALKING);
+        SpeakBubbleActive("Thanks for the meal!", 3f);
         
         if(targetTableObject == null){
             Debug.LogWarning("This is Impossible - targetTableObject is null when leaving!");
