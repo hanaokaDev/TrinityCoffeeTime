@@ -223,8 +223,7 @@ public class NpcMover : MonoBehaviour
                 currentState = NpcState.WALKING_TO_QUEUE;
                 yield return null;
             }
-            animator.SetInteger("MoveMode", (int)moveMode); // TODO: 로컬변수의 moveMode와 animator.MoveMode 를 동기화해야 함.
-            animator.SetInteger("MoveDirection", (int)moveDirection);
+            UpdateAnimator();
             // 3초 후 주문
             yield return new WaitForSeconds(3f);
             currentState = NpcState.WAITING_FOR_ORDER;
@@ -251,7 +250,7 @@ public class NpcMover : MonoBehaviour
         }
         
         Debug.Log("NPC ordered: " + MenuToOrder);
-        SpeakBubbleActive("Order: " + MenuToOrder.ToString(), 3f);
+        SpeakBubbleActive("Order: " + MenuToOrder.ToString(), -1f);
         
         // 주문 전달 대기
         while (!isOrderDelivered)
@@ -282,11 +281,14 @@ public class NpcMover : MonoBehaviour
         Debug.Log("NPC: Eating/Drinking...");
         
         SpeakBubbleActive("That's what I wanted!", 3f);
-        // 먹는/마시는 애니메이션 재생 (있다면)
+        moveMode = MoveMode.EATING;
         if (animator != null)
         {
-            animator.SetInteger("MoveMode", (int)MoveMode.EATING);
-            animator.SetInteger("MoveDirection", (int)moveDirection); // 그대로 유지
+            UpdateAnimator();
+            print("Eating Animation Triggered");
+        }
+        else{
+            Debug.LogWarning("Animator component not found on NPC!");
         }
         
         // 5초 후 떠남
@@ -297,14 +299,16 @@ public class NpcMover : MonoBehaviour
     private IEnumerator Coroutine_Leave()
     {
         Debug.Log("NPC: Leaving...");
-        
+        targetTableObject.isTableOccupied = false; // 테이블 사용 중 상태 해제
+
         // 일어서는 애니메이션 재생 (있다면)
         // if (animator != null)
         // {
         //     animator.SetBool("IsSitting", false);
         // }
         // 걷는애니메이션으로 변경
-        animator.SetInteger("MoveMode", (int)MoveMode.WALKING);
+        moveMode = MoveMode.WALKING;
+        UpdateAnimator();
         SpeakBubbleActive("Thanks for the meal!", 3f);
         
         if(targetTableObject == null){
