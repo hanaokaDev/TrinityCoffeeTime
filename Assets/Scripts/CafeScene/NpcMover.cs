@@ -11,6 +11,7 @@ public enum MoveMode
     IDLE,
     WALKING,
     SITTING,
+    EATING,
 }
 
 public class NpcMover : MonoBehaviour
@@ -269,7 +270,8 @@ public class NpcMover : MonoBehaviour
         // 먹는/마시는 애니메이션 재생 (있다면)
         if (animator != null)
         {
-            animator.SetTrigger("Eating");
+            animator.SetInteger("MoveMode", (int)MoveMode.EATING);
+            animator.SetInteger("MoveDirection", (int)moveDirection); // 그대로 유지
         }
         
         // 5초 후 떠남
@@ -377,7 +379,7 @@ public class NpcMover : MonoBehaviour
         }
     }
     
-    // 주문 배달 처리 (PlayerMover에서 호출)
+    // 주문 배달 처리(TableAndChairs.cs에서 호출됨)
     public void DeliverOrder(PlayerItem deliveredItem)
     {
         if (deliveredItem == MenuToOrder)

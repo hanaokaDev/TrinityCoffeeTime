@@ -125,16 +125,16 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: YoShimi_Walking
     originalName: 
-    pivot: {x: 2.3428571, y: -0.50224215}
+    pivot: {x: 2.724138, y: -0.31034482}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
       serializedVersion: 2
-      x: 4
-      y: 236
-      width: 35
-      height: 223
+      x: 82
+      y: 4
+      width: 29
+      height: 58
     spriteID: 4b00ff30b9211e9489cd5f9f2fee8a78
     spriteBone: []
     spriteOutline: []
@@ -143,10 +143,10 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 236}
+    uvTransform: {x: 82, y: 4}
   - name: Frame_1
     originalName: 
-    pivot: {x: 0.7788462, y: -0.4955357}
+    pivot: {x: 2.46875, y: -0.31034482}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -154,8 +154,8 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 104
-      height: 224
+      width: 32
+      height: 58
     spriteID: cbde0ff0654ea0c4f9d0fd4be9983a74
     spriteBone: []
     spriteOutline: []
@@ -167,16 +167,16 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 4}
   - name: Frame_2
     originalName: 
-    pivot: {x: 2.3142858, y: -0.05696203}
+    pivot: {x: 2.6333334, y: -0.31034482}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
       serializedVersion: 2
-      x: 116
+      x: 44
       y: 4
-      width: 35
-      height: 316
+      width: 30
+      height: 58
     spriteID: 4cfeba910b0d0ef43a7d18d624e84f0a
     spriteBone: []
     spriteOutline: []
@@ -185,7 +185,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 116, y: 4}
+    uvTransform: {x: 44, y: 4}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -199,28 +199,28 @@ ScriptedImporter:
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 46
-        y: 112
-        width: 35
-        height: 223
+        x: 49
+        y: 18
+        width: 29
+        height: 58
       spriteId: 4b00ff30b9211e9489cd5f9f2fee8a78
     - name: Frame_1
       frameIndex: 1
       additiveSortOrder: 0
       cellRect:
-        x: 47
-        y: 111
-        width: 104
-        height: 224
+        x: 49
+        y: 18
+        width: 32
+        height: 58
       spriteId: cbde0ff0654ea0c4f9d0fd4be9983a74
     - name: Frame_2
       frameIndex: 2
       additiveSortOrder: 0
       cellRect:
-        x: 47
+        x: 49
         y: 18
-        width: 35
-        height: 316
+        width: 30
+        height: 58
       spriteId: 4cfeba910b0d0ef43a7d18d624e84f0a
     linkedCells: []
     parentIndex: -1
@@ -240,5 +240,5 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 256, y: 350}
-  previousTextureSize: {x: 256, y: 512}
+  canvasSize: {x: 256, y: 450}
+  previousTextureSize: {x: 128, y: 128}
