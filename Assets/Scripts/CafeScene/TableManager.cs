@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.Events; // for UnityAction
 
+// 비어있는 Table의 점유현황을 관리하며 Alloc/Dealloc하는 싱글턴 클래스
 public class TableManager : MonoBehaviour
 {
     public static TableManager Instance;
