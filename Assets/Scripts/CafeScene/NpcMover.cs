@@ -341,7 +341,7 @@ public class NpcMover : MonoBehaviour
         }
         
         moveMode = MoveMode.IDLE;
-        moveDirection = MoveDirection.IDLE;
+        moveDirection = MoveDirection.UP;
         UpdateAnimator();
     }
     
