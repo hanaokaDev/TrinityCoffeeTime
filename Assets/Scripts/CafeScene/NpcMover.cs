@@ -251,8 +251,7 @@ public class NpcMover : MonoBehaviour
         }
         
         Debug.Log("NPC ordered: " + MenuToOrder);
-        SpeechBubbleImage.gameObject.SetActive(true);
-        SpeechBubbleText.text = "Order: " + MenuToOrder.ToString();
+        SpeakBubbleActive("Order: " + MenuToOrder.ToString(), 3f);
         
         // 주문 전달 대기
         while (!isOrderDelivered)
@@ -261,6 +260,21 @@ public class NpcMover : MonoBehaviour
         }
         
         currentState = NpcState.EATING;
+    }
+
+    public void SpeakBubbleActive(string speech, float seconds)
+    {
+        StartCoroutine(SpeakBubbleCoroutine(speech, seconds));
+    }
+
+    private IEnumerator SpeakBubbleCoroutine(string speech, float seconds = -1f)
+    {
+        SpeechBubbleImage.gameObject.SetActive(true);
+        SpeechBubbleText.text = speech;
+        if(seconds != -1f){ // seconds가 -1이 아니면 지정된 시간 동안 표시
+            yield return new WaitForSeconds(seconds);
+            SpeechBubbleImage.gameObject.SetActive(false);
+        }
     }
     
     private IEnumerator Coroutine_Eat()
