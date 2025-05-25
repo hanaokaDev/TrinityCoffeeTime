@@ -1,0 +1,930 @@
+fileFormatVersion: 2
+guid: 718a0a390a698724ca84f06013739579
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2080570736306388176
+    second: Mika_SD_Walking_0
+  - first:
+      213: 25821259857544532
+    second: Mika_SD_Walking_1
+  - first:
+      213: 8390643005916625
+    second: Mika_SD_Walking_2
+  - first:
+      213: 2136054730211153993
+    second: Mika_SD_Walking_3
+  - first:
+      213: -1023489300501394769
+    second: Mika_SD_Walking_4
+  - first:
+      213: -2530095507566129402
+    second: Mika_SD_Walking_5
+  - first:
+      213: 1865682527123637213
+    second: Mika_SD_Walking_6
+  - first:
+      213: -1206512988787652875
+    second: Mika_SD_Walking_7
+  - first:
+      213: -3644264024964796600
+    second: Mika_SD_Walking_8
+  - first:
+      213: -3046011999350621811
+    second: Mika_SD_Walking_9
+  - first:
+      213: -4223507699803688720
+    second: Mika_SD_Walking_10
+  - first:
+      213: -4252998490695673793
+    second: Mika_SD_Walking_11
+  - first:
+      213: -208595826843509024
+    second: Mika_SD_Walking_12
+  - first:
+      213: -381737937477007979
+    second: Mika_SD_Walking_13
+  - first:
+      213: 7931999078280808481
+    second: Mika_SD_Walking_14
+  - first:
+      213: -82036328922173971
+    second: Mika_SD_Walking_15
+  - first:
+      213: 5740326274237154651
+    second: Mika_SD_Walking_16
+  - first:
+      213: 4549601887939644564
+    second: Mika_SD_Walking_17
+  - first:
+      213: 674471508463241732
+    second: Mika_SD_Walking_18
+  - first:
+      213: -104733402297747794
+    second: Mika_SD_Walking_19
+  - first:
+      213: 8205294115164640902
+    second: Mika_SD_Walking_20
+  - first:
+      213: 307328584908417523
+    second: Mika_SD_Walking_21
+  - first:
+      213: -4629453723906413048
+    second: Mika_SD_Walking_22
+  - first:
+      213: 5787959908687668453
+    second: Mika_SD_Walking_23
+  - first:
+      213: 1589238130381665682
+    second: Mika_SD_Walking_24
+  - first:
+      213: 6503837181224405078
+    second: Mika_SD_Walking_25
+  - first:
+      213: 8389244073734904189
+    second: Mika_SD_Walking_26
+  - first:
+      213: -2693101587411431322
+    second: Mika_SD_Walking_27
+  - first:
+      213: -3147327891991591605
+    second: Mika_SD_Walking_28
+  - first:
+      213: -9153209067101689671
+    second: Mika_SD_Walking_29
+  - first:
+      213: -5117455951872532002
+    second: Mika_SD_Walking_30
+  - first:
+      213: 4567910563245066013
+    second: Mika_SD_Walking_31
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Mika_SD_Walking_0
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 189
+        width: 47
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0dc7d93bf0cafdc10800000000000000
+      internalID: 2080570736306388176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mika_SD_Walking_1
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 244
+        width: 22
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 455467d8c4cbb5000800000000000000
+      internalID: 25821259857544532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mika_SD_Walking_2
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 189
+        width: 47
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d50ecfce3fcd1000800000000000000
+      internalID: 8390643005916625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mika_SD_Walking_3
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 245
+        width: 22
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9485707b57ac4ad10800000000000000
+      internalID: 2136054730211153993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mika_SD_Walking_4
+      rect:
+        serializedVersion: 2
+        x: 712
+        y: 189
+        width: 47
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: faa833467e5dbc1f0800000000000000
+      internalID: -1023489300501394769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mika_SD_Walking_5
+      rect:
+        serializedVersion: 2
+        x: 724
+        y: 244
+        width: 22
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60f85b77a8b43ecd0800000000000000
+      internalID: -2530095507566129402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mika_SD_Walking_6
+      rect:
+        serializedVersion: 2
+        x: 1012
+        y: 189
+        width: 47
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd38bd4af5c34e910800000000000000
+      internalID: 1865682527123637213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mika_SD_Walking_7
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 245
+        width: 22
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f6ca6e34da914fe0800000000000000
+      internalID: -1206512988787652875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mika_SD_Walking_8
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 194
+        width: 22
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84fec3c6d29fc6dc0800000000000000
+      internalID: -3644264024964796600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mika_SD_Walking_9
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 140
+        width: 34
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d89f02d99346ab5d0800000000000000
+      internalID: -3046011999350621811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mika_SD_Walking_10
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 195
+        width: 22
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f0f217cf161365c0800000000000000
+      internalID: -4223507699803688720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mika_SD_Walking_11
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 193
+        width: 22
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f38dfc3f7605af4c0800000000000000
+      internalID: -4252998490695673793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mika_SD_Walking_12
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 140
+        width: 34
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ee1d5f533bea1df0800000000000000
+      internalID: -208595826843509024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mika_SD_Walking_13
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 194
+        width: 22
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 595846f4e5bc3baf0800000000000000
+      internalID: -381737937477007979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mika_SD_Walking_14
+      rect:
+        serializedVersion: 2
+        x: 653
+        y: 193
+        width: 22
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12847abd22f141e60800000000000000
+      internalID: 7931999078280808481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mika_SD_Walking_15
+      rect:
+        serializedVersion: 2
+        x: 775
+        y: 140
+        width: 34
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dedaaebb46c8cdef0800000000000000
+      internalID: -82036328922173971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mika_SD_Walking_16
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 195
+        width: 22
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b554fb6355cb9af40800000000000000
+      internalID: 5740326274237154651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mika_SD_Walking_17
+      rect:
+        serializedVersion: 2
+        x: 953
+        y: 193
+        width: 22
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49cc610ffce632f30800000000000000
+      internalID: 4549601887939644564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mika_SD_Walking_18
+      rect:
+        serializedVersion: 2
+        x: 1074
+        y: 140
+        width: 36
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40ac21173443c5900800000000000000
+      internalID: 674471508463241732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mika_SD_Walking_19
+      rect:
+        serializedVersion: 2
+        x: 1079
+        y: 194
+        width: 22
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea6bce78689eb8ef0800000000000000
+      internalID: -104733402297747794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mika_SD_Walking_20
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 139
+        width: 34
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 686ddf3368f0fd170800000000000000
+      internalID: 8205294115164640902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mika_SD_Walking_21
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 92
+        width: 47
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f92acc38b9d34400800000000000000
+      internalID: 307328584908417523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mika_SD_Walking_22
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 147
+        width: 22
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80ee272bd50e0cfb0800000000000000
+      internalID: -4629453723906413048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mika_SD_Walking_23
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 139
+        width: 34
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e4e78bfed6f25050800000000000000
+      internalID: 5787959908687668453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mika_SD_Walking_24
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 92
+        width: 47
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 295b7e0d8ab1e0610800000000000000
+      internalID: 1589238130381665682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mika_SD_Walking_25
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 148
+        width: 22
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 658cbdf1575424a50800000000000000
+      internalID: 6503837181224405078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mika_SD_Walking_26
+      rect:
+        serializedVersion: 2
+        x: 644
+        y: 138
+        width: 34
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d79150579059c6470800000000000000
+      internalID: 8389244073734904189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mika_SD_Walking_27
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 92
+        width: 47
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6601d4aff5e20aad0800000000000000
+      internalID: -2693101587411431322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mika_SD_Walking_28
+      rect:
+        serializedVersion: 2
+        x: 717
+        y: 147
+        width: 22
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b45892e15f17254d0800000000000000
+      internalID: -3147327891991591605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mika_SD_Walking_29
+      rect:
+        serializedVersion: 2
+        x: 944
+        y: 139
+        width: 36
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b8e48869d449f080800000000000000
+      internalID: -9153209067101689671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mika_SD_Walking_30
+      rect:
+        serializedVersion: 2
+        x: 1004
+        y: 92
+        width: 47
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed1edeadce42bf8b0800000000000000
+      internalID: -5117455951872532002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mika_SD_Walking_31
+      rect:
+        serializedVersion: 2
+        x: 1017
+        y: 148
+        width: 22
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d170af7947a746f30800000000000000
+      internalID: 4567910563245066013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

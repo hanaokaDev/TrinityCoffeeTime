@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e0088ac560b779e438f53af83aad764d
+guid: 755265faf9f6ef74a80d8f0195f58891
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4275951870395399926
-    second: Mika_Walking_0
+      213: 4361911451307887232
+    second: Mika_Illust_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Mika_Walking_0
+      name: Mika_Illust_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1024
-        height: 1024
+        width: 128
+        height: 170
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6feb597329b375b30800000000000000
-      internalID: 4275951870395399926
+      spriteID: 08a4ae4ca5f988c30800000000000000
+      internalID: 4361911451307887232
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Mika_Walking_0: 4275951870395399926
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
