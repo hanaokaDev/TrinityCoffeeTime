@@ -6516,7 +6516,7 @@ Animator:
   m_GameObject: {fileID: 1631213321}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 42012d17f9eaecf4687fd043a31376bc, type: 2}
+  m_Controller: {fileID: 9100000, guid: c8f2a3d901b998449aeccdad2f9e5315, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -6603,8 +6603,8 @@ Transform:
 --- !u!114 &1631213326
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 8220622024481464656, guid: 877cab8b4720b0e4c92de19658a5d543, type: 3}
+  m_PrefabInstance: {fileID: 1680659563}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1631213321}
   m_Enabled: 1
@@ -6614,8 +6614,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MenuToOrder: 0
   SpawnPosition: {fileID: 0}
-  SpeechBubbleImage: {fileID: 0}
-  SpeechBubbleText: {fileID: 0}
+  SpeechBubbleImage: {fileID: 289416083}
+  SpeechBubbleText: {fileID: 327340060}
   npcQueueManager: {fileID: 0}
   currentState: 0
 --- !u!1 &1644301192
@@ -7192,10 +7192,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6037557445645221770, guid: 877cab8b4720b0e4c92de19658a5d543, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1631213326}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 877cab8b4720b0e4c92de19658a5d543, type: 3}
 --- !u!1 &1743785613
 GameObject:
