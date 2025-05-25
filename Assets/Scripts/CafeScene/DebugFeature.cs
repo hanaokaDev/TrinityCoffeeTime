@@ -4,20 +4,32 @@ using UnityEngine.UI;
 public class DebugFeature : MonoBehaviour
 {
     public GameObject npcPrefab;
-    
-    
+    public GameObject mikaPrefab;
+
+
     public void SpawnNpc()
     {
-        if (npcPrefab != null && CafeSceneManager.Instance.npcSpawnPosition != null)
+        SpawnPrefab(npcPrefab);
+    }
+
+    public void SpawnMika()
+    {
+        SpawnPrefab(mikaPrefab);
+    }
+
+    private void SpawnPrefab(GameObject targetPrefab)
+    {
+        if (targetPrefab != null && CafeSceneManager.Instance.npcSpawnPosition != null)
         {
-            GameObject spawnedNpc = Instantiate(npcPrefab, CafeSceneManager.Instance.npcSpawnPosition.position, Quaternion.identity);
-            
+            GameObject spawnedNpc = Instantiate(targetPrefab, CafeSceneManager.Instance.npcSpawnPosition.position, Quaternion.identity);
+
             // NpcMover 컴포넌트에 필요한 값 설정
             NpcMover mover = spawnedNpc.GetComponent<NpcMover>();
-            if (mover != null){
+            if (mover != null)
+            {
                 mover.SpawnPosition = CafeSceneManager.Instance.npcSpawnPosition;
             }
-            
+
             Debug.Log("Spawned new NPC at " + CafeSceneManager.Instance.npcSpawnPosition.position);
         }
         else
@@ -25,4 +37,6 @@ public class DebugFeature : MonoBehaviour
             Debug.LogError("NPC Prefab or Spawn Position not assigned!");
         }
     }
+    
+
 }
