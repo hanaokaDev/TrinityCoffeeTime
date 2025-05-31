@@ -291,7 +291,7 @@ public class NpcMover : MonoBehaviour
         }
     }
 
-    protected IEnumerator Coroutine_Eat()
+    protected virtual IEnumerator Coroutine_Eat()
     {
         Debug.Log("NPC: Eating/Drinking...");
 
