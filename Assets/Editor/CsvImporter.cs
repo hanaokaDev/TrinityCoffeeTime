@@ -5,6 +5,14 @@ using System.Collections.Generic;
 
 public class DialogueCsvImporter
 {
+    private const int DIALOGUE_ID = 0;
+    private const int STEP_ID = 1;
+    private const int TEXT = 2;
+    private const int CHOICE1_TEXT = 3;
+    private const int CHOICE1_NEXT_STEP_ID = 4;
+    private const int CHOICE2_TEXT = 5;
+    private const int CHOICE2_NEXT_STEP_ID = 6;
+
     [MenuItem("Tools/Import Dialogue CSV")]
     public static void ImportDialogueCsv()
     {
@@ -18,9 +26,9 @@ public class DialogueCsvImporter
         {
             var cols = lines[i].Split(',');
 
-            int dialogueId = int.Parse(cols[0]);
-            int stepId = int.Parse(cols[1]);
-            string text = cols[2].Trim('"');
+            int dialogueId = int.Parse(cols[DIALOGUE_ID]);
+            int stepId = int.Parse(cols[STEP_ID]);
+            string text = cols[TEXT].Trim('"');
 
             DialogueStep step = new DialogueStep
             {
@@ -30,21 +38,21 @@ public class DialogueCsvImporter
             };
 
             // choice1
-            if (!string.IsNullOrEmpty(cols[3]))
+            if (!string.IsNullOrEmpty(cols[CHOICE1_TEXT]))
             {
                 step.choices.Add(new DialogueChoice
                 {
-                    choiceText = cols[3],
-                    nextStepId = string.IsNullOrEmpty(cols[4]) ? -1 : int.Parse(cols[4])
+                    choiceText = cols[CHOICE1_TEXT],
+                    nextStepId = string.IsNullOrEmpty(cols[CHOICE1_NEXT_STEP_ID]) ? -1 : int.Parse(cols[CHOICE1_NEXT_STEP_ID])
                 });
             }
             // choice2
-            if (!string.IsNullOrEmpty(cols[5]))
+            if (!string.IsNullOrEmpty(cols[CHOICE2_TEXT]))
             {
                 step.choices.Add(new DialogueChoice
                 {
-                    choiceText = cols[5],
-                    nextStepId = string.IsNullOrEmpty(cols[6]) ? -1 : int.Parse(cols[6])
+                    choiceText = cols[CHOICE2_TEXT],
+                    nextStepId = string.IsNullOrEmpty(cols[CHOICE2_NEXT_STEP_ID]) ? -1 : int.Parse(cols[CHOICE2_NEXT_STEP_ID])
                 });
             }
 

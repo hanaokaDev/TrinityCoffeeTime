@@ -10,15 +10,29 @@ public class IntroUI : TalkboxUI
     [SerializeField]
     private Text targetText;
 
+    private DialogueScript dialogueScript;
+
     public override void Open()
     {
+        dialogueScript = Resources.Load<DialogueScript>("DialogueScript_100");
+        if (dialogueScript == null)
+        {
+            Debug.LogError("DialogueScript not found!");
+            return;
+        }
+
         List<string> textList = new List<string>();
-        textList.Add("어 아이리?");
-        textList.Add("마침 잘 왔어. 지금 한참 손이 모자라거든.");
-        textList.Add("이제 막 오픈한 카페라서 손님이 많아.");
-        textList.Add("이런 날에 한탕 벌지 못하면 정말 큰일 나지.");
-        textList.Add("아무튼, 오늘은 특별히 손님이 많아서");
-        textList.Add("너한테 일을 부탁할게.");
+        foreach (var step in dialogueScript.steps)
+        {
+            textList.Add(step.text);
+        }
+
+        if (textList.Count == 0)
+        {
+            Debug.LogWarning("DialogueScript_100에 대사가 없습니다.");
+            return;
+        }
+
 
         string text = textList[0];
         gameObject.SetActive(true);
