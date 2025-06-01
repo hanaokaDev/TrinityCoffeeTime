@@ -4745,6 +4745,7 @@ GameObject:
   - component: {fileID: 1042351800}
   - component: {fileID: 1042351803}
   - component: {fileID: 1042351802}
+  - component: {fileID: 1042351804}
   m_Layer: 5
   m_Name: Talkbox UI
   m_TagString: Untagged
@@ -4814,6 +4815,64 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1042351799}
   m_CullTransparentMesh: 1
+--- !u!114 &1042351804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1042351799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5391deda977c3742a6fad3ae9d53093, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetText: {fileID: 1659496856}
+--- !u!1 &1052745274
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1052745276}
+  - component: {fileID: 1052745275}
+  m_Layer: 0
+  m_Name: Talkbox UI Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1052745275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1052745274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6307c40aeb697f4d9dac3bab6f1323d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  talkBoxUI: {fileID: 1042351804}
+--- !u!4 &1052745276
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1052745274}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1057362426
 GameObject:
   m_ObjectHideFlags: 0
@@ -8785,3 +8844,4 @@ SceneRoots:
   - {fileID: 1457373967}
   - {fileID: 233139557}
   - {fileID: 1057509042}
+  - {fileID: 1052745276}

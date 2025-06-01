@@ -312,7 +312,7 @@ public class NpcMover : MonoBehaviour
         currentState = NpcState.LEAVING;
     }
 
-    protected IEnumerator Coroutine_Leave()
+    protected virtual IEnumerator Coroutine_Leave()
     {
         Debug.Log("NPC: Leaving...");
         targetTableObject.isTableOccupied = false; // 테이블 사용 중 상태 해제
@@ -355,7 +355,7 @@ public class NpcMover : MonoBehaviour
             }
             else
             {
-                Debug.LogWarning("SpawnPosition is null!");
+                Debug.LogWarning("SpawnPosition is null! ");
             }
         }
     }

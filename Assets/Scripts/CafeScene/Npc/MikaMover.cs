@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MikaMover : NpcMover
 {
+    public TalkboxUIManager talkBoxUIManager;
 
     protected override IEnumerator Coroutine_Eat()
     {
@@ -24,6 +25,13 @@ public class MikaMover : NpcMover
         // 5초 후 떠남
         yield return new WaitForSeconds(5f);
         currentState = NpcState.LEAVING;
+    }
+
+    
+    protected override IEnumerator Coroutine_Leave()
+    {
+        TalkboxUIManager.Instance.StartDialogue(101);
+        yield return base.Coroutine_Leave();
     }
 
 }

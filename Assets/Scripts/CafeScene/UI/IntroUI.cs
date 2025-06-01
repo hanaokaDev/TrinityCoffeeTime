@@ -4,11 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 
-public enum CharacterIndex
-{
-    Yoshimi,
-    Mika,
-}
 
 public class IntroUI : MonoBehaviour
 {
