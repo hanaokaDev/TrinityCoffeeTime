@@ -24,7 +24,7 @@ public class TalkboxUIManager : MonoBehaviour
         DialogueScript dialogueScript = Resources.Load<DialogueScript>($"DialogueScript_{dialogueId}");
         if (dialogueScript == null)
         {
-            Debug.LogError($"StartDialogue: DialogueScript_{dialogueId} not found! ");
+            Debug.LogError($"StartDialogue: DialogueScript_{dialogueId} not found!");
             return;
         }
 
