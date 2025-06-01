@@ -3,6 +3,8 @@ using UnityEditor;
 using System.IO;
 using System.Collections.Generic;
 
+// using CsvHelper;
+
 public class DialogueCsvImporter
 {
     private const int DIALOGUE_ID = 0;
@@ -24,6 +26,7 @@ public class DialogueCsvImporter
 
         for (int i = 1; i < lines.Length; i++) // 0번은 헤더
         {
+            Debug.Log($"Processing line {i}: {lines[i]}");
             var cols = lines[i].Split(',');
 
             int dialogueId = int.Parse(cols[DIALOGUE_ID]);
@@ -37,6 +40,9 @@ public class DialogueCsvImporter
                 choices = new List<DialogueChoice>()
             };
 
+            Debug.Log($"Dialogue ID: {dialogueId}, Step ID: {stepId}, Text: {text}");
+            Debug.Log($"Choice1: {cols[CHOICE1_TEXT]}, Next Step ID: {cols[CHOICE1_NEXT_STEP_ID]}");
+            Debug.Log($"Choice2: {cols[CHOICE2_TEXT]}, Next Step ID: {cols[CHOICE2_NEXT_STEP_ID]}");
             // choice1
             if (!string.IsNullOrEmpty(cols[CHOICE1_TEXT]))
             {
