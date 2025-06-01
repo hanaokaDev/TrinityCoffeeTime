@@ -21,7 +21,7 @@ public class TalkboxUI : MonoBehaviour
     public Image[] characterImages; // 캐릭터 이미지 배열 <- Inspector에서 설정
 
     [SerializeField]
-    private Text targetText;
+    protected Text targetText;
 
 
     // public UnityEvent onTextCompleted = new UnityEvent();

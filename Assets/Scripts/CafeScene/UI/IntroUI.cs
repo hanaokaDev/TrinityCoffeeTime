@@ -7,9 +7,6 @@ using UnityEngine.Events;
 public class IntroUI : TalkboxUI
 {
 
-    [SerializeField]
-    private Text targetText;
-
     private DialogueScript dialogueScript;
 
     public override void Open()

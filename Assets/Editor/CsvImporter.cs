@@ -3,75 +3,93 @@ using UnityEditor;
 using System.IO;
 using System.Collections.Generic;
 
-// using CsvHelper;
+using CsvHelper;
+using System.Globalization;
+using CsvHelper.Configuration;
+
+public class CsvDialogueRow
+{
+    public int dialogueId { get; set; }
+    public int stepId { get; set; }
+    public string text { get; set; }
+    public string choice1Text { get; set; }
+    public int? choice1NextStepId { get; set; }
+    public string choice2Text { get; set; }
+    public int? choice2NextStepId { get; set; }
+}
+
+public class CsvDialogueRowMap : ClassMap<CsvDialogueRow>
+{
+    public CsvDialogueRowMap()
+    {
+        Map(m => m.dialogueId).Name("dialogueId");
+        Map(m => m.stepId).Name("stepId");
+        Map(m => m.text).Name("text");
+        Map(m => m.choice1Text).Name("choice1Text").Optional();
+        Map(m => m.choice1NextStepId).Name("choice1NextStepId").Optional();
+        Map(m => m.choice2Text).Name("choice2Text").Optional();
+        Map(m => m.choice2NextStepId).Name("choice2NextStepId").Optional();
+    }
+}
 
 public class DialogueCsvImporter
 {
-    private const int DIALOGUE_ID = 0;
-    private const int STEP_ID = 1;
-    private const int TEXT = 2;
-    private const int CHOICE1_TEXT = 3;
-    private const int CHOICE1_NEXT_STEP_ID = 4;
-    private const int CHOICE2_TEXT = 5;
-    private const int CHOICE2_NEXT_STEP_ID = 6;
-
-    [MenuItem("Tools/Import Dialogue CSV")]
+    [MenuItem("myTools/Import Dialogue CSV")]
     public static void ImportDialogueCsv()
     {
         string path = EditorUtility.OpenFilePanel("Select Dialogue CSV", Application.dataPath, "csv");
         if (string.IsNullOrEmpty(path)) return;
 
-        var lines = File.ReadAllLines(path);
         Dictionary<int, DialogueScript> dialogueDict = new Dictionary<int, DialogueScript>();
 
-        for (int i = 1; i < lines.Length; i++) // 0번은 헤더
+
+        // var lines = File.ReadAllLines(path);
+        using (var reader = new StreamReader(path))
+        using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
         {
-            Debug.Log($"Processing line {i}: {lines[i]}");
-            var cols = lines[i].Split(',');
+            // TrimOptions = TrimOptions.Trim
+            // 헤더 자동 매핑
+            csv.Context.RegisterClassMap<CsvDialogueRowMap>(); // ClassMap 등록 (최신 버전)
+            var records = csv.GetRecords<CsvDialogueRow>();
 
-            int dialogueId = int.Parse(cols[DIALOGUE_ID]);
-            int stepId = int.Parse(cols[STEP_ID]);
-            string text = cols[TEXT].Trim('"');
-
-            DialogueStep step = new DialogueStep
+            foreach (var row in records)
             {
-                stepId = stepId,
-                text = text,
-                choices = new List<DialogueChoice>()
-            };
-
-            Debug.Log($"Dialogue ID: {dialogueId}, Step ID: {stepId}, Text: {text}");
-            Debug.Log($"Choice1: {cols[CHOICE1_TEXT]}, Next Step ID: {cols[CHOICE1_NEXT_STEP_ID]}");
-            Debug.Log($"Choice2: {cols[CHOICE2_TEXT]}, Next Step ID: {cols[CHOICE2_NEXT_STEP_ID]}");
-            // choice1
-            if (!string.IsNullOrEmpty(cols[CHOICE1_TEXT]))
-            {
-                step.choices.Add(new DialogueChoice
+                DialogueStep step = new DialogueStep
                 {
-                    choiceText = cols[CHOICE1_TEXT],
-                    nextStepId = string.IsNullOrEmpty(cols[CHOICE1_NEXT_STEP_ID]) ? -1 : int.Parse(cols[CHOICE1_NEXT_STEP_ID])
-                });
-            }
-            // choice2
-            if (!string.IsNullOrEmpty(cols[CHOICE2_TEXT]))
-            {
-                step.choices.Add(new DialogueChoice
-                {
-                    choiceText = cols[CHOICE2_TEXT],
-                    nextStepId = string.IsNullOrEmpty(cols[CHOICE2_NEXT_STEP_ID]) ? -1 : int.Parse(cols[CHOICE2_NEXT_STEP_ID])
-                });
-            }
+                    stepId = row.stepId,
+                    text = row.text,
+                    choices = new List<DialogueChoice>()
+                };
 
-            // ScriptableObject 생성 및 데이터 추가
-            DialogueScript script;
-            if (!dialogueDict.TryGetValue(dialogueId, out script))
-            {
-                script = ScriptableObject.CreateInstance<DialogueScript>();
-                script.dialogueId = dialogueId;
-                script.steps = new List<DialogueStep>();
-                dialogueDict.Add(dialogueId, script);
+                // choice1
+                if (!string.IsNullOrEmpty(row.choice1Text))
+                {
+                    step.choices.Add(new DialogueChoice
+                    {
+                        choiceText = row.choice1Text,
+                        nextStepId = row.choice1NextStepId != null ? row.choice1NextStepId.Value : 0
+                    });
+                }
+                // choice2
+                if (!string.IsNullOrEmpty(row.choice2Text))
+                {
+                    step.choices.Add(new DialogueChoice
+                    {
+                        choiceText = row.choice2Text,
+                        nextStepId = row.choice2NextStepId != null ? row.choice2NextStepId.Value : 0    
+                    });
+                }
+
+                DialogueScript script;
+                if (!dialogueDict.TryGetValue(row.dialogueId, out script))
+                {
+                    script = ScriptableObject.CreateInstance<DialogueScript>();
+                    script.dialogueId = row.dialogueId;
+                    script.steps = new List<DialogueStep>();
+                    dialogueDict.Add(row.dialogueId, script);
+                }
+                script.steps.Add(step);
             }
-            script.steps.Add(step);
         }
 
         // ScriptableObject 저장

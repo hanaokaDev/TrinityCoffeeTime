@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: DialogueScript_101
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueScript
+  dialogueId: 101
+  steps:
+  - stepId: 1
+    text: "\uBBF8\uCE74: \uD64D\uCC28\uB9CC \uB9E4\uC77C \uBA39\uC5C8\uB294\uB370,
+      \uCEE4\uD53C\uB3C4 \uB098\uC058\uC9C0 \uC54A\uB124!"
+    choices: []
+  - stepId: 2
+    text: "\uC694\uC2DC\uBBF8: \uADF8\uB807\uC8E0! \uC800\uD76C\uB294 \uB85C\uC2A4\uD305\uBD80\uD130
+      \uC9C1\uC811 \uD558\uB2C8\uAE4C\uC694"
+    choices: []
+  - stepId: 3
+    text: "\uBBF8\uCE74: \uB2E4\uC74C\uC5D0 \uBC29\uBB38\uD560\uB54C\uB294 \uBC29\uAE08
+      \uBA39\uC740 \uC544\uBA54\uB9AC\uCE74\uB178\uC640 \uD568\uAED8 \uB864\uCF00\uC775\uB3C4
+      \uBA39\uACE0 \uC2F6\uC740\uB370, \uBD80\uD0C1\uD574\uB3C4 \uB420\uAE4C?"
+    choices:
+    - choiceText: "\uBB3C\uB860\uC774\uC8E0!"
+      nextStepId: 4
+    - choiceText: "\uC544\uB2C8\uC694 \uC800\uD770 \uBE75\uB958\uB294 \uCDE8\uAE09\uD558\uC9C0
+        \uC54A\uC544\uC11C\uC694"
+      nextStepId: 5
+  - stepId: 4
+    text: "\uACE0\uB9C8\uC6CC! \uB0B4\uC77C \uB610 \uC62C\uAC8C!"
+    choices: []
+  - stepId: 5
+    text: "\uC544\uC27D\uB124..."
+    choices: []
