@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 21f6e75131065754fbc1d33533256e01
+guid: 536cf907fc0f3ed4e932f52636a4d031
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,9 +123,9 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Cafe_MainMap-export
+  - name: FoodDisplay
     originalName: 
-    pivot: {x: 0.5012987, y: 0}
+    pivot: {x: 0.5463415, y: -0.8333334}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -133,9 +133,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 385
-      height: 256
-    spriteID: 1dbe53c402511fa4691115be3f9c556d
+      width: 410
+      height: 192
+    spriteID: 90202e8f84dbbb148969b7548de7e70e
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -147,21 +147,21 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 1003211098
-    name: Cafe_MainMap-export
+    guid: 315196156
+    name: FoodDisplay
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Cafe_MainMap-export
+    - name: FoodDisplay
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: -1
-        y: 0
-        width: 385
-        height: 256
-      spriteId: 1dbe53c402511fa4691115be3f9c556d
+        x: 32
+        y: 160
+        width: 410
+        height: 192
+      spriteId: 90202e8f84dbbb148969b7548de7e70e
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -180,5 +180,5 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 384, y: 256}
-  previousTextureSize: {x: 512, y: 512}
+  canvasSize: {x: 512, y: 512}
+  previousTextureSize: {x: 512, y: 256}
