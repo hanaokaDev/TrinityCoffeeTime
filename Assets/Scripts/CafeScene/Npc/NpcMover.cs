@@ -30,7 +30,7 @@ public enum NpcState
 
 public class NpcMover : MonoBehaviour
 {
-    public PlayerItem MenuToOrder = PlayerItem.NONE;
+    public PlayerItemEnum MenuToOrder = PlayerItemEnum.NONE;
     public Transform SpawnPosition; // 스폰위치와 퇴장위치가 동일함
 
     public Image SpeechBubbleImage;
@@ -253,13 +253,13 @@ public class NpcMover : MonoBehaviour
         switch (randomMenu)
         {
             case 1:
-                MenuToOrder = PlayerItem.WATER;
+                MenuToOrder = PlayerItemEnum.WATER;
                 break;
             case 2:
-                MenuToOrder = PlayerItem.ESPRESSO;
+                MenuToOrder = PlayerItemEnum.ESPRESSO;
                 break;
             case 3:
-                MenuToOrder = PlayerItem.AMERICANO;
+                MenuToOrder = PlayerItemEnum.AMERICANO;
                 break;
         }
 
@@ -419,7 +419,7 @@ public class NpcMover : MonoBehaviour
     }
 
     // 주문 배달 처리(TableAndChairs.cs에서 호출됨)
-    public void DeliverOrder(PlayerItem deliveredItem)
+    public void DeliverOrder(PlayerItemEnum deliveredItem)
     {
         if (deliveredItem == MenuToOrder)
         {
@@ -433,7 +433,7 @@ public class NpcMover : MonoBehaviour
     }
 
     // 주문 정보 얻기 (외부에서 조회용)
-    public PlayerItem GetOrder()
+    public PlayerItemEnum GetOrder()
     {
         return MenuToOrder;
     }

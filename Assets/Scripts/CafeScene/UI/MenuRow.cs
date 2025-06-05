@@ -19,8 +19,8 @@ public class MenuRow : MonoBehaviour
     // }}}
     public const int MAXIMUM_MATERIAL_NUM = 3;
 
-    public PlayerItem[] selectedItems = new PlayerItem[MAXIMUM_MATERIAL_NUM]; // 필요한 재료
-    public PlayerItem resultItem;
+    public PlayerItemEnum[] selectedItems = new PlayerItemEnum[MAXIMUM_MATERIAL_NUM]; // 필요한 재료
+    public PlayerItemEnum resultItem;
 
     private bool IsCookReady()
     {
@@ -30,7 +30,7 @@ public class MenuRow : MonoBehaviour
         }
 
         for(int currentMaterialIndex=0; currentMaterialIndex<MAXIMUM_MATERIAL_NUM; currentMaterialIndex++){
-            if(selectedItems[currentMaterialIndex] == PlayerItem.NONE) continue;
+            if(selectedItems[currentMaterialIndex] == PlayerItemEnum.NONE) continue;
 
             // 해당 재료를 tray가 가지고있는지 체크
             for(int trayItemIndex=0; trayItemIndex<PlayerMover.MAXIMUM_TRAY_SIZE; trayItemIndex++){
@@ -53,7 +53,7 @@ public class MenuRow : MonoBehaviour
 
     private void RemoveMaterialsFromTray(){
         for(int currentMaterialIndex=0; currentMaterialIndex<MAXIMUM_MATERIAL_NUM; currentMaterialIndex++){
-            if(selectedItems[currentMaterialIndex] == PlayerItem.NONE) continue;
+            if(selectedItems[currentMaterialIndex] == PlayerItemEnum.NONE) continue;
 
             // 해당 재료를 tray가 가지고있는지 체크
             for(int trayItemIndex=0; trayItemIndex<PlayerMover.MAXIMUM_TRAY_SIZE; trayItemIndex++){

@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerMover : MonoBehaviour
 {
     public const int MAXIMUM_TRAY_SIZE = 3;
-    public static int MAXIMUM_ITEM_NUM = PlayerItem.GetNames(typeof(PlayerItem)).Length; // 최대 아이템 수
+    public static int MAXIMUM_ITEM_NUM = PlayerItemEnum.GetNames(typeof(PlayerItemEnum)).Length; // 최대 아이템 수
 
     protected Animator animator;
     public MoveDirection moveDirection;
@@ -14,15 +14,15 @@ public class PlayerMover : MonoBehaviour
 
     public bool isOwned = true; // 플레이어 소유 여부. 멀티플레이 확장을 위해 추가함.
 
-    public PlayerItem[] items = new PlayerItem[MAXIMUM_TRAY_SIZE]; // 플레이어가 소지할 수 있는 아이템 배열 (예: 물, 에스프레소, 아메리카노)
+    public PlayerItemEnum[] items = new PlayerItemEnum[MAXIMUM_TRAY_SIZE]; // 플레이어가 소지할 수 있는 아이템 배열 (예: 물, 에스프레소, 아메리카노)
 
 
-    public bool AddItem(PlayerItem item)
+    public bool AddItem(PlayerItemEnum item)
     {
         // 아이템을 인벤토리에 추가하는 로직
         for (int i = 0; i < items.Length; i++)
         {
-            if (items[i] == PlayerItem.NONE)
+            if (items[i] == PlayerItemEnum.NONE)
             {
                 items[i] = item;
                 HudManager.Instance.SetItemToTray(item, i); // 트레이에 아이템 추가
@@ -33,15 +33,15 @@ public class PlayerMover : MonoBehaviour
         Debug.Log("Inventory is full! Cannot add " + item);
         return false;
     }
-    public bool RemoveItem(PlayerItem item)
+    public bool RemoveItem(PlayerItemEnum item)
     {
         // 아이템을 인벤토리에서 삭제하는 로직
         for (int i = 0; i < items.Length; i++)
         {
             if (items[i] == item)
             {
-                items[i] = PlayerItem.NONE;
-                HudManager.Instance.SetItemToTray(PlayerItem.NONE, i); // 트레이에서 아이템 삭제
+                items[i] = PlayerItemEnum.NONE;
+                HudManager.Instance.SetItemToTray(PlayerItemEnum.NONE, i); // 트레이에서 아이템 삭제
                 Debug.Log("Removed " + item + " from inventory at index " + i);
                 return true;
             }
@@ -128,7 +128,7 @@ public class PlayerMover : MonoBehaviour
 
 
 
-public enum PlayerItem {
+public enum PlayerItemEnum {
     NONE,
     WATER,
     ESPRESSO,

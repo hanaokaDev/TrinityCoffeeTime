@@ -18,7 +18,7 @@ public class SpriteManager : MonoBehaviour
     private Sprite[] playerItemSprites; // 플레이어 아이템 스프라이트 배열
     // }}}
 
-    public Sprite GetItemSprite(PlayerItem item)
+    public Sprite GetItemSprite(PlayerItemEnum item)
     {
         return playerItemSprites[(int)item];
     }

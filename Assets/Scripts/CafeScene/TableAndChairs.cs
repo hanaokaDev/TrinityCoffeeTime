@@ -7,8 +7,8 @@ public class TableAndChairs : MonoBehaviour
     public GameObject ServeUI; // 서빙 UI
     // }}}
     private ServeUIManager serveUIManager;
-    private PlayerItem foodItem = PlayerItem.NONE; // 테이블에 놓일 음식 아이템
-    private PlayerItem[] drinkItems = {PlayerItem.NONE, PlayerItem.NONE}; // 테이블에 놓일 음료 아이템
+    private PlayerItemEnum foodItem = PlayerItemEnum.NONE; // 테이블에 놓일 음식 아이템
+    private PlayerItemEnum[] drinkItems = {PlayerItemEnum.NONE, PlayerItemEnum.NONE}; // 테이블에 놓일 음료 아이템
 
     private PlayerMover chosenPlayer; // 현재 선택된 플레이어
     public bool isTableOccupied = false;
@@ -42,11 +42,11 @@ public class TableAndChairs : MonoBehaviour
         }
         return chairSitPositions[index];
     }
-    public PlayerItem GetFood()
+    public PlayerItemEnum GetFood()
     {
         return foodItem;
     }
-    public void SetFood(PlayerItem playerItem)
+    public void SetFood(PlayerItemEnum playerItem)
     {
         foodItem = playerItem;
         foodPosition.GetComponent<SpriteRenderer>().sprite = SpriteManager.Instance.GetItemSprite(playerItem);
@@ -61,16 +61,16 @@ public class TableAndChairs : MonoBehaviour
             sitter[1].DeliverOrder(playerItem);
         }
     }
-    public PlayerItem GetDrink(int index)
+    public PlayerItemEnum GetDrink(int index)
     {
         if(index < 0 || index >= drinkItems.Length)
         {
             Debug.LogError("Invalid drink index: " + index);
-            return PlayerItem.NONE;
+            return PlayerItemEnum.NONE;
         }
         return drinkItems[index];
     }
-    public void SetDrink(PlayerItem playerItem, int index)
+    public void SetDrink(PlayerItemEnum playerItem, int index)
     {
         if(index < 0 || index >= drinkItems.Length)
         {

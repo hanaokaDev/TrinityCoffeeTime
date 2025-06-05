@@ -72,8 +72,8 @@ public class ServeUIManager : MonoBehaviour
             return;
         }
 
-        PlayerItem selectedItem = player.items[currentSelectIndex];
-        if (selectedItem != PlayerItem.NONE)
+        PlayerItemEnum selectedItem = player.items[currentSelectIndex];
+        if (selectedItem != PlayerItemEnum.NONE)
         {
             // 서빙 아이템을 플레이어에게 전달
             tableAndChairs.SetFood(selectedItem);
@@ -85,7 +85,7 @@ public class ServeUIManager : MonoBehaviour
     {
         int emptyTrayItemIndex = -1;
         for(int trayItemIndex=0; trayItemIndex<PlayerMover.MAXIMUM_TRAY_SIZE; trayItemIndex++) {
-            if(player.items[trayItemIndex] == PlayerItem.NONE) {
+            if(player.items[trayItemIndex] == PlayerItemEnum.NONE) {
                 emptyTrayItemIndex = trayItemIndex;
                 break;
             }
@@ -94,12 +94,12 @@ public class ServeUIManager : MonoBehaviour
             Debug.LogWarning("No empty tray item index available!");
             return;
         }
-        if(tableAndChairs.GetFood() == PlayerItem.NONE) {
+        if(tableAndChairs.GetFood() == PlayerItemEnum.NONE) {
             Debug.LogWarning("No food item on table to reclaim!");
             return;
         }
         player.AddItem(tableAndChairs.GetFood()); // 플레이어에게 아이템 추가
-        tableAndChairs.SetFood(PlayerItem.NONE); // 테이블의 음식 아이템을 NONE으로 설정
+        tableAndChairs.SetFood(PlayerItemEnum.NONE); // 테이블의 음식 아이템을 NONE으로 설정
     }
 
     // private void ServeDrink(int index)
@@ -110,8 +110,8 @@ public class ServeUIManager : MonoBehaviour
     //         return;
     //     }
 
-    //     PlayerItem selectedItem = player.items[currentSelectIndex];
-    //     if (selectedItem != PlayerItem.NONE)
+    //     PlayerItemEnum selectedItem = player.items[currentSelectIndex];
+    //     if (selectedItem != PlayerItemEnum.NONE)
     //     {
     //         // 서빙 아이템을 플레이어에게 전달
     //         tableAndChairs.SetDrink(selectedItem, index);
@@ -123,7 +123,7 @@ public class ServeUIManager : MonoBehaviour
     // {
     //     int emptyTrayItemIndex = -1;
     //     for(int trayItemIndex=0; trayItemIndex<PlayerMover.MAXIMUM_TRAY_SIZE; trayItemIndex++) {
-    //         if(player.items[trayItemIndex] == PlayerItem.NONE) {
+    //         if(player.items[trayItemIndex] == PlayerItemEnum.NONE) {
     //             emptyTrayItemIndex = trayItemIndex;
     //             break;
     //         }
@@ -132,12 +132,12 @@ public class ServeUIManager : MonoBehaviour
     //         Debug.LogWarning("No empty tray item index available!");
     //         return;
     //     }
-    //     if(tableAndChairs.GetDrink(index) == PlayerItem.NONE) {
+    //     if(tableAndChairs.GetDrink(index) == PlayerItemEnum.NONE) {
     //         Debug.LogWarning("No drink item on table to reclaim!");
     //         return;
     //     }
     //     player.AddItem(tableAndChairs.GetDrink(index)); // 플레이어에게 아이템 추가
-    //     tableAndChairs.SetDrink(PlayerItem.NONE, index); // 테이블의 음식 아이템을 NONE으로 설정
+    //     tableAndChairs.SetDrink(PlayerItemEnum.NONE, index); // 테이블의 음식 아이템을 NONE으로 설정
     // }
 
 
