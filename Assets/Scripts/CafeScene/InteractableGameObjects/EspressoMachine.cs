@@ -25,17 +25,3 @@ public class EspressoMachine : InteractableItem
 
 }
 
-
-public enum EspressoType
-{
-    NONE,
-    ESPRESSO,
-    AMERICANO,
-    CARAMEL_MACCHIATO,
-    CAPPUCCINO,
-    LATTE,
-    MOCHA,
-    MACCHIATO,
-    CARAMEL_LATTE,
-    VANILLA_LATTE
-}
