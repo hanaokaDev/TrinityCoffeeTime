@@ -128,11 +128,13 @@ public class PlayerMover : MonoBehaviour
 
 
 
-public enum PlayerItemEnum {
+public enum PlayerItemEnum
+{
     NONE,
     WATER,
     ESPRESSO,
-    AMERICANO
+    AMERICANO,
+    STRAWBERRY_SYRUP,
 }
 
 
