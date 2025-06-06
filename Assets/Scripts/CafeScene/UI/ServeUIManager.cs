@@ -72,12 +72,13 @@ public class ServeUIManager : MonoBehaviour
             return;
         }
 
-        PlayerItemEnum selectedItem = player.items[currentSelectIndex];
-        if (selectedItem != PlayerItemEnum.NONE)
+        PlayerItemData selectedItem = player.playerItems[currentSelectIndex].data;
+        if (selectedItem.itemType != PlayerItemEnum.NONE)
         {
             // 서빙 아이템을 플레이어에게 전달
             tableAndChairs.SetFood(selectedItem);
-            player.RemoveItem(selectedItem);
+            // player.RemoveItem(selectedItem.itemType);
+            player.RemoveItemByIndex(currentSelectIndex); // TODO: 동일한 상품이 Tray에 있을 경우, Cursor가 Set된 상품이 제거되게끔, RemoveItemByIndex를 만들어야 함.
             Debug.Log("Served item: " + selectedItem);
         }
     }
@@ -85,7 +86,7 @@ public class ServeUIManager : MonoBehaviour
     {
         int emptyTrayItemIndex = -1;
         for(int trayItemIndex=0; trayItemIndex<PlayerMover.MAXIMUM_TRAY_SIZE; trayItemIndex++) {
-            if(player.items[trayItemIndex] == PlayerItemEnum.NONE) {
+            if(player.playerItems[trayItemIndex].data.itemType == PlayerItemEnum.NONE) {
                 emptyTrayItemIndex = trayItemIndex;
                 break;
             }
@@ -94,12 +95,12 @@ public class ServeUIManager : MonoBehaviour
             Debug.LogWarning("No empty tray item index available!");
             return;
         }
-        if(tableAndChairs.GetFood() == PlayerItemEnum.NONE) {
+        if(tableAndChairs.GetFood().itemType == PlayerItemEnum.NONE) {
             Debug.LogWarning("No food item on table to reclaim!");
             return;
         }
         player.AddItem(tableAndChairs.GetFood()); // 플레이어에게 아이템 추가
-        tableAndChairs.SetFood(PlayerItemEnum.NONE); // 테이블의 음식 아이템을 NONE으로 설정
+        tableAndChairs.SetFood(PlayerItemData.Empty); // 테이블의 음식 아이템을 NONE으로 설정
     }
 
     // private void ServeDrink(int index)
