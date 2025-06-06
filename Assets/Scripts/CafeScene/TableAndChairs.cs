@@ -7,8 +7,8 @@ public class TableAndChairs : MonoBehaviour
     public GameObject ServeUI; // 서빙 UI
     // }}}
     private ServeUIManager serveUIManager;
-    private PlayerItemEnum foodItem = PlayerItemEnum.NONE; // 테이블에 놓일 음식 아이템
-    private PlayerItemEnum[] drinkItems = {PlayerItemEnum.NONE, PlayerItemEnum.NONE}; // 테이블에 놓일 음료 아이템
+    private PlayerItemData foodItem = PlayerItemData.Empty; // 테이블에 놓일 음식 아이템
+    private PlayerItemData[] drinkItems = {PlayerItemData.Empty, PlayerItemData.Empty}; // 테이블에 놓일 음료 아이템
 
     private PlayerMover chosenPlayer; // 현재 선택된 플레이어
     public bool isTableOccupied = false;
@@ -42,14 +42,14 @@ public class TableAndChairs : MonoBehaviour
         }
         return chairSitPositions[index];
     }
-    public PlayerItemEnum GetFood()
+    public PlayerItemData GetFood()
     {
         return foodItem;
     }
-    public void SetFood(PlayerItemEnum playerItem)
+    public void SetFood(PlayerItemData playerItem)
     {
         foodItem = playerItem;
-        foodPosition.GetComponent<SpriteRenderer>().sprite = SpriteManager.Instance.GetItemSprite(playerItem);
+        foodPosition.GetComponent<SpriteRenderer>().sprite = SpriteManager.Instance.GetItemSprite(playerItem.itemType);
         foodPosition.GetComponent<SpriteRenderer>().transform.localScale = new Vector3(.3f, .3f, 1); // 스프라이트 크기 조정
 
         if(sitter[0] != null)
@@ -61,16 +61,16 @@ public class TableAndChairs : MonoBehaviour
             sitter[1].DeliverOrder(playerItem);
         }
     }
-    public PlayerItemEnum GetDrink(int index)
+    public PlayerItemData GetDrink(int index)
     {
         if(index < 0 || index >= drinkItems.Length)
         {
             Debug.LogError("Invalid drink index: " + index);
-            return PlayerItemEnum.NONE;
+            return PlayerItemData.Empty;
         }
         return drinkItems[index];
     }
-    public void SetDrink(PlayerItemEnum playerItem, int index)
+    public void SetDrink(PlayerItemData playerItem, int index)
     {
         if(index < 0 || index >= drinkItems.Length)
         {
@@ -78,7 +78,7 @@ public class TableAndChairs : MonoBehaviour
             return;
         }
         drinkItems[index] = playerItem;
-        drinkPositions[index].GetComponent<SpriteRenderer>().sprite = SpriteManager.Instance.GetItemSprite(playerItem);
+        drinkPositions[index].GetComponent<SpriteRenderer>().sprite = SpriteManager.Instance.GetItemSprite(playerItem.itemType);
         Debug.Log("SetDrink: " + playerItem + " at index " + index);
     }
 
