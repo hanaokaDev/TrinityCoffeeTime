@@ -20,18 +20,21 @@ public class TasteLevels
     public int[] tasteLevels = new int[Enum.GetNames(typeof(TasteEnum)).Length];
 }
 
-public class PlayerItem : MonoBehaviour
+[System.Serializable]
+public class PlayerItemData
 {
-    public PlayerItemEnum itemType; // 아이템 종류
-    public PlayerItemEnum[] Ingredients; // 추가적으로 들어간 재료들(딸기시럽 등)
+    public PlayerItemEnum itemType;
+    public PlayerItemEnum[] Ingredients;
 
-    // 맛 레벨 (0~10) - 각 맛에 대한 레벨을 저장하는 배열
-    public TasteLevels tasteLevel
+    // Empty 객체 캐싱
+    public static readonly PlayerItemData Empty = new PlayerItemData(PlayerItemEnum.NONE, new PlayerItemEnum[] { });
+
+    public PlayerItemData(PlayerItemEnum itemTypeArg, PlayerItemEnum[] ingredientsArgs)
     {
-        get { return CalculateTasteLevel(itemType, Ingredients); }
-        set { /* setter는 필요 없으므로 비워둠 */ }
+        itemType = itemTypeArg;
+        Ingredients = ingredientsArgs;
+        SetDefaultTasteLevel(); // itemTypeArg에 의한 기본 맛 레벨 설정
     }
-    // public TasteLevels tasteLevel = { get { return CalculateTasteLevel(); } set {};}
 
     // 각 아이템의 기본 맛 레벨을 저장하는 배열
     static public TasteLevels[] defaultTasteLevel = new TasteLevels[Enum.GetNames(typeof(PlayerItemEnum)).Length];
@@ -72,27 +75,14 @@ public class PlayerItem : MonoBehaviour
         }
     }
 
-    // 생성자 선언
-    public PlayerItem(PlayerItemEnum itemTypeArg, PlayerItemEnum[] ingredientsArgs)
-    {
-        itemType = itemTypeArg;
-        Ingredients = ingredientsArgs;
-        SetDefaultTasteLevel(); // 기본 맛 레벨 설정        
-    }
-
-    public TasteLevels CalculateTasteLevel(PlayerItemEnum baseIngredient, PlayerItemEnum[] additionalIngredients)
+    // 데이터 관련 로직
+    public TasteLevels CalculateTasteLevel()
     {
         TasteLevels totalTasteLevel = new TasteLevels();
-        totalTasteLevel.tasteLevels = (int[])defaultTasteLevel[(int)baseIngredient].tasteLevels.Clone(); // 기본 맛 레벨 복사
+        totalTasteLevel.tasteLevels = (int[])defaultTasteLevel[(int)this.itemType].tasteLevels.Clone(); // 기본 맛 레벨 복사
 
-        foreach (var ingredient in additionalIngredients)
+        foreach (var ingredient in this.Ingredients)
         {
-            // // 각 재료의 맛 레벨을 계산하여 합산
-            // var ingredientTasteLevel = ingredient.GetComponent<PlayerItem>().tasteLevel;
-            // for (int i = 0; i < tasteLevel.Length; i++)
-            // {
-            //     tasteLevel[i] += ingredientTasteLevel[i];
-            // }
             if (ingredient == PlayerItemEnum.ESPRESSO)
             {
                 totalTasteLevel.tasteLevels[(int)TasteEnum.BITTER] += 5; // 에스프레소는 쓴맛이 강함
@@ -104,21 +94,24 @@ public class PlayerItem : MonoBehaviour
         }
         return totalTasteLevel;
     }
+}
 
-    public PlayerMover owner; // 이 아이템을 소유한 플레이어
-    public void SetOwner(PlayerMover player)
+public class PlayerItem : MonoBehaviour
+{
+    public PlayerItemData data;
+
+    // 맛 레벨 (0~10) - 각 맛에 대한 레벨을 저장하는 배열
+    public TasteLevels tasteLevel
     {
-        owner = player;
-    }
-    public void RemoveThisItem()
+        get { return data.CalculateTasteLevel(); }
+        set { /* setter는 필요 없으므로 비워둠 */ }
+    }    
+
+    public bool IsEmpty() => data == PlayerItemData.Empty || data.itemType == PlayerItemEnum.NONE;
+
+    public void Initialize(PlayerItemData itemData)
     {
-        if (owner != null)
-        {
-            owner.RemoveItem(itemType);
-        }
-        Destroy(gameObject); // 아이템 오브젝트 제거
+        data = itemData ?? PlayerItemData.Empty;
     }
-
-
 
 }
