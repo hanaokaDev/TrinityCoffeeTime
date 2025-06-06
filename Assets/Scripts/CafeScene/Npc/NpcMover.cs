@@ -419,9 +419,9 @@ public class NpcMover : MonoBehaviour
     }
 
     // 주문 배달 처리(TableAndChairs.cs에서 호출됨)
-    public void DeliverOrder(PlayerItemEnum deliveredItem)
+    public void DeliverOrder(PlayerItemData deliveredItem)
     {
-        if (deliveredItem == MenuToOrder)
+        if (deliveredItem.itemType == MenuToOrder)
         {
             isOrderDelivered = true;
             Debug.Log("Order delivered successfully: " + deliveredItem);
