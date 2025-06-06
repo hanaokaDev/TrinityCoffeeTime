@@ -12,7 +12,7 @@ public class WaterPurifier : InteractableItem
     {
         Debug.Log("Water Machine Clicked");
         if(currentTime >= maxTime){
-            bool isSuccess = chosenPlayer.AddItem(PlayerItemEnum.WATER); // 플레이어에게 물 아이템 추가
+            bool isSuccess = chosenPlayer.AddItem(new PlayerItemData(PlayerItemEnum.WATER, new PlayerItemEnum[] { })); // 플레이어에게 물 아이템 추가
             if(isSuccess){
                 progressBar.SetValue(0); // 정수기 리셋
             }
