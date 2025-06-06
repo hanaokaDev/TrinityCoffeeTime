@@ -36,7 +36,7 @@ public class MenuRow : MonoBehaviour
             for(int trayItemIndex=0; trayItemIndex<PlayerMover.MAXIMUM_TRAY_SIZE; trayItemIndex++){
                 if(isTraySelected[trayItemIndex] == true) continue; // 이미 선택된 재료는 스킵
 
-                if(player.items[trayItemIndex] == selectedItems[currentMaterialIndex]){
+                if(player.playerItems[trayItemIndex].data.itemType == selectedItems[currentMaterialIndex]){
                     isTraySelected[trayItemIndex] = true;
                     break;
                 }
@@ -57,7 +57,7 @@ public class MenuRow : MonoBehaviour
 
             // 해당 재료를 tray가 가지고있는지 체크
             for(int trayItemIndex=0; trayItemIndex<PlayerMover.MAXIMUM_TRAY_SIZE; trayItemIndex++){
-                if(player.items[trayItemIndex] == selectedItems[currentMaterialIndex]){
+                if(player.playerItems[trayItemIndex].data.itemType == selectedItems[currentMaterialIndex]){
                     player.RemoveItem(selectedItems[currentMaterialIndex]);
                     break;
                 }
@@ -65,7 +65,7 @@ public class MenuRow : MonoBehaviour
         }
     }
     private void AddResultToTray(){
-        bool isSuccess = player.AddItem(resultItem); // 플레이어에게 아이템 추가
+        bool isSuccess = player.AddItem(new PlayerItemData(resultItem, new PlayerItemEnum[] { })); // 플레이어에게 아이템 추가
         if(isSuccess){
             Debug.Log("Added " + resultItem + " to inventory!");
         }
