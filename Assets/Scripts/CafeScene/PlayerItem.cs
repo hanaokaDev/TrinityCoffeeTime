@@ -25,15 +25,23 @@ public class PlayerItemData
 {
     public PlayerItemEnum itemType;
     public PlayerItemEnum[] Ingredients;
+    public string uniqueId;
+
 
     // Empty 객체 캐싱
-    public static readonly PlayerItemData Empty = new PlayerItemData(PlayerItemEnum.NONE, new PlayerItemEnum[] { });
+    public static readonly PlayerItemData Empty = new PlayerItemData(PlayerItemEnum.NONE, new PlayerItemEnum[] { })
+    {
+        uniqueId = "empty"
+    };
 
     public PlayerItemData(PlayerItemEnum itemTypeArg, PlayerItemEnum[] ingredientsArgs)
     {
         itemType = itemTypeArg;
         Ingredients = ingredientsArgs;
         SetDefaultTasteLevel(); // itemTypeArg에 의한 기본 맛 레벨 설정
+
+        // 고유 ID 생성
+        uniqueId = System.Guid.NewGuid().ToString();
     }
 
     // 각 아이템의 기본 맛 레벨을 저장하는 배열
@@ -113,5 +121,5 @@ public class PlayerItem : MonoBehaviour
     {
         data = itemData ?? PlayerItemData.Empty;
     }
-
+    
 }
