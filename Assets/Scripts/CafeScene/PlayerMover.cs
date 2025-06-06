@@ -14,17 +14,17 @@ public class PlayerMover : MonoBehaviour
 
     public bool isOwned = true; // 플레이어 소유 여부. 멀티플레이 확장을 위해 추가함.
 
-    public PlayerItemEnum[] items = new PlayerItemEnum[MAXIMUM_TRAY_SIZE]; // 플레이어가 소지할 수 있는 아이템 배열 (예: 물, 에스프레소, 아메리카노)
+    public PlayerItem[] playerItems = new PlayerItem[MAXIMUM_TRAY_SIZE]; // 플레이어가 소지할 수 있는 아이템 배열 (예: 물, 에스프레소, 아메리카노)
 
 
-    public bool AddItem(PlayerItemEnum item)
+    public bool AddItem(PlayerItem item)
     {
         // 아이템을 인벤토리에 추가하는 로직
-        for (int i = 0; i < items.Length; i++)
+        for (int i = 0; i < playerItems.Length; i++)
         {
-            if (items[i] == PlayerItemEnum.NONE)
+            if (playerItems[i].data.itemType == PlayerItemEnum.NONE)
             {
-                items[i] = item;
+                playerItems[i] = item;
                 HudManager.Instance.SetItemToTray(item, i); // 트레이에 아이템 추가
                 Debug.Log("Added " + item + " to inventory at index " + i);
                 return true;
@@ -33,15 +33,18 @@ public class PlayerMover : MonoBehaviour
         Debug.Log("Inventory is full! Cannot add " + item);
         return false;
     }
+
+    // 맨 앞에서부터 검색을 시작하여 가장 먼저 발견된 해당 아이템을 삭제하는 메서드
     public bool RemoveItem(PlayerItemEnum item)
     {
         // 아이템을 인벤토리에서 삭제하는 로직
-        for (int i = 0; i < items.Length; i++)
+        for (int i = 0; i < playerItems.Length; i++)
         {
-            if (items[i] == item)
+            if (playerItems[i].data.itemType == item)
             {
-                items[i] = PlayerItemEnum.NONE;
-                HudManager.Instance.SetItemToTray(PlayerItemEnum.NONE, i); // 트레이에서 아이템 삭제
+                // playerItems[i].data.itemType = PlayerItemEnum.NONE;
+                playerItems[i].data = PlayerItemData.Empty; // 아이템을 초기화하여 NONE으로 설정
+                HudManager.Instance.SetItemToTray(playerItems[i], i); // 트레이에서 아이템 삭제
                 Debug.Log("Removed " + item + " from inventory at index " + i);
                 return true;
             }
