@@ -39,7 +39,7 @@ public class HudManager : MonoBehaviour
         _UseButton.interactable = false;
     }
 
-    public void SetItemToTray(PlayerItem item, int index)
+    public void SetItemToTray(PlayerItemData item, int index)
     {
         // 아이템을 트레이에 추가하는 로직
         Debug.Log("Added " + item + " to tray at index " + index);
@@ -49,30 +49,30 @@ public class HudManager : MonoBehaviour
             return;
         }
 
-        if (item.data.itemType == PlayerItemEnum.NONE)
+        if (item.itemType == PlayerItemEnum.NONE)
         {
             trayItems[index].sprite = null;
             trayItems[index].gameObject.SetActive(false); // 트레이에 아이템 비활성화
             return;
         }
-        else if (item.data.itemType == PlayerItemEnum.WATER)
+        else if (item.itemType == PlayerItemEnum.WATER)
         {
-            trayItems[index].sprite = trayItemImages[(int)item.data.itemType]; // 트레이에 아이템 활성화
+            trayItems[index].sprite = trayItemImages[(int)item.itemType]; // 트레이에 아이템 활성화
             trayItems[index].SetNativeSize(); // 트레이에 아이템 크기 조정
             trayItems[index].gameObject.GetComponent<RectTransform>().localScale = new Vector3(.3f, .3f, 1f);
             trayItems[index].gameObject.SetActive(true); // 트레이에 아이템 활성화
             return;
         }
-        else if (item.data.itemType == PlayerItemEnum.ESPRESSO)
+        else if (item.itemType == PlayerItemEnum.ESPRESSO)
         { // same with WATER
-            trayItems[index].sprite = trayItemImages[(int)item.data.itemType]; // 트레이에 아이템 활성화
+            trayItems[index].sprite = trayItemImages[(int)item.itemType]; // 트레이에 아이템 활성화
             trayItems[index].SetNativeSize(); // 트레이에 아이템 크기 조정
             trayItems[index].gameObject.GetComponent<RectTransform>().localScale = new Vector3(.3f, .3f, 1f);
             trayItems[index].gameObject.SetActive(true); // 트레이에 아이템 활성화
         }
-        else if (item.data.itemType == PlayerItemEnum.AMERICANO)
+        else if (item.itemType == PlayerItemEnum.AMERICANO)
         { // same with WATER
-            trayItems[index].sprite = trayItemImages[(int)item.data.itemType]; // 트레이에 아이템 활성화
+            trayItems[index].sprite = trayItemImages[(int)item.itemType]; // 트레이에 아이템 활성화
             trayItems[index].SetNativeSize(); // 트레이에 아이템 크기 조정
             trayItems[index].gameObject.GetComponent<RectTransform>().localScale = new Vector3(1f, 1f, 1f);
             trayItems[index].gameObject.SetActive(true); // 트레이에 아이템 활성화
