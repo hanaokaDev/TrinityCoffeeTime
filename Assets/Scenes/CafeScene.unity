@@ -224,7 +224,7 @@ MonoBehaviour:
   nextUseButtonSprite: {fileID: -273060469431498887, guid: 2bb6553252001ae43a40cbfcff1b9c21, type: 3}
   progressBar: {fileID: 1544863182}
   chosenPlayer: {fileID: 0}
-  maxTime: 10
+  maxTime: 5
 --- !u!58 &34419461
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3065,7 +3065,7 @@ MonoBehaviour:
   nextUseButtonSprite: {fileID: -8346291274449466048, guid: 2bb6553252001ae43a40cbfcff1b9c21, type: 3}
   progressBar: {fileID: 1595275723}
   chosenPlayer: {fileID: 0}
-  maxTime: 20
+  maxTime: 5
 --- !u!58 &602895797
 CircleCollider2D:
   m_ObjectHideFlags: 0

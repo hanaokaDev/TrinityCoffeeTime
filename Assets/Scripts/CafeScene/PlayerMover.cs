@@ -16,7 +16,18 @@ public class PlayerMover : MonoBehaviour
 
     public PlayerItem[] playerItems = new PlayerItem[MAXIMUM_TRAY_SIZE]; // 플레이어가 소지할 수 있는 아이템 배열 (예: 물, 에스프레소, 아메리카노)
 
+    void Awake()
+    {
+        // for (int i = 0; i < playerItems.Length; i++)
+        // {
+        //     playerItems[i].data = PlayerItemData.Empty; // 초기화
+        //     HudManager.Instance.SetItemToTray(PlayerItemData.Empty, i); // 트레이 초기화
+        //     playerItems[i].Initialize(PlayerItemData.Empty); // PlayerItemData.Empty로 초기화
+        // }
 
+
+        
+    }
     public bool AddItem(PlayerItemData item)
     {
         // 아이템을 인벤토리에 추가하는 로직
@@ -80,7 +91,21 @@ public class PlayerMover : MonoBehaviour
         animator = GetComponent<Animator>();
         moveDirection = MoveDirection.IDLE;
         animator.SetInteger("MoveDirection", (int)moveDirection);
-
+        // playerItems 배열의 각 요소 초기화
+        for (int i = 0; i < playerItems.Length; i++)
+        {
+            // PlayerItem이 없다면 생성
+            if (playerItems[i] == null)
+            {
+                GameObject itemObj = new GameObject($"PlayerItem_{i}");
+                itemObj.transform.SetParent(transform);
+                playerItems[i] = itemObj.AddComponent<PlayerItem>();
+            }
+            
+            // Initialize 메서드 사용
+            playerItems[i].Initialize(PlayerItemData.Empty);
+            HudManager.Instance.SetItemToTray(playerItems[i].data, i);
+        }
     }
 
     void FixedUpdate()

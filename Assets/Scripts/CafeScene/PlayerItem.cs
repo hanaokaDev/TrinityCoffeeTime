@@ -27,33 +27,23 @@ public class PlayerItemData
     public PlayerItemEnum[] Ingredients;
     public string uniqueId;
 
-
     // Empty 객체 캐싱
     public static readonly PlayerItemData Empty = new PlayerItemData(PlayerItemEnum.NONE, new PlayerItemEnum[] { })
     {
         uniqueId = "empty"
     };
+    
+    // 각 아이템의 기본 맛 레벨을 저장하는 배열. 배열이 readonly라도 배열내용자체는 변경가능.
+    static public readonly TasteLevels[] defaultTasteLevel = new TasteLevels[Enum.GetNames(typeof(PlayerItemEnum)).Length];
 
-    public PlayerItemData(PlayerItemEnum itemTypeArg, PlayerItemEnum[] ingredientsArgs)
+    static PlayerItemData()
     {
-        itemType = itemTypeArg;
-        Ingredients = ingredientsArgs;
-        InitDefaultTasteLevel(); // itemTypeArg에 의한 기본 맛 레벨 설정
-
-        // 고유 ID 생성
-        uniqueId = System.Guid.NewGuid().ToString();
-    }
-
-    // 각 아이템의 기본 맛 레벨을 저장하는 배열
-    static public TasteLevels[] defaultTasteLevel = new TasteLevels[Enum.GetNames(typeof(PlayerItemEnum)).Length];
-    public void InitDefaultTasteLevel()
-    {
+        // 기본 맛 레벨 초기화
         for (int itemType = 0; itemType < PlayerItemEnum.GetNames(typeof(PlayerItemEnum)).Length; itemType++)
         {
             // null 체크
             if (defaultTasteLevel[itemType] == null)
             {
-                Debug.LogWarning("defaultTasteLevel is null for itemType: " + itemType);
                 defaultTasteLevel[itemType] = new TasteLevels();
             }
 
@@ -80,7 +70,24 @@ public class PlayerItemData
                 default:
                     break;
             }
+
         }
+
+        for (int i = 0; i < defaultTasteLevel.Length; i++)
+        {
+            // 디버그용 출력
+            Debug.Log($"Item: {((PlayerItemEnum)i).ToString()}, Taste Levels: {string.Join(", ", defaultTasteLevel[i].tasteLevels)}");
+        }
+
+    }
+
+    public PlayerItemData(PlayerItemEnum itemTypeArg, PlayerItemEnum[] ingredientsArgs)
+    {
+        itemType = itemTypeArg;
+        Ingredients = ingredientsArgs;
+
+        // 고유 ID 생성
+        uniqueId = System.Guid.NewGuid().ToString();
     }
 
     // 데이터 관련 로직
@@ -119,6 +126,7 @@ public class PlayerItem : MonoBehaviour
 
     public void Initialize(PlayerItemData itemData)
     {
+        // data = PlayerItemData.Empty;
         data = itemData ?? PlayerItemData.Empty;
     }
     
