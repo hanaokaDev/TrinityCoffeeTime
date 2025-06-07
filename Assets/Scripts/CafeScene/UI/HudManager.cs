@@ -23,6 +23,16 @@ public class HudManager : MonoBehaviour
         Instance = this;
     }
 
+    public Sprite GetItemImage(PlayerItemEnum itemType)
+    {
+        if ((int)itemType < 0 || (int)itemType >= trayItemImages.Length)
+        {
+            Debug.LogError("Invalid item type: " + itemType);
+            return null;
+        }
+        return trayItemImages[(int)itemType];
+    }
+
     public void SetUseButton(Sprite sprite, UnityAction action)
     {
         Debug.Log("SetUseButton called");
@@ -78,6 +88,27 @@ public class HudManager : MonoBehaviour
             trayItems[index].gameObject.SetActive(true); // 트레이에 아이템 활성화
         }
         else if (item.itemType == PlayerItemEnum.STRAWBERRY_SYRUP)
+        {
+            trayItems[index].sprite = trayItemImages[(int)item.itemType]; // 트레이에 아이템 활성화
+            trayItems[index].SetNativeSize(); // 트레이에 아이템 크기 조정
+            trayItems[index].gameObject.GetComponent<RectTransform>().localScale = new Vector3(.5f, .5f, 1f);
+            trayItems[index].gameObject.SetActive(true); // 트레이에 아이템 활성화
+        }
+        else if (item.itemType == PlayerItemEnum.CHOCOLATE_CAKE_SLICE)
+        {
+            trayItems[index].sprite = trayItemImages[(int)item.itemType]; // 트레이에 아이템 활성화
+            trayItems[index].SetNativeSize(); // 트레이에 아이템 크기 조정
+            trayItems[index].gameObject.GetComponent<RectTransform>().localScale = new Vector3(.5f, .5f, 1f);
+            trayItems[index].gameObject.SetActive(true); // 트레이에 아이템 활성화
+        }
+        else if (item.itemType == PlayerItemEnum.CHOCOLATE_DOUGHNUT)
+        {
+            trayItems[index].sprite = trayItemImages[(int)item.itemType]; // 트레이에 아이템 활성화
+            trayItems[index].SetNativeSize(); // 트레이에 아이템 크기 조정
+            trayItems[index].gameObject.GetComponent<RectTransform>().localScale = new Vector3(.5f, .5f, 1f);
+            trayItems[index].gameObject.SetActive(true); // 트레이에 아이템 활성화
+        }
+        else if (item.itemType == PlayerItemEnum.STRAWBERRY_ROLLCAKE)
         {
             trayItems[index].sprite = trayItemImages[(int)item.itemType]; // 트레이에 아이템 활성화
             trayItems[index].SetNativeSize(); // 트레이에 아이템 크기 조정
