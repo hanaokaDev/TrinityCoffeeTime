@@ -45,7 +45,8 @@ public class FoodDisplay : InteractableItem
 
     }
     public int GetFoodItem(PlayerItemEnum itemType)
-    {
+    {   
+        Debug.Log($"Requesting food item of type {itemType}.");
         // 플레이어가 음식 아이템을 선택했을 때 호출되는 메서드
         if (NumberOfFoodItems[(int)itemType] > 0)
         {

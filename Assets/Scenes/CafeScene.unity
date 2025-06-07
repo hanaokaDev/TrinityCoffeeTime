@@ -360,7 +360,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &43476257
 RectTransform:
   m_ObjectHideFlags: 0
@@ -435,9 +435,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3a3440c8ee6ce94bbb13ceb7409cce9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 736507472}
+  chosenPlayer: {fileID: 0}
   foodDisplay: {fileID: 1377074973}
-  foodDisplayUIButtons: []
+  foodButtons:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 569438235}
+  - {fileID: 860759239}
+  - {fileID: 475660342}
+  - {fileID: 1250182998}
   DescriptionText: {fileID: 1419222565}
   FoodDescriptions:
   - "\uD1A0\uC624\uBA54\uC774\uB098 \uCEB0\uBC14\uC2A4"
@@ -2295,7 +2304,7 @@ GameObject:
   - component: {fileID: 475660343}
   - component: {fileID: 475660342}
   m_Layer: 5
-  m_Name: Button (Legacy) (2)
+  m_Name: Button (Legacy) (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2317,10 +2326,10 @@ RectTransform:
   - {fileID: 2073185705}
   m_Father: {fileID: 1468191797}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 300.10498, y: -50}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &475660342
 MonoBehaviour:
@@ -3283,8 +3292,9 @@ GameObject:
   - component: {fileID: 569438237}
   - component: {fileID: 569438236}
   - component: {fileID: 569438235}
+  - component: {fileID: 569438238}
   m_Layer: 5
-  m_Name: Button (Legacy)
+  m_Name: Button (Legacy) (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3306,10 +3316,10 @@ RectTransform:
   - {fileID: 2144983353}
   m_Father: {fileID: 1468191797}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 80.104996, y: -50}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &569438235
 MonoBehaviour:
@@ -3393,6 +3403,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 569438233}
   m_CullTransparentMesh: 1
+--- !u!114 &569438238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 569438233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36dfa555f6da0864e95d67a8ca97c8ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemType: 0
+  foodDisplay: {fileID: 0}
+  foodCountText: {fileID: 2144983354}
+  button: {fileID: 0}
+  foodDisplayUI: {fileID: 0}
 --- !u!1 &573880593
 GameObject:
   m_ObjectHideFlags: 0
@@ -5231,7 +5258,7 @@ GameObject:
   - component: {fileID: 860759240}
   - component: {fileID: 860759239}
   m_Layer: 5
-  m_Name: Button (Legacy) (1)
+  m_Name: Button (Legacy) (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5253,10 +5280,10 @@ RectTransform:
   - {fileID: 1946966541}
   m_Father: {fileID: 1468191797}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 190.105, y: -50}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &860759239
 MonoBehaviour:
@@ -7231,8 +7258,9 @@ GameObject:
   - component: {fileID: 1250183000}
   - component: {fileID: 1250182999}
   - component: {fileID: 1250182998}
+  - component: {fileID: 1250183001}
   m_Layer: 5
-  m_Name: Button (Legacy) (3)
+  m_Name: Button (Legacy) (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7254,10 +7282,10 @@ RectTransform:
   - {fileID: 1742839777}
   m_Father: {fileID: 1468191797}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 410.10498, y: -50}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1250182998
 MonoBehaviour:
@@ -7341,6 +7369,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1250182996}
   m_CullTransparentMesh: 1
+--- !u!114 &1250183001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1250182996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36dfa555f6da0864e95d67a8ca97c8ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemType: 0
+  foodDisplay: {fileID: 0}
+  foodCountText: {fileID: 0}
+  button: {fileID: 0}
+  foodDisplayUI: {fileID: 0}
 --- !u!1 &1250814619
 GameObject:
   m_ObjectHideFlags: 0
@@ -7860,7 +7905,6 @@ GameObject:
   - component: {fileID: 1377074968}
   - component: {fileID: 1377074972}
   - component: {fileID: 1377074971}
-  - component: {fileID: 1377074970}
   - component: {fileID: 1377074969}
   - component: {fileID: 1377074973}
   m_Layer: 7
@@ -7932,22 +7976,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.36, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1377074970
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1377074967}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d727b3b56afeaa9409824adfc54fcbce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextUseButtonSprite: {fileID: -273060469431498887, guid: 2bb6553252001ae43a40cbfcff1b9c21, type: 3}
-  progressBar: {fileID: 346073244}
-  chosenPlayer: {fileID: 0}
-  maxTime: 5
 --- !u!58 &1377074971
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -10018,10 +10046,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 43476256}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 43476260}
+        m_TargetAssemblyTypeName: FoodDisplayUI, Assembly-CSharp
+        m_MethodName: OnClickButton_Close
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

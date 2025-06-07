@@ -20,6 +20,39 @@ public class FoodDisplayUI : MonoBehaviour
 
     // }}}
 
+    void Awake()
+    {
+        for (int itemType = 0; itemType < Enum.GetNames(typeof(PlayerItemEnum)).Length; itemType++)
+        {
+            // 현재 itemType 값을 새 변수에 복사
+            int capturedItemType = itemType;
+            
+            if (foodButtons[itemType] == null)
+            {
+                Debug.LogError($"Food button at index {itemType} is not assigned!");
+                continue;
+            }
+            foodButtons[itemType].onClick.AddListener(() => OnClickButton_FoodItem(capturedItemType)); // 각 버튼에 클릭 이벤트 추가
+            Debug.Log($"Food button at index {itemType}, name {foodButtons[itemType].name} assigned with listener.");
+        }
+    }
+
+    void OnEnable()
+    {
+        DescriptionText.text = "음식을 선택하세요"; // 초기 설명 텍스트
+        for(int itemType = 0; itemType < Enum.GetNames(typeof(PlayerItemEnum)).Length; itemType++)
+        {
+            if(foodButtons[itemType] == null)
+            {
+                continue;
+            }
+            if (foodDisplay.NumberOfFoodItems[itemType] <= 0)
+            {
+                foodButtons[itemType].interactable = false; // 음식이 없으면 버튼 비활성화
+            }
+        }
+    }
+
 
     void UpdateText(PlayerItemEnum itemType)
     {
@@ -27,15 +60,15 @@ public class FoodDisplayUI : MonoBehaviour
         DescriptionText.text = FoodDescriptions[(int)itemType];
     }
 
-    public void OnClickButton_FoodItem(PlayerItemEnum itemType)
+    public void OnClickButton_FoodItem(int itemType)
     {
         // 음식 아이템 버튼 클릭 시 처리
-        int remains = foodDisplay.GetFoodItem(itemType);
+        int remains = foodDisplay.GetFoodItem((PlayerItemEnum)itemType);
         if (remains <= 0)
         {
-            foodButtons[(int)itemType].interactable = false; // 음식이 없으면 버튼 비활성화
+            foodButtons[itemType].interactable = false; // 음식이 없으면 버튼 비활성화
         }
-        DescriptionText.text = FoodDescriptions[(int)itemType]; // 음식 설명 업데이트
+        DescriptionText.text = FoodDescriptions[itemType]; // 음식 설명 업데이트
     }
 
     public void OnClickButton_Close()
