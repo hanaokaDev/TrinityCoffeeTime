@@ -76,7 +76,7 @@ public class PlayerItemData
         for (int i = 0; i < defaultTasteLevel.Length; i++)
         {
             // 디버그용 출력
-            Debug.Log($"Item: {((PlayerItemEnum)i).ToString()}, Taste Levels: {string.Join(", ", defaultTasteLevel[i].tasteLevels)}");
+            Debug.Log($"Item: {((PlayerItemEnum)i).ToString()}, Default Taste Levels: {string.Join(", ", defaultTasteLevel[i].tasteLevels)}");
         }
 
     }
