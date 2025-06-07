@@ -38,7 +38,7 @@ public class PlayerItemData
     {
         itemType = itemTypeArg;
         Ingredients = ingredientsArgs;
-        SetDefaultTasteLevel(); // itemTypeArg에 의한 기본 맛 레벨 설정
+        InitDefaultTasteLevel(); // itemTypeArg에 의한 기본 맛 레벨 설정
 
         // 고유 ID 생성
         uniqueId = System.Guid.NewGuid().ToString();
@@ -46,7 +46,7 @@ public class PlayerItemData
 
     // 각 아이템의 기본 맛 레벨을 저장하는 배열
     static public TasteLevels[] defaultTasteLevel = new TasteLevels[Enum.GetNames(typeof(PlayerItemEnum)).Length];
-    public void SetDefaultTasteLevel()
+    public void InitDefaultTasteLevel()
     {
         for (int itemType = 0; itemType < PlayerItemEnum.GetNames(typeof(PlayerItemEnum)).Length; itemType++)
         {
