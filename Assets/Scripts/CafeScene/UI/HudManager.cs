@@ -77,6 +77,13 @@ public class HudManager : MonoBehaviour
             trayItems[index].gameObject.GetComponent<RectTransform>().localScale = new Vector3(1f, 1f, 1f);
             trayItems[index].gameObject.SetActive(true); // 트레이에 아이템 활성화
         }
+        else if (item.itemType == PlayerItemEnum.STRAWBERRY_SYRUP)
+        {
+            trayItems[index].sprite = trayItemImages[(int)item.itemType]; // 트레이에 아이템 활성화
+            trayItems[index].SetNativeSize(); // 트레이에 아이템 크기 조정
+            trayItems[index].gameObject.GetComponent<RectTransform>().localScale = new Vector3(.5f, .5f, 1f);
+            trayItems[index].gameObject.SetActive(true); // 트레이에 아이템 활성화
+        }
         else
         {
             Debug.Log("Not Implemented item: " + item);
