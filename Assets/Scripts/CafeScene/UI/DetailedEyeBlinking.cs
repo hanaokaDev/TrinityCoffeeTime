@@ -6,11 +6,10 @@ using System.Collections.Generic;
 public class DetailedEyeBlinking : MonoBehaviour
 {
     [Header("Eye Sprites")]
-    [SerializeField] private Image eyeImage; // 하나의 이미지 컴포넌트만 사용
+    [SerializeField] private Image characterImage; // 하나의 이미지 컴포넌트만 사용
     
     [Header("Sprites in Sequence")]
     [SerializeField] private Sprite eyeOpenImage;       // 완전히 뜬 눈
-    [SerializeField] private Sprite eyeOpenImage_0;     // 약간 감기 시작
     [SerializeField] private Sprite eyeClosingImage_0;  // 절반 감김
     [SerializeField] private Sprite eyeClosingImage_1;  // 거의 감김
     [SerializeField] private Sprite eyeClosedImage;     // 완전히 감김
@@ -18,7 +17,7 @@ public class DetailedEyeBlinking : MonoBehaviour
     [SerializeField] private Sprite eyeOpeningImage_1;  // 거의 열림
     
     [Header("Blink Settings")]
-    [SerializeField] private float blinkDuration = 0.3f;    // 한 번 깜빡임의 총 시간
+    [SerializeField] private float blinkDuration = 3f;    // 한 번 깜빡임의 총 시간
     [SerializeField] private float minBlinkInterval = 5f;   // 최소 깜빡임 간격
     [SerializeField] private float maxBlinkInterval = 10f;  // 최대 깜빡임 간격
     
@@ -29,16 +28,16 @@ public class DetailedEyeBlinking : MonoBehaviour
     {
         // 깜빡임 순서대로 스프라이트 배열에 추가
         blinkSequenceSprites.Add(eyeOpenImage);       // 0: 시작 (눈 뜸)
-        blinkSequenceSprites.Add(eyeOpenImage_0);     // 1: 감기 시작
-        blinkSequenceSprites.Add(eyeClosingImage_0);  // 2: 감는 중
-        blinkSequenceSprites.Add(eyeClosingImage_1);  // 3: 거의 감김
-        blinkSequenceSprites.Add(eyeClosedImage);     // 4: 완전히 감김
-        blinkSequenceSprites.Add(eyeOpeningImage_0);  // 5: 열기 시작
-        blinkSequenceSprites.Add(eyeOpeningImage_1);  // 6: 거의 열림
+        blinkSequenceSprites.Add(eyeClosingImage_0);  // 1: 감는 중
+        blinkSequenceSprites.Add(eyeClosingImage_1);  // 2: 거의 감김
+        blinkSequenceSprites.Add(eyeClosedImage);     // 3: 완전히 감김
+        blinkSequenceSprites.Add(eyeOpeningImage_0);  // 4: 열기 시작
+        blinkSequenceSprites.Add(eyeOpeningImage_1);  // 5: 거의 열림
+        blinkSequenceSprites.Add(eyeOpenImage);       // 6: 시작 (눈 뜸)
         // 마지막에는 다시 eyeOpenImage(첫 번째)로 돌아갑니다
-        
+
         // 초기 이미지 설정
-        eyeImage.sprite = eyeOpenImage;
+        characterImage.sprite = eyeOpenImage;
         
         // 깜빡임 시작
         StartBlinking();
@@ -46,6 +45,7 @@ public class DetailedEyeBlinking : MonoBehaviour
     
     void StartBlinking()
     {
+        Debug.Log("Blinking started");
         // 기존 시퀀스가 있으면 정리
         if (blinkSequence != null) blinkSequence.Kill();
         
@@ -63,8 +63,10 @@ public class DetailedEyeBlinking : MonoBehaviour
         for (int i = 0; i < blinkSequenceSprites.Count; i++)
         {
             int frameIndex = i; // 클로저 문제 방지를 위한 로컬 변수
-            blinkSequence.AppendCallback(() => {
-                eyeImage.sprite = blinkSequenceSprites[frameIndex];
+            blinkSequence.AppendCallback(() =>
+            {
+                characterImage.sprite = blinkSequenceSprites[frameIndex];
+                Debug.Log($"Changing to sprite {frameIndex}");
             });
             
             // 마지막 프레임이 아니면 대기 시간 추가
@@ -76,9 +78,10 @@ public class DetailedEyeBlinking : MonoBehaviour
         
         // 마지막에 다시 눈 뜬 상태로
         blinkSequence.AppendCallback(() => {
-            eyeImage.sprite = eyeOpenImage;
+            characterImage.sprite = eyeOpenImage;
         });
         
+        Debug.Log("Blink sequence Ended");
         // 시퀀스 완료 후 다시 시작
         blinkSequence.OnComplete(StartBlinking);
     }

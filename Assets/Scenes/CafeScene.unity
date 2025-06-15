@@ -576,6 +576,7 @@ GameObject:
   - component: {fileID: 91731405}
   - component: {fileID: 91731407}
   - component: {fileID: 91731406}
+  - component: {fileID: 91731408}
   m_Layer: 5
   m_Name: Mika
   m_TagString: Untagged
@@ -622,7 +623,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -4101329457238913192, guid: b39dc79d4a4cc7340984d10fcbf7052b, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -640,6 +641,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 91731404}
   m_CullTransparentMesh: 1
+--- !u!114 &91731408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 91731404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7754d0efffd4564fbf7091b31f529c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterImage: {fileID: 91731406}
+  eyeOpenImage: {fileID: 1525939886941282601, guid: b39dc79d4a4cc7340984d10fcbf7052b, type: 3}
+  eyeClosingImage_0: {fileID: -4101329457238913192, guid: b39dc79d4a4cc7340984d10fcbf7052b, type: 3}
+  eyeClosingImage_1: {fileID: 1847480671093026910, guid: b39dc79d4a4cc7340984d10fcbf7052b, type: 3}
+  eyeClosedImage: {fileID: 7712243765087839693, guid: b39dc79d4a4cc7340984d10fcbf7052b, type: 3}
+  eyeOpeningImage_0: {fileID: -6901763563017105488, guid: b39dc79d4a4cc7340984d10fcbf7052b, type: 3}
+  eyeOpeningImage_1: {fileID: -6901763563017105488, guid: b39dc79d4a4cc7340984d10fcbf7052b, type: 3}
+  blinkDuration: 0.3
+  minBlinkInterval: 5
+  maxBlinkInterval: 10
 --- !u!1 &125874076
 GameObject:
   m_ObjectHideFlags: 0
@@ -6499,7 +6522,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1042351800
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7457,6 +7480,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextUseButtonSprite: {fileID: 3974297486249789632, guid: 80f184461e1257a4181b83f41b5f859a, type: 3}
   ServeUI: {fileID: 463409932}
+  foodItem:
+    itemType: 0
+    Ingredients: 
+    uniqueId: empty
+  drinkItems:
+  - itemType: 0
+    Ingredients: 
+    uniqueId: empty
+  - itemType: 0
+    Ingredients: 
+    uniqueId: empty
   isTableOccupied: 0
   sitter:
   - {fileID: 0}
