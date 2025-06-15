@@ -659,10 +659,10 @@ MonoBehaviour:
   eyeClosingImage_1: {fileID: 1847480671093026910, guid: b39dc79d4a4cc7340984d10fcbf7052b, type: 3}
   eyeClosedImage: {fileID: 7712243765087839693, guid: b39dc79d4a4cc7340984d10fcbf7052b, type: 3}
   eyeOpeningImage_0: {fileID: -6901763563017105488, guid: b39dc79d4a4cc7340984d10fcbf7052b, type: 3}
-  eyeOpeningImage_1: {fileID: -6901763563017105488, guid: b39dc79d4a4cc7340984d10fcbf7052b, type: 3}
-  blinkDuration: 0.3
-  minBlinkInterval: 5
-  maxBlinkInterval: 10
+  eyeOpeningImage_1: {fileID: -3496774965842088655, guid: b39dc79d4a4cc7340984d10fcbf7052b, type: 3}
+  blinkDuration: 0.6
+  minBlinkInterval: 3
+  maxBlinkInterval: 6
 --- !u!1 &125874076
 GameObject:
   m_ObjectHideFlags: 0
@@ -6522,7 +6522,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1042351800
 RectTransform:
   m_ObjectHideFlags: 0
