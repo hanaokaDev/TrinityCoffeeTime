@@ -75,8 +75,25 @@ public class ServeUIManager : MonoBehaviour
         PlayerItemData selectedItem = player.playerItems[currentSelectIndex].data;
         if (selectedItem.itemType != PlayerItemEnum.NONE)
         {
-            // 서빙 아이템을 플레이어에게 전달
-            tableAndChairs.SetFood(selectedItem);
+            if(selectedItem.itemType == PlayerItemEnum.NONE) {
+                Debug.LogWarning("Selected item is NONE!");
+                return;
+            }
+            if (selectedItem.itemType.IsFood())
+            {
+                // 음식 아이템을 서빙
+                tableAndChairs.SetFood(selectedItem);
+            }
+            else if (selectedItem.itemType.IsDrink())
+            {
+                // 음료 아이템을 서빙
+                tableAndChairs.SetDrink(selectedItem, 0);
+            }
+            else
+            {
+                Debug.LogWarning("Selected item is not a food or drink!");
+                return;
+            }
             // player.RemoveItem(selectedItem.itemType);
             player.RemoveItemByIndex(currentSelectIndex); // TODO: 동일한 상품이 Tray에 있을 경우, Cursor가 Set된 상품이 제거되게끔, RemoveItemByIndex를 만들어야 함.
             Debug.Log("Served item: " + selectedItem);

@@ -188,8 +188,42 @@ public enum PlayerItemEnum
     CHOCOLATE_CAKE_SLICE,
     CHOCOLATE_DOUGHNUT,
     STRAWBERRY_ROLLCAKE,
+
 }
 
+
+// 확장 메서드 클래스
+public static class PlayerItemEnumExtensions
+{
+    public static bool IsFood(this PlayerItemEnum itemType)
+    {
+        // 음식인지 확인하는 로직
+        switch (itemType)
+        {
+            case PlayerItemEnum.CHOCOLATE_CAKE_SLICE:
+            case PlayerItemEnum.CHOCOLATE_DOUGHNUT:
+            case PlayerItemEnum.STRAWBERRY_ROLLCAKE:
+                return true;
+            default:
+                return false;
+        }
+    }
+    
+    public static bool IsDrink(this PlayerItemEnum itemType)
+    {
+        // 음료인지 확인하는 로직
+        switch (itemType)
+        {
+            case PlayerItemEnum.WATER:
+            case PlayerItemEnum.ESPRESSO:
+            case PlayerItemEnum.AMERICANO:
+            case PlayerItemEnum.STRAWBERRY_SYRUP:
+                return true;
+            default:
+                return false;
+        }
+    }
+}
 
 public enum MoveDirection
 {

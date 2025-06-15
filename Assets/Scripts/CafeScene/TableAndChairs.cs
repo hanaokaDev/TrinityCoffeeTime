@@ -50,7 +50,7 @@ public class TableAndChairs : MonoBehaviour
     {
         foodItem = playerItem;
         foodPosition.GetComponent<SpriteRenderer>().sprite = SpriteManager.Instance.GetItemSprite(playerItem.itemType);
-        foodPosition.GetComponent<SpriteRenderer>().transform.localScale = new Vector3(.3f, .3f, 1); // 스프라이트 크기 조정
+        foodPosition.GetComponent<SpriteRenderer>().transform.localScale = new Vector3(2f, 2f, 1); // 스프라이트 크기 조정
 
         if(sitter[0] != null)
         {
