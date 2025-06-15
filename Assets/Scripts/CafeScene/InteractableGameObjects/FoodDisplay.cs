@@ -9,8 +9,7 @@ public class FoodDisplay : InteractableItem
 {
     public FoodDisplayUI foodDisplayUI; // FoodDisplayUI 스크립트 참조
 
-    [SerializeField]
-    private int[] numberOfFoodItems = new int[Enum.GetNames(typeof(PlayerItemEnum)).Length]; // 0: Strawberry Syrup, 1: Chocolate Syrup, 2: Whipped Cream
+    [SerializeField] private int[] numberOfFoodItems = new int[Enum.GetNames(typeof(PlayerItemEnum)).Length]; // 0: Strawberry Syrup, 1: Chocolate Syrup, 2: Whipped Cream
 
 
     public int[] NumberOfFoodItems
@@ -34,7 +33,7 @@ public class FoodDisplay : InteractableItem
 
         for (int i = 0; i < numberOfFoodItems.Length; i++)
         {
-            numberOfFoodItems[i] = 0; // 초기화
+            numberOfFoodItems[i] = 3; // 초기화
         }
     }
 

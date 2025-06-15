@@ -34,9 +34,8 @@ public class InteractableItem : MonoBehaviour
 
     protected virtual void Start()
     {
-        progressBar.SetMaxValue(maxTime);
-        progressBar.SetValue(0);
-
+        progressBar?.SetMaxValue(maxTime);
+        progressBar?.SetValue(0);
         // TODO: Highlighting 효과
         // spriteRenderer = GetComponent<SpriteRenderer>();
         // var inst = Instantiate(spriteRenderer.material);

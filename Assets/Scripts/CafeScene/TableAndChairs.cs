@@ -7,8 +7,8 @@ public class TableAndChairs : MonoBehaviour
     public GameObject ServeUI; // 서빙 UI
     // }}}
     private ServeUIManager serveUIManager;
-    private PlayerItemData foodItem = PlayerItemData.Empty; // 테이블에 놓일 음식 아이템
-    private PlayerItemData[] drinkItems = {PlayerItemData.Empty, PlayerItemData.Empty}; // 테이블에 놓일 음료 아이템
+    [SerializeField] private PlayerItemData foodItem = PlayerItemData.Empty; // 테이블에 놓일 음식 아이템
+    [SerializeField] private PlayerItemData[] drinkItems = {PlayerItemData.Empty, PlayerItemData.Empty}; // 테이블에 놓일 음료 아이템
 
     private PlayerMover chosenPlayer; // 현재 선택된 플레이어
     public bool isTableOccupied = false;
@@ -79,6 +79,14 @@ public class TableAndChairs : MonoBehaviour
         }
         drinkItems[index] = playerItem;
         drinkPositions[index].GetComponent<SpriteRenderer>().sprite = SpriteManager.Instance.GetItemSprite(playerItem.itemType);
+        if(sitter[0] != null)
+        {
+            sitter[0].DeliverOrder(playerItem);
+        }
+        if(sitter[1] != null)
+        {
+            sitter[1].DeliverOrder(playerItem);
+        }
         Debug.Log("SetDrink: " + playerItem + " at index " + index);
     }
 

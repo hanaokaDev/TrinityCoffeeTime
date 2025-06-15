@@ -58,14 +58,14 @@ public class ServeUIManager : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
         {
-            ServeFood();
+            ServeOrder();
         }
         else if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
         {
             ReclaimFood();
         }
     }
-    private void ServeFood() // 현재 선택된 아이템을 테이블에게 전달
+    private void ServeOrder() // 현재 선택된 아이템을 테이블에게 전달
     {
         if (!selectIcons[currentSelectIndex].activeSelf) {
             Debug.LogWarning("Selected item is not in active cursor!");
@@ -86,16 +86,26 @@ public class ServeUIManager : MonoBehaviour
             }
             else if (selectedItem.itemType.IsDrink())
             {
-                // 음료 아이템을 서빙
-                tableAndChairs.SetDrink(selectedItem, 0);
+                if (tableAndChairs.GetDrink(0).itemType == PlayerItemEnum.NONE)
+                {
+                    tableAndChairs.SetDrink(selectedItem, 0);
+                }
+                else if (tableAndChairs.GetDrink(1).itemType == PlayerItemEnum.NONE)
+                {
+                    tableAndChairs.SetDrink(selectedItem, 1);
+                }
+                else
+                {
+                    Debug.LogWarning("No empty drink slot available on the table!");
+                    return;
+                }
             }
             else
             {
                 Debug.LogWarning("Selected item is not a food or drink!");
                 return;
             }
-            // player.RemoveItem(selectedItem.itemType);
-            player.RemoveItemByIndex(currentSelectIndex); // TODO: 동일한 상품이 Tray에 있을 경우, Cursor가 Set된 상품이 제거되게끔, RemoveItemByIndex를 만들어야 함.
+            player.RemoveItemByIndex(currentSelectIndex); 
             Debug.Log("Served item: " + selectedItem);
         }
     }

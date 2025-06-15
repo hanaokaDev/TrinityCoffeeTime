@@ -29,7 +29,7 @@ public class FoodDisplayUI : MonoBehaviour
             
             if (foodButtons[itemType] == null)
             {
-                Debug.LogError($"Food button at index {itemType} is not assigned!");
+                Debug.LogWarning($"FoodButton (foodName: {(PlayerItemEnum)itemType}) at index {itemType} is not assigned!");
                 continue;
             }
 
@@ -68,14 +68,6 @@ public class FoodDisplayUI : MonoBehaviour
             }
         }
     }
-
-
-    void UpdateText(PlayerItemEnum itemType)
-    {
-        // 음식 설명 텍스트를 업데이트
-        DescriptionText.text = FoodDescriptions[(int)itemType];
-    }
-
     public void OnClickButton_FoodItem(int itemType)
     {
         // 음식 아이템 버튼 클릭 시 처리

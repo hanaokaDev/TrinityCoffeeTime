@@ -65,23 +65,24 @@ public class PlayerMover : MonoBehaviour
     }
 
         // 맨 앞에서부터 검색을 시작하여 가장 먼저 발견된 해당 아이템을 삭제하는 메서드
-    public bool RemoveItemByIndex(int index)
+    public bool RemoveItemByIndex(int trayItemIndex)
     {
         
-        if (index < 0 || index >= playerItems.Length)
+        if (trayItemIndex < 0 || trayItemIndex >= playerItems.Length)
         {
-            Debug.LogWarning("Index out of bounds: " + index);
+            Debug.LogWarning("RemoveItemByIndex: Index out of bounds: " + trayItemIndex);
             return false;
         }
 
         // 해당 인덱스에 아이템이 이미 없으면 경고 메시지 출력
-        if (playerItems[index].data.itemType == PlayerItemEnum.NONE)
+        if (playerItems[trayItemIndex].data.itemType == PlayerItemEnum.NONE)
         {
-            Debug.LogWarning("No item to remove at index: " + index);
+            Debug.LogWarning("RemoveItemByIndex: No item to remove at trayItemIndex: " + trayItemIndex);
             return false;
         }
-        playerItems[index].data = PlayerItemData.Empty; // 아이템을 초기화하여 NONE으로 설정
-        Debug.Log("Removed item from inventory at index " + index);
+        playerItems[trayItemIndex].data = PlayerItemData.Empty; // 아이템을 초기화하여 NONE으로 설정
+        HudManager.Instance.SetItemToTray(PlayerItemData.Empty, trayItemIndex); // 트레이에서 아이템 삭제
+        Debug.Log("RemoveItemByIndex: Removed item from inventory at trayItemIndex " + trayItemIndex);
         return true;
     }
 
