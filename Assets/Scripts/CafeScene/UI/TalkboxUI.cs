@@ -4,13 +4,19 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 
+using DG.Tweening; // DOTween을 사용하기 위해 추가
+
+
 public class TalkboxUI : MonoBehaviour
 {
+    [SerializeField] private float animationDuration = 10f;
+    [SerializeField] private Ease easeType = Ease.OutBack;
 
 
+    public RectTransform boxRect;
     [SerializeField]
     protected Text targetText;
-
+    // Open 메서드 수정 
     public void Open(DialogueScript dialogueScript)
     {
         if (dialogueScript == null || dialogueScript.steps.Count == 0)
@@ -19,12 +25,24 @@ public class TalkboxUI : MonoBehaviour
             return;
         }
 
+        // 먼저 활성화
         gameObject.SetActive(true);
-        StartDialogue(dialogueScript);
+
+        // 초기 상태 설정 (작은 크기)
+        boxRect.localScale = new Vector3(0.5f, 0.3f, 1f);
+
+        // 애니메이션으로 확대
+        boxRect.DOScale(Vector3.one, animationDuration)
+            .SetEase(easeType)
+            .OnComplete(() => StartDialogue(dialogueScript));
     }
+    // 닫기 애니메이션 추가
     public void Close()
     {
-        gameObject.SetActive(false);
+        // 애니메이션으로 축소 후 비활성화
+        boxRect.DOScale(new Vector3(0.5f, 0.3f, 1f), animationDuration * 0.7f)
+            .SetEase(Ease.InBack)
+            .OnComplete(() => gameObject.SetActive(false));
     }
 
     public void StartDialogue(DialogueScript dialogueScript)
