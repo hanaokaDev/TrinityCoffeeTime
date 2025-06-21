@@ -14,6 +14,10 @@ public class TalkboxUIManager : MonoBehaviour
 {
     public TalkboxUI talkBoxUI;
 
+    private bool isDialogueActive = false;
+
+
+
     public static TalkboxUIManager Instance;
     private void Awake()
     {
@@ -21,6 +25,10 @@ public class TalkboxUIManager : MonoBehaviour
     }
     public void StartDialogue(int dialogueId)
     {
+        isDialogueActive = true;
+        // GameManager.Instance.GameStateChangeHandler?.Invoke("", true); // 이벤트 호출
+        
+        GameManager.Instance.isPause = true; // 게임 일시정지
         DialogueScript dialogueScript = Resources.Load<DialogueScript>($"DialogueScript_{dialogueId}");
         if (dialogueScript == null)
         {
@@ -30,6 +38,20 @@ public class TalkboxUIManager : MonoBehaviour
 
         talkBoxUI.Open(dialogueScript);
     }
+
+    public void CloseDialogue()
+    {
+        isDialogueActive = false;
+
+        // 대화창 닫기
+        talkBoxUI.Close();
+    
+        GameManager.Instance.isPause = false; // 게임 재개
+        
+        // 이벤트 발생
+        // OnDialogueStateChanged?.Invoke(false);
+    }
+    
 }
 
 

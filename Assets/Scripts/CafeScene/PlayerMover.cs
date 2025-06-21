@@ -16,6 +16,26 @@ public class PlayerMover : MonoBehaviour
 
     public PlayerItem[] playerItems = new PlayerItem[MAXIMUM_TRAY_SIZE]; // 플레이어가 소지할 수 있는 아이템 배열 (예: 물, 에스프레소, 아메리카노)
 
+
+    private bool dialogueActive = false;
+    // void OnEnable()
+    // {
+    //     TalkboxUIManager.OnDialogueStateChanged += HandleDialogueState;
+    // }
+    // void OnDisable()
+    // {
+    //     TalkboxUIManager.OnDialogueStateChanged -= HandleDialogueState;
+    // }
+    // private void HandleDialogueState(bool isActive)
+    // {
+    //     dialogueActive = isActive;
+    //     if (dialogueActive)
+    //     {
+    //         // 대화 중에는 이동을 멈춤
+    //         moveDirection = MoveDirection.IDLE;
+    //         animator.SetBool("IsMoving", false);
+    //     }
+    // }
     void Awake()
     {
         // for (int i = 0; i < playerItems.Length; i++)
@@ -24,9 +44,6 @@ public class PlayerMover : MonoBehaviour
         //     HudManager.Instance.SetItemToTray(PlayerItemData.Empty, i); // 트레이 초기화
         //     playerItems[i].Initialize(PlayerItemData.Empty); // PlayerItemData.Empty로 초기화
         // }
-
-
-        
     }
     public bool AddItem(PlayerItemData item)
     {
@@ -111,6 +128,7 @@ public class PlayerMover : MonoBehaviour
 
     void FixedUpdate()
     {
+        if(GameManager.Instance.isPause) return; // 게임이 일시정지 상태라면 이동하지 않음
         // 이동 처리
         Vector3 move = Vector3.zero;
 
@@ -137,7 +155,8 @@ public class PlayerMover : MonoBehaviour
 
     void Update()
     {
-        if(InputManager.Instance.GetInputAlloc() != InputAlloc.PLAYER_MOVER) return;
+        if(GameManager.Instance.isPause) return; // 게임이 일시정지 상태라면 이동하지 않음
+        if (InputManager.Instance.GetInputAlloc() != InputAlloc.PLAYER_MOVER) return;
         
         bool keyPressed = false;
 
