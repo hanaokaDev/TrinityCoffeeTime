@@ -24,7 +24,7 @@ public class MikaMover : NpcMover
 
         // 5초 후 떠남
         yield return new WaitForSeconds(5f);
-        currentState = NpcState.LEAVING;
+        nextState = NpcState.LEAVING;
     }
 
     

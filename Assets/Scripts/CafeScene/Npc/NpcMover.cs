@@ -50,8 +50,8 @@ public class NpcMover : MonoBehaviour
     protected MoveMode moveMode = MoveMode.IDLE;
     protected MoveDirection moveDirection = MoveDirection.IDLE;
 
-    [SerializeField]
-    protected NpcState currentState;
+    [SerializeField] protected NpcState currentState;
+    [SerializeField] protected NpcState nextState;
 
     protected void Start()
     {
@@ -62,7 +62,7 @@ public class NpcMover : MonoBehaviour
         }
         SpawnPosition = CafeSceneManager.Instance.npcSpawnPosition;
 
-        currentState = NpcState.FINDING_TABLE;
+        nextState = NpcState.FINDING_TABLE;
         npcQueueManager = NpcQueueManager.Instance;
         StartCoroutine(StateMachine());
     }
@@ -72,6 +72,16 @@ public class NpcMover : MonoBehaviour
     {
         while (true)
         {
+            if (GameManager.Instance.isPause)
+            {
+                yield return null; // 게임이 일시정지 상태면 대기
+                continue;
+            }
+            else
+            {
+                // 상태 반영
+                currentState = nextState;
+            }
             switch (currentState)
             {
                 case NpcState.FINDING_TABLE:
@@ -120,14 +130,14 @@ public class NpcMover : MonoBehaviour
         {
             // emptyTableAndChairs = tableManager.tables[grantedEmptyTableIndex].gameObject;
             targetTableObject = TableManager.Instance.GetTable(grantedEmptyTableIndex);
-            currentState = NpcState.WALKING_TO_TABLE;
+            nextState = NpcState.WALKING_TO_TABLE;
             yield break; // 빈 테이블 찾으면 바로 이동
         }
         else
         {
             // 빈 테이블이 없으면 대기열로 이동
             Debug.Log("No empty tables, moving to queue...");
-            currentState = NpcState.WALKING_TO_QUEUE;
+            nextState = NpcState.WALKING_TO_QUEUE;
             yield break;
         }
     }
@@ -139,7 +149,7 @@ public class NpcMover : MonoBehaviour
         Vector3 destPosition = NpcQueueManager.Instance.npcQueueTailPosition; ;
         yield return MoveToPosition(destPosition);
         NpcQueueManager.Instance.PushQueue(this);
-        currentState = NpcState.WAITING_IN_QUEUE;
+        nextState = NpcState.WAITING_IN_QUEUE;
     }
 
     protected IEnumerator Coroutine_WaitInQueue()
@@ -157,7 +167,7 @@ public class NpcMover : MonoBehaviour
 
                 // 테이블 할당
                 targetTableObject = TableManager.Instance.GetTable(emptyTableIndex);
-                currentState = NpcState.WALKING_TO_TABLE;
+                nextState = NpcState.WALKING_TO_TABLE;
                 yield break;
             }
             yield return new WaitForSeconds(1f); // 1초마다 체크
@@ -173,7 +183,7 @@ public class NpcMover : MonoBehaviour
         if (targetTableObject == null)
         {
             Debug.LogWarning("This is Impossible - Target table object is null!");
-            currentState = NpcState.WALKING_TO_QUEUE;
+            nextState = NpcState.WALKING_TO_QUEUE;
             yield break; // 테이블이 없으면 종료
         }
 
@@ -184,7 +194,7 @@ public class NpcMover : MonoBehaviour
         float distanceToTable = Vector3.Distance(transform.position, targetTableObject.transform.position);
         Debug.Log("NPC: Reached enouth to the table. Distance: " + distanceToTable);
         // currentState를 Sit Position으로 변경
-        currentState = NpcState.SITTING;
+        nextState = NpcState.SITTING;
     }
 
     protected IEnumerator Coroutine_Sit()
@@ -234,13 +244,13 @@ public class NpcMover : MonoBehaviour
             {
                 Debug.LogWarning("This is Impossible - Reached Granted Table but No empty seats at table!");
                 targetTableObject = null;
-                currentState = NpcState.WALKING_TO_QUEUE;
+                nextState = NpcState.WALKING_TO_QUEUE;
                 yield return null;
             }
             UpdateAnimator();
             // 3초 후 주문
             yield return new WaitForSeconds(3f);
-            currentState = NpcState.WAITING_FOR_ORDER;
+            nextState = NpcState.WAITING_FOR_ORDER;
         }
     }
 
@@ -272,7 +282,7 @@ public class NpcMover : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
         }
 
-        currentState = NpcState.EATING;
+        nextState = NpcState.EATING;
     }
 
     public void SpeakBubbleActive(string speech, float seconds)
@@ -309,54 +319,44 @@ public class NpcMover : MonoBehaviour
 
         // 5초 후 떠남
         yield return new WaitForSeconds(5f);
-        currentState = NpcState.LEAVING;
+        nextState = NpcState.LEAVING;
     }
 
     protected virtual IEnumerator Coroutine_Leave()
     {
-        Debug.Log("NPC: Leaving...");
-        targetTableObject.isTableOccupied = false; // 테이블 사용 중 상태 해제
-
-        // 일어서는 애니메이션 재생 (있다면)
-        // if (animator != null)
-        // {
-        //     animator.SetBool("IsSitting", false);
-        // }
-        // 걷는애니메이션으로 변경
-        moveMode = MoveMode.WALKING;
-        UpdateAnimator();
-        SpeakBubbleActive("Thanks for the meal!", 3f);
-
         if (targetTableObject == null)
         {
             Debug.LogWarning("This is Impossible - targetTableObject is null when leaving!");
-            yield break; // 테이블이 없으면 종료
+            yield break; // 테이블이 없으면 빚정상종료
         }
-        // 테이블 빈 상태로 만들기
+
+        Debug.Log("NPC: Leaving...");
+
+        targetTableObject.isTableOccupied = false; // 테이블 사용 중 상태 해제
+        moveMode = MoveMode.WALKING;
+        UpdateAnimator();
+        SpeakBubbleActive("Thanks for the meal!", 3f);
+        if (targetTableObject.sitter[0] == this)
+        {
+            targetTableObject.sitter[0] = null;
+        }
+        else if (targetTableObject.sitter[1] == this)
+        {
+            targetTableObject.sitter[1] = null;
+        }
         else
         {
-            if (targetTableObject.sitter[0] == this)
-            {
-                targetTableObject.sitter[0] = null;
-            }
-            else if (targetTableObject.sitter[1] == this)
-            {
-                targetTableObject.sitter[1] = null;
-            }
-            else
-            {
-                Debug.LogWarning("This is Impossible - targetTableObject.sitter[] does not contain this NPC!");
-            }
+            Debug.LogWarning("This is Impossible - targetTableObject.sitter[] does not contain this NPC!");
+        }
 
-            if (SpawnPosition != null)
-            {
-                yield return MoveToPosition(SpawnPosition.transform.position);
-                Destroy(gameObject);
-            }
-            else
-            {
-                Debug.LogWarning("SpawnPosition is null! ");
-            }
+        if (SpawnPosition != null)
+        {
+            yield return MoveToPosition(SpawnPosition.transform.position);
+            Destroy(gameObject);
+        }
+        else
+        {
+            Debug.LogWarning("SpawnPosition is null! ");
         }
     }
 
@@ -389,6 +389,7 @@ public class NpcMover : MonoBehaviour
     // 방향에 따라 이동 및 애니메이션 처리
     protected void MoveInDirection(Vector3 direction)
     {
+        if(GameManager.Instance.isPause) return; // 게임이 일시정지 상태라면 이동하지 않음
         // 이동 방향 설정
         if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
         {
